@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pftest",
-    version="1.0.10",
+    name="pythonfuzz",
+    version="1.0.11",
     author="Github M.J",
     description="Coverage-guided fuzz testing for Python",
     long_description=long_description,
