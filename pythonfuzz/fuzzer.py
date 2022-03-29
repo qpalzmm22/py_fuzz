@@ -139,7 +139,7 @@ class Fuzzer(object):
             self._executions_in_sample += 1
             rss = 0
             if total_coverage > self._total_coverage:
-                rss = self.log_stats("NEW")
+                rss = self.log_stats("NEWwwww")
                 self._total_coverage = total_coverage
                 self._corpus.put(buf)
             else:
