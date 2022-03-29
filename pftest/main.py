@@ -26,7 +26,7 @@ class PythonFuzz(object):
         f = fuzzer.Fuzzer(self.function, args.dirs, args.exact_artifact_path,
                           args.rss_limit_mb, args.timeout, args.regression, args.max_input_size,
                           args.close_fd_mask, args.runs, args.dict)
-	    f.start()
+        f.start()
 
 
 if __name__ == '__main__':
