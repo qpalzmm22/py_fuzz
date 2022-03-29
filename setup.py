@@ -7,7 +7,6 @@ setuptools.setup(
     name="pftest",
     version="1.0.10",
     author="Github M.J",
-	url='https://github.com/MJ-SEO/py_fuzz.git'
     description="Coverage-guided fuzz testing for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
