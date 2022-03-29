@@ -107,7 +107,7 @@ class Fuzzer(object):
             logging.info('sample = {}'.format(buf.hex()))
 
     def start(self):
-        logging.info("#0 READ units: {}".format(self._corpus.length))
+        logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
         exit_code = 0
         parent_conn, child_conn = mp.Pipe()
         self._p = mp.Process(target=worker, args=(self._target, child_conn, self._close_fd_mask))
