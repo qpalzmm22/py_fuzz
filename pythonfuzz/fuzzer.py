@@ -144,7 +144,7 @@ class Fuzzer(object):
                 self._corpus.put(buf)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
-                    rss = self.log_stats('PULSE')
+                    rss = self.log_stats('PULSEEEEEEE')
 
             if rss > self._rss_limit_mb:
                 logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))

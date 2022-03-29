@@ -1,4 +1,4 @@
-from pythonfuzz.main import PythonFuzz
+from pf.main import PythonFuzz
 
 
 @PythonFuzz
