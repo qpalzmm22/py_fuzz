@@ -7,6 +7,7 @@ class PythonFuzz(object):
         self.function = func
 
     def __call__(self, *args, **kwargs):
+        print("TT")
         parser = argparse.ArgumentParser(description='Coverage-guided fuzzer for python packages')
         parser.add_argument('dirs', type=str, nargs='*',
                             help="one or more directories/files to use as seed corpus. the first directory will be used to save the generated test-cases")
@@ -15,17 +16,19 @@ class PythonFuzz(object):
                             type=bool,
                             default=False,
                             help='run the fuzzer through set of files for regression or reproduction')
-        parser.add_argument('--rss-limit-mb', type=int, default=2048, help='Memory usage in MB')
+        parser.add_argument('--rss-limit-mb', type=int, default=4096, help='Memory usage in MB')
         parser.add_argument('--max-input-size', type=int, default=4096, help='Max input size in bytes')
         parser.add_argument('--dict', type=str, help='dictionary file')
         parser.add_argument('--close-fd-mask', type=int, default=0, help='Indicate output streams to close at startup')
         parser.add_argument('--runs', type=int, default=-1, help='Number of individual test runs, -1 (the default) to run indefinitely.')
         parser.add_argument('--timeout', type=int, default=30,
                             help='If input takes longer then this timeout the process is treated as failure case')
+        parser.add_argument('--stop-when-failure', type=int, default=1, help='Decide the fuzzing wherter stop or keep runing after it finds a failure') # added
+
         args = parser.parse_args()
         f = fuzzer.Fuzzer(self.function, args.dirs, args.exact_artifact_path,
                           args.rss_limit_mb, args.timeout, args.regression, args.max_input_size,
-                          args.close_fd_mask, args.runs, args.dict)
+                          args.close_fd_mask, args.runs, args.dict, args.stop_when_failure)
         f.start()
 
 

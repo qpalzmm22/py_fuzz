@@ -23,7 +23,7 @@ except:
     lru_cache = functools32.lru_cache
 
 
-def worker(target, child_conn, close_fd_mask):
+def worker(target, child_conn, close_fd_mask, stop_when_failure):
     # Silence the fuzzee's noise
     class DummyFile:
         """No-op to trash stdout away."""
@@ -42,9 +42,13 @@ def worker(target, child_conn, close_fd_mask):
         try:
             target(buf)
         except Exception as e:
-            logging.exception(e)
-            child_conn.send(e)
-            break
+			if stop_when_failure == 1:
+                logging.exception(e)
+                child_conn.send(e)
+                break
+			else:                     #added
+                logging.exception(e)  
+				child_conn.send(e)
         else:
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
 
@@ -60,7 +64,8 @@ class Fuzzer(object):
                  max_input_size=4096,
                  close_fd_mask=0,
                  runs=-1,
-                 dict_path=None):
+                 dict_path=None,
+				 stop_when_failure=1):
         self._target = target
         self._dirs = [] if dirs is None else dirs
         self._exact_artifact_path = exact_artifact_path
@@ -75,6 +80,7 @@ class Fuzzer(object):
         self._total_coverage = 0
         self._p = None
         self.runs = runs
+        self._stop_when_failure = stop_when_failure # added
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
@@ -110,7 +116,7 @@ class Fuzzer(object):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
         exit_code = 0
         parent_conn, child_conn = mp.Pipe()
-        self._p = mp.Process(target=worker, args=(self._target, child_conn, self._close_fd_mask))
+        self._p = mp.Process(target=worker, args=(self._target, child_conn, self._close_fd_mask, self._stop_when_failure)) #added
         self._p.start()
 
         while True:
@@ -131,15 +137,18 @@ class Fuzzer(object):
             try:
                 total_coverage = int(parent_conn.recv_bytes())
             except ValueError:
-                self.write_sample(buf)
-                exit_code = 76
-                break
+                if self._stop_when_failure == 1: # added
+                   self.write_sample(buf)
+                   exit_code = 76
+                   break
+                else:
+                   self.write_sample(buf)
 
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
             if total_coverage > self._total_coverage:
-                rss = self.log_stats("NEWwwww")
+               	rss = self.log_stats("NEW")
                 self._total_coverage = total_coverage
                 self._corpus.put(buf)
             else:
