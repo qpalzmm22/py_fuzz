@@ -42,13 +42,13 @@ def worker(target, child_conn, close_fd_mask, stop_when_failure):
         try:
             target(buf)
         except Exception as e:
-			if stop_when_failure == 1:
-                logging.exception(e)
-                child_conn.send(e)
-                break
-			else:                     #added
-                logging.exception(e)  
-				child_conn.send(e)
+                if stop_when_failure == 1:
+                    logging.exception(e)
+                    child_conn.send(e)
+                    break
+                else:
+                    logging.exception(e)
+                    child_conn.send(e)
         else:
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
 
@@ -148,7 +148,7 @@ class Fuzzer(object):
             self._executions_in_sample += 1
             rss = 0
             if total_coverage > self._total_coverage:
-               	rss = self.log_stats("NEW")
+                rss = self.log_stats("NEW")
                 self._total_coverage = total_coverage
                 self._corpus.put(buf)
             else:
