@@ -101,6 +101,8 @@ class Fuzzer(object):
         self._executions_in_sample = 0
         logging.info('#{} {}     cov: {} corp: {} exec/s: {} rss: {} MB Unique Crash: {}'.format(
             self._total_executions, log_type, self._total_coverage, self._corpus.length, execs_per_second, rss, self._crashes))
+        with open("log.csv", "a") as log_file:
+            log_file.write("%d, %d\n" %(self._total_executions, self._total_coverage))
         return rss
 
     def write_sample(self, buf, prefix='crash-'):

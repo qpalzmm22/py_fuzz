@@ -7,3 +7,5 @@ rm ./seed/*
 mv ./inp ./seed/inp
 
 rm ./crashes/*
+
+rm log.csv
