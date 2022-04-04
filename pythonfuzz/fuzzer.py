@@ -9,7 +9,7 @@ import functools
 import multiprocessing as mp
 mp.set_start_method('fork')
 
-from pythonfuzz import corpus, tracer
+from pythonfuzz import corpus, dictionnary, tracer
 
 logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
 logging.getLogger().setLevel(logging.DEBUG)
@@ -23,7 +23,7 @@ except:
     lru_cache = functools32.lru_cache
 
 
-def worker(target, child_conn, close_fd_mask, stop_when_failure):
+def worker(self, child_conn):
     # Silence the fuzzee's noise
     class DummyFile:
         """No-op to trash stdout away."""
@@ -31,24 +31,32 @@ def worker(target, child_conn, close_fd_mask, stop_when_failure):
             pass
     logging.captureWarnings(True)
     logging.getLogger().setLevel(logging.ERROR)
-    if close_fd_mask & 1:
+    if self._close_fd_mask & 1:
         sys.stdout = DummyFile()
-    if close_fd_mask & 2:
+    if self._close_fd_mask & 2:
         sys.stderr = DummyFile()
-
+    
     sys.settrace(tracer.trace)
     while True:
         buf = child_conn.recv_bytes()
         try:
-            target(buf)
+            self._target(buf)
         except Exception as e:
-                if stop_when_failure == 1:
+                tracer.set_crash()
+                if self._stop_when_failure == 1:
                     logging.exception(e)
                     child_conn.send(e)
                     break
                 else:
-                    logging.exception(e)
-                    child_conn.send(e)
+                    if(tracer.get_crash() > self._crashes):
+                        print("New crash")
+                        self._crashes += 1
+                        logging.exception(e)
+                        child_conn.send(e)
+                    else:
+                        child_conn.send_bytes(b'%d' % tracer.get_coverage())
+
+
         else:
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
 
@@ -81,6 +89,7 @@ class Fuzzer(object):
         self._p = None
         self.runs = runs
         self._stop_when_failure = stop_when_failure # added
+        self._crashes = 0
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
@@ -116,7 +125,7 @@ class Fuzzer(object):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
         exit_code = 0
         parent_conn, child_conn = mp.Pipe()
-        self._p = mp.Process(target=worker, args=(self._target, child_conn, self._close_fd_mask, self._stop_when_failure)) #added
+        self._p = mp.Process(target=worker, args=(self, child_conn)) #added
         self._p.start()
 
         while True:

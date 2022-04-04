@@ -19,6 +19,7 @@ class Dictionary:
                 word = self.line_re.search(line)
                 if word:
                     _dict.add(word.group(1))
+                    print("DEBUG ", word, " Added")
         self._dict = list(_dict)
 
     def get_word(self):

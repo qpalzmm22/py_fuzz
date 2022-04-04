@@ -1,8 +1,11 @@
-import os
+import hashlib
 import math
+import os
 import random
 import struct
-import hashlib
+from zipfile import ZIP_BZIP2
+
+from numpy import TooHardError
 
 from . import dictionnary
 
@@ -108,7 +111,7 @@ class Corpus(object):
         nm = self._rand_exp()
         for i in range(nm):
             # Remove a range of bytes.
-            x = self._rand(15)
+            x = self._rand(17)
             if x == 0:
                 if len(self._inputs) <= 1:
                     i -= 1
@@ -283,7 +286,7 @@ class Corpus(object):
                 while was == now:
                     now = self._rand(10) + ord('0')
                 res[digits[pos]] = now
-
+        
         if len(res) > self._max_input_size:
             res = res[:self._max_input_size]
         return res
