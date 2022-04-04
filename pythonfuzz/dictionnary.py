@@ -25,4 +25,4 @@ class Dictionary:
     def get_word(self):
         if not self._dict:
             return None
-        return random.choice(self._dict)
+        return bytearray(random.choice(self._dict), encoding="utf-8")

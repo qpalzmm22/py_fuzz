@@ -286,6 +286,27 @@ class Corpus(object):
                 while was == now:
                     now = self._rand(10) + ord('0')
                 res[digits[pos]] = now
+            elif x == 15:
+                # Insert Dictionary word
+                dict_word = self._dict.get_word()
+                if(dict_word == None):
+                    i -= 1
+                    continue
+                pos = self._rand(len(res) + 1)
+                n = len(dict_word)
+                for k in range(n):
+                    res.append(0)
+                self.copy(res, res, pos, pos+n)
+                for k in range(n):
+                    res[pos+k] = dict_word[k]
+            elif x == 16:
+                # Replace with Dictionary word
+                dict_word = self._dict.get_word()
+                if(dict_word == None or len(res) < len(dict_word)):
+                    i = -1
+                    continue
+                pos = self._rand(len(res) - len(dict_word))
+                self.copy(dict_word, res, 0, pos)
         
         if len(res) > self._max_input_size:
             res = res[:self._max_input_size]
