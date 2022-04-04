@@ -43,7 +43,7 @@ def worker(self, child_conn):
             self._target(buf)
         except Exception as e:
                 tracer.set_crash()
-                if self._stop_when_failure == 1:
+                if not self._inf_run:
                     logging.exception(e)
                     child_conn.send(e)
                     break
@@ -73,7 +73,7 @@ class Fuzzer(object):
                  close_fd_mask=0,
                  runs=-1,
                  dict_path=None,
-				 stop_when_failure=1):
+				 inf_run=False):
         self._target = target
         self._dirs = [] if dirs is None else dirs
         self._exact_artifact_path = exact_artifact_path
@@ -88,8 +88,9 @@ class Fuzzer(object):
         self._total_coverage = 0
         self._p = None
         self.runs = runs
-        self._stop_when_failure = stop_when_failure # added
+        self._inf_run = inf_run # added
         self._crashes = 0
+        self._hangs = 0
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
@@ -137,22 +138,23 @@ class Fuzzer(object):
             buf = self._corpus.generate_input()
             parent_conn.send_bytes(buf)
             if not parent_conn.poll(self._timeout):
-                self._p.kill()
                 logging.info("=================================================================")
                 logging.info("timeout reached. testcase took: {}".format(self._timeout))
                 self.write_sample(buf, prefix='timeout-')
-                break
+                if not self._inf_run:
+                    self._hangs += 1
+                else:
+                    self._p.kill()
+                    break
 
             try:
                 total_coverage = int(parent_conn.recv_bytes())
             except ValueError:
-                if self._stop_when_failure == 1: # added
-                   self.write_sample(buf)
+                self._crashes += 1
+                self.write_sample(buf)
+                if not self._inf_run: # added
                    exit_code = 76
                    break
-                else:
-                   self._crashes += 1
-                   self.write_sample(buf)
 
             self._total_executions += 1
             self._executions_in_sample += 1
@@ -163,13 +165,15 @@ class Fuzzer(object):
                 self._corpus.put(buf)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
-                    rss = self.log_stats('PULSEEEEEEE')
+                    rss = self.log_stats('PULSE')
 
             if rss > self._rss_limit_mb:
                 logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))
                 self.write_sample(buf)
-                self._p.kill()
-                break
+                self._crashes += 1
+                if not self._inf_run:
+                    self._p.kill()
+                    break
 
         self._p.join()
         sys.exit(exit_code)
