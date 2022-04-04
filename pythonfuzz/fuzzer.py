@@ -49,7 +49,7 @@ def worker(self, child_conn):
                     break
                 else:
                     if(tracer.get_crash() > self._crashes):
-                        print("New crash")
+                        print("New crash ", self._crashes)
                         self._crashes += 1
                         logging.exception(e)
                         child_conn.send(e)
@@ -98,8 +98,8 @@ class Fuzzer(object):
         execs_per_second = int(self._executions_in_sample / (endTime - self._last_sample_time))
         self._last_sample_time = time.time()
         self._executions_in_sample = 0
-        logging.info('#{} {}     cov: {} corp: {} exec/s: {} rss: {} MB'.format(
-            self._total_executions, log_type, self._total_coverage, self._corpus.length, execs_per_second, rss))
+        logging.info('#{} {}     cov: {} corp: {} exec/s: {} rss: {} MB Unique Crash: {}'.format(
+            self._total_executions, log_type, self._total_coverage, self._corpus.length, execs_per_second, rss, self._crashes))
         return rss
 
     def write_sample(self, buf, prefix='crash-'):
@@ -151,6 +151,7 @@ class Fuzzer(object):
                    exit_code = 76
                    break
                 else:
+                   self._crashes += 1
                    self.write_sample(buf)
 
             self._total_executions += 1
