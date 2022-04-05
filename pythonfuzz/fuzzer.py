@@ -48,7 +48,7 @@ def worker(self, child_conn):
                     break
                 else:
                     if(tracer.get_coverage() > self._total_coverage):
-                        print("New crash ", self._crashes)
+                        print("New crash ", self._crashes, " cov : ", tracer.get_coverage())
                         self._total_coverage = tracer.get_coverage()
                         self._crashes += 1
                         logging.exception(e)
