@@ -36,28 +36,29 @@ def worker(self, child_conn):
     if self._close_fd_mask & 2:
         sys.stderr = DummyFile()
     
-    sys.settrace(tracer.trace)
     while True:
         buf = child_conn.recv_bytes()
         try:
+            orig_settrace = sys.gettrace()
+            sys.settrace(tracer.trace)
             self._target(buf)
         except Exception as e:
-                if not self._inf_run:
+            sys.settrace(None)
+            if not self._inf_run:
+                logging.exception(e)
+                child_conn.send(e)
+                break
+            else:
+                if(tracer.get_coverage() > self._total_coverage):
+                    print("New crash ", self._crashes, " cov : ", tracer.get_coverage())
+                    self._total_coverage = tracer.get_coverage()
+                    self._crashes += 1
                     logging.exception(e)
                     child_conn.send(e)
-                    break
                 else:
-                    if(tracer.get_coverage() > self._total_coverage):
-                        print("New crash ", self._crashes, " cov : ", tracer.get_coverage())
-                        self._total_coverage = tracer.get_coverage()
-                        self._crashes += 1
-                        logging.exception(e)
-                        child_conn.send(e)
-                    else:
-                        child_conn.send_bytes(b'%d' % tracer.get_coverage())
-
-
+                    child_conn.send_bytes(b'%d' % tracer.get_coverage())
         else:
+            sys.settrace(None)
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
 
 
