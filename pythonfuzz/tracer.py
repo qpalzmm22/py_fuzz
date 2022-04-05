@@ -1,6 +1,7 @@
 import collections
 import sys
 
+prev_prev_line = 0
 prev_line = 0
 prev_filename = ''
 
@@ -15,12 +16,14 @@ def trace(frame, event, arg):
     if event != 'line':
         return trace
 
+    global prev_prev_line
     global prev_line
     global prev_filename
 
     func_filename = frame.f_code.co_filename
     func_line_no = frame.f_lineno
-
+#    print(func_filename, "ppppp: ", prev_line, "fffff: ", func_line_no)
+    
     if func_filename != prev_filename:
         # We need a way to keep track of inter-files transferts,
         # and since we don't really care about the details of the coverage,
@@ -29,6 +32,7 @@ def trace(frame, event, arg):
     else:
         data[func_filename].add((prev_line, func_line_no))
 
+    prev_prev_line = prev_line
     prev_line = func_line_no
     prev_filename = func_filename
 
@@ -42,6 +46,7 @@ def get_crash():
     return index
 
 def set_crash():
-    crashes[func_filename].add((prev_line, func_line_no))
+    crashes[func_filename].add((prev_prev_line, prev_line))
+#    print(func_filename, "p: ", prev_line, "f: ", func_line_no)
     global index
     index = sum(map(len, crashes.values()))
