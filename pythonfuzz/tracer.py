@@ -21,6 +21,8 @@ def trace(frame, event, arg):
     func_filename = frame.f_code.co_filename
     func_line_no = frame.f_lineno
 
+ #   print(func_filename, " " ,func_line_no)
+
     if func_filename != prev_filename:
         # We need a way to keep track of inter-files transferts,
         # and since we don't really care about the details of the coverage,
@@ -36,7 +38,17 @@ def trace(frame, event, arg):
 
 
 def get_coverage():
-    return sum(map(len, data.values()))
+
+    global prev_line
+    global prev_filename
+
+    prev_line = 0
+    prev_filename = ''
+
+    a = sum(map(len, data.values()))
+   # print(data.values())
+    #print("cov :", a)
+    return a;
 
 def get_crash():
     return index
