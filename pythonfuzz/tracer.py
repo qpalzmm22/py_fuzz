@@ -46,8 +46,6 @@ def get_coverage():
     prev_filename = ''
 
     a = sum(map(len, data.values()))
-   # print(data.values())
-    #print("cov :", a)
     return a;
 
 def get_crash():
