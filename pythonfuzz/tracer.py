@@ -45,8 +45,8 @@ def get_coverage():
     prev_line = 0
     prev_filename = ''
 
-    a = sum(map(len, data.values()))
-    return a;
+    tot_coverage = sum(map(len, data.values()))
+    return tot_coverage;
 
 def get_crash():
     return index
