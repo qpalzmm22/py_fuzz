@@ -52,9 +52,7 @@ def worker(self, child_conn):
                         print("New crash ", self._crashes)
                         self._crashes += 1
                         logging.exception(e)
-                        child_conn.send(e)
-                    else:
-                        child_conn.send_bytes(b'%d' % tracer.get_coverage())
+                    child_conn.send(e)
 
 
         else:
