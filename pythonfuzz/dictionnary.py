@@ -1,6 +1,7 @@
 import random
 import re
 import os
+from tkinter import W
 
 class Dictionary:
     line_re = re.compile('"(.+)"$')
@@ -19,6 +20,7 @@ class Dictionary:
                 word = self.line_re.search(line)
                 if word:
                     _dict.add(word.group(1))
+                    print("[Dict] ", word, " Added")
         self._dict = list(_dict)
 
     def get_word(self):

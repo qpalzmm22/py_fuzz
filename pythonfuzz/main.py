@@ -21,7 +21,7 @@ class PythonFuzz(object):
         parser.add_argument('--dict', type=str, help='dictionary file')
         parser.add_argument('--close-fd-mask', type=int, default=0, help='Indicate output streams to close at startup')
         parser.add_argument('--runs', type=int, default=-1, help='Number of individual test runs, -1 (the default) to run indefinitely.')
-        parser.add_argument('--timeout', type=int, default=30,
+        parser.add_argument('--timeout', type=int, default=10,
                             help='If input takes longer then this timeout the process is treated as failure case')
         parser.add_argument('--inf-run', default=False, action='store_true', help='Decide the fuzzing wherter stop or keep runing after it finds a failure') # added
 
