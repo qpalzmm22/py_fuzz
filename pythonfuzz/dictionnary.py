@@ -1,7 +1,6 @@
 import random
 import re
 import os
-from tkinter import W
 
 class Dictionary:
     line_re = re.compile('"(.+)"$')
