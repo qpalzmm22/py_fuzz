@@ -7,7 +7,7 @@ prev_filename = ''
 func_filename = ''
 func_line_no = 0
 
-data = collections.defaultdict(set)
+edges = collections.defaultdict(set)
 coverage = collections.defaultdict(set)
 index = 0
 
@@ -40,37 +40,34 @@ def trace(frame, event, arg):
 
 def add_to_set(fname, prev_line, cur_line):
     #print(fname, " ", prev_line, " ", cur_line)
-    if not data.get(fname):
-        data[fname] = collections.defaultdict(int)
-    data[fname][(prev_line,cur_line)] = data[fname][(prev_line, cur_line)] + 1
+    if not edges.get(fname):
+        edges[fname] = collections.defaultdict(int)
+    edges[fname][(prev_line,cur_line)] = edges[fname][(prev_line, cur_line)] + 1
 
 
 def get_coverage():
-    global prev_line
-    global prev_filename
-    global data
+    global edges
     
-    for x in data:
-        for y in data[x]:
-            if(data[x][y] <= 1):
-                coverage[x].add((y, 0))
-            elif(data[x][y] <= 2):
-                coverage[x].add((y, 1))
-            elif(data[x][y] <= 3):
-                coverage[x].add((y, 2))
-            elif(data[x][y] <= 16):
-                coverage[x].add((y, 3))
-            elif(data[x][y] <= 32):
-                coverage[x].add((y, 4))
-            elif(data[x][y] <= 64):
-                coverage[x].add((y, 5))
-            elif(data[x][y] <= 128):
-                coverage[x].add((y, 6))
+    for filename in edges:
+        for edge in edges[filename]:
+            if(edges[filename][edge] <= 1):
+                coverage[filename].add((edge, 0))
+            elif(edges[filename][edge] <= 2):
+                coverage[filename].add((edge, 1))
+            elif(edges[filename][edge] <= 3):
+                coverage[filename].add((edge, 2))
+            elif(edges[filename][edge] <= 16):
+                coverage[filename].add((edge, 3))
+            elif(edges[filename][edge] <= 32):
+                coverage[filename].add((edge, 4))
+            elif(edges[filename][edge] <= 64):
+                coverage[filename].add((edge, 5))
+            elif(edges[filename][edge] <= 128):
+                coverage[filename].add((edge, 6))
             else:
-                coverage[x].add((y, 7))
+                coverage[filename].add((edge, 7))
     
-    prev_line = 0
-    prev_filename = ''
-    data = {}
-    #print(coverage)   
+    edges = {}
     return sum(map(len, coverage.values()))
+
+

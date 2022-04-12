@@ -42,22 +42,22 @@ def worker(self, child_conn):
         try:
             self._target(buf)
         except Exception as e:
-                if not self._inf_run:
+            if not self._inf_run:
+                logging.exception(e)
+                child_conn.send(e)
+                break
+
+            else:
+                sys.settrace(None)
+                if(tracer.get_coverage() > self._total_coverage):
+                    print("New crash ", self._crashes)
+                    self._total_coverage = tracer.get_coverage()
+                    self._crashes += 1
                     logging.exception(e)
                     child_conn.send(e)
-                    break
                 else:
-                    sys.settrace(None)
-                    if(tracer.get_coverage() > self._total_coverage):
-                        print("New crash ", self._crashes)
-                        self._total_coverage = tracer.get_coverage()
-                        self._crashes += 1
-                        logging.exception(e)
-                        child_conn.send(e)
-                    else:
-                        child_conn.send_bytes(b'%d' % tracer.get_coverage())
-                    sys.settrace(tracer.trace)
-
+                    child_conn.send_bytes(b'%d' % tracer.get_coverage())
+                sys.settrace(tracer.trace)
 
         else:
             sys.settrace(None)
@@ -153,13 +153,18 @@ class Fuzzer(object):
                     break
 
             try:
+                exc_found = True
                 total_coverage = int(parent_conn.recv_bytes())
+                exc_found = False
             except ValueError:
                 self._crashes += 1
                 self.write_sample(buf)
                 if not self._inf_run: # added
                    exit_code = 76
                    break
+            if exc_found:
+                print("hi")
+                total_coverage = int(parent_conn.recv_bytes())
 
             self._total_executions += 1
             self._executions_in_sample += 1
