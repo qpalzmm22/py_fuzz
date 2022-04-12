@@ -64,6 +64,7 @@ def worker(self, child_conn):
                     child_conn.send(e)
                     break
                 else:
+                    sys.settrace(None)
                     if(tracer.get_crash() > self._crashes):
                         print("New crash ", self._crashes)
                         self._crashes += 1
@@ -71,9 +72,12 @@ def worker(self, child_conn):
                         child_conn.send(e)
                     else:
                         child_conn.send_bytes(b'%d' % tracer.get_coverage())
+                    sys.settrace(tracer.trace)
 
         else:
+            sys.settrace(None)
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
+            sys.settrace(tracer.trace)
 
 
 class Fuzzer(object):
@@ -168,8 +172,6 @@ class Fuzzer(object):
             try:
                 total_coverage = int(parent_conn.recv_bytes())
             except ValueError:
-                with open("bug.csv", "a") as log_file:
-                    log_file.write("found\n")
                 self._crashes += 1
                 self.write_sample(buf)
                 if not self._inf_run: # added
