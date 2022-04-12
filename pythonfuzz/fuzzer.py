@@ -42,22 +42,27 @@ def worker(self, child_conn):
         try:
             self._target(buf)
         except Exception as e:
-                tracer.set_crash()
                 if not self._inf_run:
                     logging.exception(e)
                     child_conn.send(e)
                     break
                 else:
-                    if(tracer.get_crash() > self._crashes):
+                    sys.settrace(None)
+                    if(tracer.get_coverage() > self._total_coverage):
                         print("New crash ", self._crashes)
+                        self._total_coverage = tracer.get_coverage()
                         self._crashes += 1
                         logging.exception(e)
-                    child_conn.send(e)
+                        child_conn.send(e)
+                    else:
+                        child_conn.send_bytes(b'%d' % tracer.get_coverage())
+                    sys.settrace(tracer.trace)
 
 
         else:
+            sys.settrace(None)
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
-
+            sys.settrace(tracer.trace)
 
 class Fuzzer(object):
     def __init__(self,
@@ -141,7 +146,7 @@ class Fuzzer(object):
                 logging.info("=================================================================")
                 logging.info("timeout reached. testcase took: {}".format(self._timeout))
                 self.write_sample(buf, prefix='timeout-')
-                if not self._inf_run:
+                if self._inf_run:
                     self._hangs += 1
                 else:
                     self._p.kill()
