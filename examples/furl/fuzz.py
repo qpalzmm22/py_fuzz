@@ -8,7 +8,7 @@ def fuzz(buf):
 		f = furl(string)
 		f.path.segments
 		f.path.normalize()
-	except (UnicodeDecodeError, ValueError, SyntaxError):
+	except UnicodeDecodeError:
 		pass
 
 if __name__ == '__main__':

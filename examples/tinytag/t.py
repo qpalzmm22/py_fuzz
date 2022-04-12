@@ -15,7 +15,8 @@ def suffix():
 		return ".riff"
 
 a = input()
-f= tempfile.NamedTemporaryFile('w+', suffix=suffix())
+#f= tempfile.NamedTemporaryFile('w+', suffix=suffix())
+f= tempfile.NamedTemporaryFile('w+')
 f.write(a)
 
 print("F_name: ", f.name)

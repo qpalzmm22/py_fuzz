@@ -2,7 +2,6 @@ from pythonfuzz.main import PythonFuzz
 from tinytag import TinyTag
 import tempfile
 import random
-
 def suffix():
 	randnum = random.randint(0, 4)
 	if(randnum == 0):
@@ -24,7 +23,7 @@ def fuzz(buf):
 		tag = TinyTag.get(f.name)
 		tag.filesize 
 		f.close()
-	except (UnicodeError, SyntaxError, LookupError):
+	except UnicodeDecodeError:
 		pass
 
 if __name__ == '__main__':

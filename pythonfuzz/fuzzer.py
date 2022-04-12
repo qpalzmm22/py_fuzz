@@ -7,6 +7,11 @@ import hashlib
 import logging
 import functools
 import multiprocessing as mp
+import signal
+from contextlib import contextmanager
+
+class TimeoutException(Exception): pass
+
 mp.set_start_method('fork')
 
 from pythonfuzz import corpus, dictionnary, tracer
@@ -22,6 +27,16 @@ except:
     import functools32
     lru_cache = functools32.lru_cache
 
+@contextmanager
+def time_limit(seconds):
+    def signal_handler(signum, frame):
+        raise TimeoutException("Timed out!")
+    signal.signal(signal.SIGALRM, signal_handler)
+    signal.alarm(seconds)
+    try:
+        yield
+    finally:
+        signal.alarm(0)
 
 def worker(self, child_conn):
     # Silence the fuzzee's noise
@@ -40,8 +55,9 @@ def worker(self, child_conn):
     while True:
         buf = child_conn.recv_bytes()
         try:
-            self._target(buf)
-        except Exception as e:
+            with time_limit(self._timeout):
+                self._target(buf)
+        except (Exception, TimeoutException) as e:
                 tracer.set_crash()
                 if not self._inf_run:
                     logging.exception(e)
@@ -143,10 +159,10 @@ class Fuzzer(object):
                 logging.info("timeout reached. testcase took: {}".format(self._timeout))
                 self.write_sample(buf, prefix='timeout-')
                 if not self._inf_run:
-                    self._hangs += 1
                     self._p_kill()
                     break
                 else:
+                    self._hangs += 1
                     continue
 
             try:
