@@ -153,18 +153,13 @@ class Fuzzer(object):
                     break
 
             try:
-                exc_found = True
                 total_coverage = int(parent_conn.recv_bytes())
-                exc_found = False
             except ValueError:
                 self._crashes += 1
                 self.write_sample(buf)
                 if not self._inf_run: # added
                    exit_code = 76
                    break
-            if exc_found:
-                print("hi")
-                total_coverage = int(parent_conn.recv_bytes())
 
             self._total_executions += 1
             self._executions_in_sample += 1

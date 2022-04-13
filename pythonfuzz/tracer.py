@@ -11,7 +11,6 @@ edges = collections.defaultdict(set)
 coverage = collections.defaultdict(set)
 index = 0
 
-edges = []
 
 def trace(frame, event, arg):
     if event != 'line':
