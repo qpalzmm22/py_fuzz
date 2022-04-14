@@ -21,7 +21,6 @@ def fuzz(buf):
 		f = tempfile.NamedTemporaryFile('wb', suffix=suffix())
 		f.write(buf) 
 		tag = TinyTag.get(f.name)
-		tag.filesize 
 		f.close()
 	except UnicodeDecodeError:
 		pass

@@ -13,7 +13,7 @@ def fuzz(buf):
 		project = Project(basedir= tempDir, name = p_name)
 		project.validate()
 
-		scaffold = PythonProjectScaffolding(p_name)
+		scaffold = PythonProjectScaffolding(project)
 		scaffold.build_initializer()
 
 	except (PyBuilderException, UnicodeDecodeError):
