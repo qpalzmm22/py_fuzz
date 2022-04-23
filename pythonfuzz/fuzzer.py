@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import sys
+from isort import file
 import psutil
 import hashlib
 import logging
@@ -51,11 +52,12 @@ def worker(self, child_conn):
     if self._close_fd_mask & 2:
         sys.stderr = DummyFile()
     
-    sys.settrace(tracer.trace)
+    #sys.settrace(tracer.trace)
     while True:
         buf = child_conn.recv_bytes()
         try:
             with time_limit(self._timeout):
+                sys.settrace(tracer.trace)
                 self._target(buf)
         except (Exception, TimeoutException) as e:
                 tracer.set_crash()
@@ -72,12 +74,12 @@ def worker(self, child_conn):
                         child_conn.send(e)
                     else:
                         child_conn.send_bytes(b'%d' % tracer.get_coverage())
-                    sys.settrace(tracer.trace)
+                #    sys.settrace(tracer.trace)
 
         else:
             sys.settrace(None)
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
-            sys.settrace(tracer.trace)
+     #       sys.settrace(tracer.trace)
 
 
 class Fuzzer(object):
@@ -92,7 +94,8 @@ class Fuzzer(object):
                  close_fd_mask=0,
                  runs=-1,
                  dict_path=None,
-				 inf_run=False):
+				 inf_run=False,
+                 file_fuzz=False):
         self._target = target
         self._dirs = [] if dirs is None else dirs
         self._exact_artifact_path = exact_artifact_path
@@ -110,6 +113,7 @@ class Fuzzer(object):
         self._inf_run = inf_run # added
         self._crashes = 0
         self._hangs = 0
+        self._file_fuzz = file_fuzz # added
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024

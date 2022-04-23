@@ -31,8 +31,12 @@ def trace(frame, event, arg):
         # and since we don't really care about the details of the coverage,
         # concatenating the two filenames in enough.
         add_to_set(func_filename + prev_filename, prev_line, func_line_no)
+        # data[func_filename + prev_filename].add((prev_line, func_line_no))
+        # data[func_filename + prev_filename][(prev_line, func_line_no)] = data[func_filename + prev_filename][(prev_line, func_line_no)] + 1
     else:
         add_to_set(func_filename, prev_line, func_line_no)
+        # data[func_filename].add((prev_line, func_line_no))
+        # data[func_filename][(prev_line, func_line_no)] = data[func_filename][(prev_line, func_line_no)] + 1
 
     prev_prev_prev_line = prev_prev_line
     prev_prev_line = prev_line
@@ -83,6 +87,6 @@ def get_crash():
 
 def set_crash():
     crashes[func_filename].add((prev_prev_prev_line, prev_prev_line))
-#    print(func_filename, "p: ", prev_prev_prev_line, "f: ", prev_prev_line)
+#   print(func_filename, "p: ", prev_prev_prev_line, "f: ", prev_prev_line)
     global index
     index = sum(map(len, crashes.values()))
