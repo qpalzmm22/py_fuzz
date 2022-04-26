@@ -3,7 +3,7 @@ from tinytag import TinyTag
 import tempfile
 import random
 def suffix():
-	randnum = random.randint(0, 4)
+	randnum = random.randint(0, 3)
 	if(randnum == 0):
 		return ".mp4"
 	elif(randnum == 1):
@@ -12,14 +12,13 @@ def suffix():
 		return ".WMA"
 	elif(randnum == 3):
 		return ".riff"
-	elif(randnum == 4):
-		return ".ogg"		
 
 @PythonFuzz
 def fuzz(buf):
 	try:
 		f = tempfile.NamedTemporaryFile('wb', suffix=suffix())
-		f.write(buf) 
+		f.write(buf)
+		f.seek(0)
 		tag = TinyTag.get(f.name)
 		f.close()
 	except UnicodeDecodeError:

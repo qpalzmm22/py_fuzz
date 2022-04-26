@@ -3,6 +3,7 @@ import math
 import os
 import random
 import struct
+from pathlib import Path
 from zipfile import ZIP_BZIP2
 
 from numpy import TooHardError
@@ -23,6 +24,7 @@ INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 class Corpus(object):
     def __init__(self, dirs=None, max_input_size=4096, dict_path=None):
         self._inputs = []
+        self._extensions = []
         self._dict = dictionnary.Dictionary(dict_path)
         self._max_input_size = max_input_size
         self._dirs = dirs if dirs else []
@@ -32,15 +34,20 @@ class Corpus(object):
 
             if os.path.isfile(path):
                 self._add_file(path)
+                self._extensions.append(Path(path).suffix)
             else:
                 for i in os.listdir(path):
                     fname = os.path.join(path, i)
                     if os.path.isfile(fname):
                         self._add_file(fname)
+                        self._extensions.append(Path(fname).suffix)
+
+
         self._seed_run_finished = not self._inputs
         self._seed_idx = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
         self._inputs.append(bytearray(0))
+        self._extensions.append('')
 
     def _add_file(self, path):
         with open(path, 'rb') as f:
@@ -49,7 +56,6 @@ class Corpus(object):
     @property
     def length(self):
         return len(self._inputs)
-
     @staticmethod
     def _rand(n):
         if n < 2:
@@ -95,6 +101,9 @@ class Corpus(object):
             with open(fname, 'wb') as f:
                 f.write(buf)
 
+    def put_extension(self, extension):
+        self._extensions.append(extension)
+
     def generate_input(self):
         if not self._seed_run_finished:
             next_input = self._inputs[self._seed_idx]
@@ -102,9 +111,26 @@ class Corpus(object):
             if self._seed_idx >= len(self._inputs):
                 self._seed_run_finished = True
             return next_input
-
+        
         buf = self._inputs[self._rand(len(self._inputs))]
         return self.mutate(buf)
+
+    def generate_input_for_file(self):
+        if not self._seed_run_finished:
+            next_input = self._inputs[self._seed_idx]
+            next_extension = self._extensions[self._seed_idx]
+            self._seed_idx += 1
+            if self._seed_idx >= len(self._inputs):
+                self._seed_run_finished = True
+            return (next_input, next_extension)
+
+        rand_num = self._rand(len(self._inputs))
+
+        buf = self._inputs[rand_num]
+        extension = self._extensions[rand_num]
+        
+        return (self.mutate(buf), extension)
+    
 
     def mutate(self, buf):
         res = buf[:]

@@ -7,7 +7,6 @@ class PythonFuzz(object):
         self.function = func
 
     def __call__(self, *args, **kwargs):
-        print("TT")
         parser = argparse.ArgumentParser(description='Coverage-guided fuzzer for python packages')
         parser.add_argument('dirs', type=str, nargs='*',
                             help="one or more directories/files to use as seed corpus. the first directory will be used to save the generated test-cases")
@@ -24,13 +23,19 @@ class PythonFuzz(object):
         parser.add_argument('--timeout', type=int, default=5,
                             help='If input takes longer then this timeout the process is treated as failure case')
         parser.add_argument('--inf-run', default=False, action='store_true', help='Decide the fuzzing wherter stop or keep runing after it finds a failure') # added
-        parser.add_argument('--file-fuzz', default=False, help='Fuzzing with file not stdin') # added
+        parser.add_argument('--file-fuzz', default=False, action='store_true', help='Fuzzing with file not stdin') # added
 
 
         args = parser.parse_args()
         f = fuzzer.Fuzzer(self.function, args.dirs, args.exact_artifact_path,
                           args.rss_limit_mb, args.timeout, args.regression, args.max_input_size,
                           args.close_fd_mask, args.runs, args.dict, args.inf_run, args.file_fuzz)
+        
+        if args.file_fuzz == True:
+            if args.dirs == []:
+                print("You should provide a seed for file-fuzz")
+                exit(1)
+
         f.start()
 
 

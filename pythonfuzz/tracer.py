@@ -24,7 +24,7 @@ def trace(frame, event, arg):
 
     func_filename = frame.f_code.co_filename
     func_line_no = frame.f_lineno
-#    print(func_filename, "prev_line: ", prev_line, "curr_line: ", func_line_no)
+#   print(func_filename, "prev_line: ", prev_line, "curr_line: ", func_line_no)
     
     if func_filename != prev_filename:
         # We need a way to keep track of inter-files transferts,

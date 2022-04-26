@@ -9,6 +9,7 @@ import logging
 import functools
 import multiprocessing as mp
 import signal
+import tempfile
 from contextlib import contextmanager
 
 class TimeoutException(Exception): pass
@@ -52,7 +53,7 @@ def worker(self, child_conn):
     if self._close_fd_mask & 2:
         sys.stderr = DummyFile()
     
-    #sys.settrace(tracer.trace)
+#    sys.settrace(tracer.trace)
     while True:
         buf = child_conn.recv_bytes()
         try:
@@ -74,12 +75,12 @@ def worker(self, child_conn):
                         child_conn.send(e)
                     else:
                         child_conn.send_bytes(b'%d' % tracer.get_coverage())
-                #    sys.settrace(tracer.trace)
+     #                  sys.settrace(tracer.trace)
 
         else:
             sys.settrace(None)
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
-     #       sys.settrace(tracer.trace)
+#           sys.settrace(tracer.trace)
 
 
 class Fuzzer(object):
@@ -95,7 +96,8 @@ class Fuzzer(object):
                  runs=-1,
                  dict_path=None,
 				 inf_run=False,
-                 file_fuzz=False):
+                 file_fuzz=False,
+                 file_extension=None):
         self._target = target
         self._dirs = [] if dirs is None else dirs
         self._exact_artifact_path = exact_artifact_path
@@ -114,6 +116,7 @@ class Fuzzer(object):
         self._crashes = 0
         self._hangs = 0
         self._file_fuzz = file_fuzz # added
+        self._file_extension = file_extension # added
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
@@ -160,8 +163,19 @@ class Fuzzer(object):
                 logging.info('did %d runs, stopping now.', self.runs)
                 break
 
-            buf = self._corpus.generate_input()
-            parent_conn.send_bytes(buf)
+            buf = []
+            temp =[]
+            if self._file_fuzz:
+                buf = self._corpus.generate_input_for_file()
+                self._file_extension = buf[1]
+                temp = tempfile.NamedTemporaryFile('wb+', suffix=self._file_extension)
+                temp.write(buf[0])
+                temp.seek(0)
+                parent_conn.send_bytes(temp.name.encode())
+            else:
+                buf = self._corpus.generate_input()
+                parent_conn.send_bytes(buf)
+            
             if not parent_conn.poll(self._timeout):
                 logging.info("=================================================================")
                 logging.info("timeout reached. testcase took: {}".format(self._timeout))
@@ -177,7 +191,10 @@ class Fuzzer(object):
                 total_coverage = int(parent_conn.recv_bytes())
             except ValueError:
                 self._crashes += 1
-                self.write_sample(buf)
+                if self._file_fuzz:
+                    self.write_sample(buf[0])
+                else:
+                    self.write_sample(buf)
                 if not self._inf_run: # added
                    exit_code = 76
                    break
@@ -188,18 +205,28 @@ class Fuzzer(object):
             if total_coverage > self._total_coverage:
                 rss = self.log_stats("NEW")
                 self._total_coverage = total_coverage
-                self._corpus.put(buf)
+                if self._file_fuzz:
+                    self._corpus.put(buf[0])
+                    self._corpus.put_extension(self._file_extension)
+                else:
+                    self._corpus.put(buf)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')
 
             if rss > self._rss_limit_mb:
                 logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))
-                self.write_sample(buf)
+                if self._file_fuzz:
+                    self.write_sample(buf[0])
+                else:
+                    self.write_sample(buf)
                 self._crashes += 1
                 if not self._inf_run:
                     self._p.kill()
                     break
+
+            if self._file_fuzz:
+                temp.close()
 
         self._p.join()
         sys.exit(exit_code)
