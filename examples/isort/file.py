@@ -12,7 +12,7 @@ def fuzz(buf):
 #		print("DEBUG Content: ", content)
 		isort.file(fname)
 #		f.close()
-	except (UnicodeDecodeError, ValueError):
+	except UnicodeDecodeError:
 		pass
 
 if __name__ == '__main__':

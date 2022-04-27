@@ -133,7 +133,7 @@ class Fuzzer(object):
 
     def write_sample(self, buf, prefix='crash-'):
         m = hashlib.sha256()
-        m.update(buf)
+        m.update(buf) # TODO: TypeError: object supporting the buffer API required
         if self._exact_artifact_path:
             crash_path = self._exact_artifact_path
         else:
@@ -179,7 +179,10 @@ class Fuzzer(object):
             if not parent_conn.poll(self._timeout):
                 logging.info("=================================================================")
                 logging.info("timeout reached. testcase took: {}".format(self._timeout))
-                self.write_sample(buf, prefix='timeout-')
+                if self._file_fuzz:
+                    self.write_sample(buf[0], prefix='timeout-')
+                else:
+                    self.write_sample(buf, prefix='timeout-')
                 if not self._inf_run:
                     self._p_kill()
                     break
@@ -188,7 +191,7 @@ class Fuzzer(object):
                     continue
 
             try:
-                total_coverage = int(parent_conn.recv_bytes())
+                total_coverage = int(parent_conn.recv_bytes()) 
             except ValueError:
                 self._crashes += 1
                 if self._file_fuzz:
@@ -202,14 +205,16 @@ class Fuzzer(object):
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
-            if total_coverage > self._total_coverage:
+            if total_coverage > self._total_coverage:  # TODO Update Favored
                 rss = self.log_stats("NEW")
                 self._total_coverage = total_coverage
                 if self._file_fuzz:
                     self._corpus.put(buf[0])
                     self._corpus.put_extension(self._file_extension)
+                    # UpdateFavored
                 else:
                     self._corpus.put(buf)
+                    # UpdateFavored
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')

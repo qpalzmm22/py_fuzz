@@ -25,6 +25,14 @@ class Corpus(object):
     def __init__(self, dirs=None, max_input_size=4096, dict_path=None):
         self._inputs = []
         self._extensions = []
+        self._depth = [] # input depth of mutate
+        self._mutated = [] # Mutated or not
+        self._path = [] # path of a input
+        
+        self._favored = [] # favored of a branch, set?
+        self._time = []
+        self._size = []
+
         self._dict = dictionnary.Dictionary(dict_path)
         self._max_input_size = max_input_size
         self._dirs = dirs if dirs else []
@@ -104,6 +112,9 @@ class Corpus(object):
     def put_extension(self, extension):
         self._extensions.append(extension)
 
+    def update_favored(self, input):
+        print("z")
+
     def generate_input(self):
         if not self._seed_run_finished:
             next_input = self._inputs[self._seed_idx]
@@ -112,6 +123,8 @@ class Corpus(object):
                 self._seed_run_finished = True
             return next_input
         
+        # TODO seed selection
+
         buf = self._inputs[self._rand(len(self._inputs))]
         return self.mutate(buf)
 

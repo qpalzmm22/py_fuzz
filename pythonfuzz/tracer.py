@@ -24,19 +24,15 @@ def trace(frame, event, arg):
 
     func_filename = frame.f_code.co_filename
     func_line_no = frame.f_lineno
-#   print(func_filename, "prev_line: ", prev_line, "curr_line: ", func_line_no)
+#    print(func_filename, "prev_line: ", prev_line, "curr_line: ", func_line_no)
     
     if func_filename != prev_filename:
         # We need a way to keep track of inter-files transferts,
         # and since we don't really care about the details of the coverage,
         # concatenating the two filenames in enough.
         add_to_set(func_filename + prev_filename, prev_line, func_line_no)
-        # data[func_filename + prev_filename].add((prev_line, func_line_no))
-        # data[func_filename + prev_filename][(prev_line, func_line_no)] = data[func_filename + prev_filename][(prev_line, func_line_no)] + 1
     else:
         add_to_set(func_filename, prev_line, func_line_no)
-        # data[func_filename].add((prev_line, func_line_no))
-        # data[func_filename][(prev_line, func_line_no)] = data[func_filename][(prev_line, func_line_no)] + 1
 
     prev_prev_prev_line = prev_prev_line
     prev_prev_line = prev_line
@@ -58,6 +54,13 @@ def add_to_set(fname, prev_line, cur_line):
 
 def get_coverage():
     global data
+
+    # TODO test
+    global prev_line
+    global prev_filename
+
+    prev_line = 0
+    prev_filename = ''
 
     for x in data:
         for y in data[x]:

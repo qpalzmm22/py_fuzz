@@ -7,7 +7,7 @@ def fuzz(buf):
 		f_name = buf.decode("ascii")
 		tag = TinyTag.get(f_name)
 	
-	except (UnicodeDecodeError, ValueError):
+	except UnicodeDecodeError:
 		pass
 
 if __name__ == '__main__':
