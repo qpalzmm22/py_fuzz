@@ -191,7 +191,8 @@ class Fuzzer(object):
                     continue
 
             try:
-                total_coverage = int(parent_conn.recv_bytes()) 
+                total_coverage = int(parent_conn.recv_bytes()) # total_coverage >> C(input), time
+                # corpus update
             except ValueError:
                 self._crashes += 1
                 if self._file_fuzz:
@@ -205,7 +206,7 @@ class Fuzzer(object):
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
-            if total_coverage > self._total_coverage:  # TODO Update Favored
+            if total_coverage > self._total_coverage:  # TODO Isinteresting(path, Queue)
                 rss = self.log_stats("NEW")
                 self._total_coverage = total_coverage
                 if self._file_fuzz:
