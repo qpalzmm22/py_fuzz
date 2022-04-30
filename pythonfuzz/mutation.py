@@ -48,7 +48,6 @@ class Corpus(object):
     def _add_file(self, path):
         with open(path, 'rb') as f:
             self._inputs.append(bytearray(f.read()))
-            
             self._initial_seeds += 1 
     '''
     def update_favored(buf, time, edges):

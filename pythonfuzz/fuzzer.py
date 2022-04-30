@@ -7,6 +7,7 @@ import hashlib
 import logging
 import functools
 import multiprocessing as mp
+from multiprocessing import Manager
 mp.set_start_method('fork')
 
 from pythonfuzz import corpus, dictionnary, tracer
@@ -23,7 +24,7 @@ except:
     lru_cache = functools32.lru_cache
 
 
-def worker(self, child_conn):
+def worker(self, favored, child_conn):
     # Silence the fuzzee's noise
     class DummyFile:
         """No-op to trash stdout away."""
@@ -36,18 +37,20 @@ def worker(self, child_conn):
     if self._close_fd_mask & 2:
         sys.stderr = DummyFile()
     
-    sys.settrace(tracer.trace)
+    #sys.settrace(tracer.trace)
     while True:
         buf = child_conn.recv_bytes()
+        s_time = time.process_time();
         try:
+            sys.settrace(tracer.trace)
             self._target(buf)
         except Exception as e:
             if not self._inf_run:
                 logging.exception(e)
                 child_conn.send(e)
                 break
-
             else:
+                #t_end = time.process_time()
                 sys.settrace(None)
                 if(tracer.get_coverage() > self._total_coverage):
                     print("New crash ", self._crashes)
@@ -57,12 +60,17 @@ def worker(self, child_conn):
                     child_conn.send(e)
                 else:
                     child_conn.send_bytes(b'%d' % tracer.get_coverage())
-                sys.settrace(tracer.trace)
+                #sys.settrace(tracer.trace)
 
         else:
             sys.settrace(None)
             child_conn.send_bytes(b'%d' % tracer.get_coverage())
-            sys.settrace(tracer.trace)
+            #sys.settrace(tracer.trace)
+        
+        e_time = time.process_time();
+        elapsed_time = e_time - s_time
+        #print(elapsed_time)
+        favored = tracer.update_favored(buf, elapsed_time, favored)
 
 class Fuzzer(object):
     def __init__(self,
@@ -130,17 +138,20 @@ class Fuzzer(object):
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
         exit_code = 0
+        manager = Manager()
+        favored = manager.dict()
         parent_conn, child_conn = mp.Pipe()
-        self._p = mp.Process(target=worker, args=(self, child_conn)) #added
+        self._p = mp.Process(target=worker, args=(self, favored, child_conn)) #added
         self._p.start()
+
 
         while True:
             if self.runs != -1 and self._total_executions >= self.runs:
                 self._p.terminate()
                 logging.info('did %d runs, stopping now.', self.runs)
                 break
-
-            buf = self._corpus.generate_input()
+            # edges must be queue
+            buf = self._corpus.generate_input(favored)
             parent_conn.send_bytes(buf)
             if not parent_conn.poll(self._timeout):
                 logging.info("=================================================================")
@@ -151,6 +162,7 @@ class Fuzzer(object):
                 else:
                     self._p.kill()
                     break
+            #print(favored)
 
             try:
                 total_coverage = int(parent_conn.recv_bytes())
@@ -164,6 +176,7 @@ class Fuzzer(object):
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
+            
             if total_coverage > self._total_coverage:
                 rss = self.log_stats("NEW")
                 self._total_coverage = total_coverage
