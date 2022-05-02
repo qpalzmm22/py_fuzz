@@ -1,8 +1,12 @@
+from ast import Pass
+from cgi import print_form
 import os
 import sys
 import time
 import sys
+from tracemalloc import Trace
 from isort import file
+from numpy import convolve, cov
 import psutil
 import hashlib
 import logging
@@ -11,6 +15,7 @@ import multiprocessing as mp
 import signal
 import tempfile
 from contextlib import contextmanager
+from multiprocessing import Manager
 
 class TimeoutException(Exception): pass
 
@@ -40,7 +45,7 @@ def time_limit(seconds):
     finally:
         signal.alarm(0)
 
-def worker(self, child_conn):
+def worker(self, child_conn, coverage):
     # Silence the fuzzee's noise
     class DummyFile:
         """No-op to trash stdout away."""
@@ -59,6 +64,7 @@ def worker(self, child_conn):
         try:
             with time_limit(self._timeout):
                 sys.settrace(tracer.trace)
+                print("DEBUG buf: ", buf)
                 self._target(buf)
         except (Exception, TimeoutException) as e:
                 tracer.set_crash()
@@ -74,12 +80,16 @@ def worker(self, child_conn):
                         logging.exception(e)
                         child_conn.send(e)
                     else:
-                        child_conn.send_bytes(b'%d' % tracer.get_coverage())
+                        coverage = tracer.get_coverage(coverage)
+                        print("Outtttttter :", sum(map(len, coverage.values())))
+                        child_conn.send_bytes(b'%d' % tracer.get_crash())
      #                  sys.settrace(tracer.trace)
 
         else:
             sys.settrace(None)
-            child_conn.send_bytes(b'%d' % tracer.get_coverage())
+            coverage = tracer.get_coverage(coverage)
+            print("Outtttttter :", sum(map(len, coverage.values())))
+            child_conn.send_bytes(b'%d' % tracer.get_crash())
 #           sys.settrace(tracer.trace)
 
 
@@ -150,12 +160,38 @@ class Fuzzer(object):
         if len(buf) < 200:
             logging.info('sample = {}'.format(buf.hex()))
 
+    def initLopp(initSeed):
+        print(initSeed)
+
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
         exit_code = 0
         parent_conn, child_conn = mp.Pipe()
-        self._p = mp.Process(target=worker, args=(self, child_conn)) #added
+        manager = Manager()
+        coverage = manager.dict()
+
+        self._p = mp.Process(target=worker, args=(self, child_conn, coverage)) #added
         self._p.start()
+        
+        for i in (self._corpus._inputs):
+            buf = self._corpus.generate_input()
+            print("DEBUG INIT buf: ", buf)
+            parent_conn.send_bytes(buf)
+            if not parent_conn.poll(self._timeout):
+                logging.info("=================================================================")
+                logging.info("timeout reached. testcase took: {}".format(self._timeout))
+                self.write_sample(buf, prefix='timeout-')
+                if not self._inf_run:
+                    self._p_kill()
+                    break
+                else:
+                    self._hangs += 1
+                    continue
+            try:
+                a = int(parent_conn.recv_bytes()) # total_coverage >> C(input), time
+                print("OUTER INIT coverage: ", sum(map(len, coverage.values())))
+            except ValueError:
+                print("ff")
 
         while True:
             if self.runs != -1 and self._total_executions >= self.runs:
@@ -163,26 +199,13 @@ class Fuzzer(object):
                 logging.info('did %d runs, stopping now.', self.runs)
                 break
 
-            buf = []
-            temp =[]
-            if self._file_fuzz:
-                buf = self._corpus.generate_input_for_file()
-                self._file_extension = buf[1]
-                temp = tempfile.NamedTemporaryFile('wb+', suffix=self._file_extension)
-                temp.write(buf[0])
-                temp.seek(0)
-                parent_conn.send_bytes(temp.name.encode())
-            else:
-                buf = self._corpus.generate_input()
-                parent_conn.send_bytes(buf)
+            buf = self._corpus.generate_input()
+            parent_conn.send_bytes(buf)
             
             if not parent_conn.poll(self._timeout):
                 logging.info("=================================================================")
                 logging.info("timeout reached. testcase took: {}".format(self._timeout))
-                if self._file_fuzz:
-                    self.write_sample(buf[0], prefix='timeout-')
-                else:
-                    self.write_sample(buf, prefix='timeout-')
+                self.write_sample(buf, prefix='timeout-')
                 if not self._inf_run:
                     self._p_kill()
                     break
@@ -192,13 +215,12 @@ class Fuzzer(object):
 
             try:
                 total_coverage = int(parent_conn.recv_bytes()) # total_coverage >> C(input), time
+                print("OUTER coverage: ", sum(map(len, coverage.values())))
+                # coverage, time = tracer.get_coverage()
                 # corpus update
             except ValueError:
                 self._crashes += 1
-                if self._file_fuzz:
-                    self.write_sample(buf[0])
-                else:
-                    self.write_sample(buf)
+                self.write_sample(buf)
                 if not self._inf_run: # added
                    exit_code = 76
                    break
@@ -206,15 +228,11 @@ class Fuzzer(object):
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
+
             if total_coverage > self._total_coverage:  # TODO Isinteresting(path, Queue)
                 rss = self.log_stats("NEW")
                 self._total_coverage = total_coverage
-                if self._file_fuzz:
-                    self._corpus.put(buf[0])
-                    self._corpus.put_extension(self._file_extension)
-                    # UpdateFavored
-                else:
-                    self._corpus.put(buf)
+                self._corpus.put(buf)
                     # UpdateFavored
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
@@ -222,17 +240,11 @@ class Fuzzer(object):
 
             if rss > self._rss_limit_mb:
                 logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))
-                if self._file_fuzz:
-                    self.write_sample(buf[0])
-                else:
-                    self.write_sample(buf)
+                self.write_sample(buf)
                 self._crashes += 1
                 if not self._inf_run:
                     self._p.kill()
                     break
-
-            if self._file_fuzz:
-                temp.close()
 
         self._p.join()
         sys.exit(exit_code)

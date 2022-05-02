@@ -8,9 +8,9 @@ prev_filename = ''
 func_filename = ''
 func_line_no = 0
 
-data = collections.defaultdict(set)
+data = dict()
 crashes = collections.defaultdict(set) #added
-coverage = collections.defaultdict(set) #added 얘를 shared로?
+coverage = collections.defaultdict(set) 
 index = 0
 
 def trace(frame, event, arg):
@@ -30,9 +30,9 @@ def trace(frame, event, arg):
         # We need a way to keep track of inter-files transferts,
         # and since we don't really care about the details of the coverage,
         # concatenating the two filenames in enough.
-        add_to_set(func_filename + prev_filename, prev_line, func_line_no)
+        add_to_set(func_filename + ":" + prev_filename + ":" + str(prev_line) + ":" + str(func_line_no))
     else:
-        add_to_set(func_filename, prev_line, func_line_no)
+        add_to_set(func_filename + ":" + str(prev_line) + ":" + str(func_line_no))
 
     prev_prev_prev_line = prev_prev_line
     prev_prev_line = prev_line
@@ -41,19 +41,17 @@ def trace(frame, event, arg):
 
     return trace
 
+def add_to_set(edge):
+#    print("DEBUG ", edge)
+    global data
+    try:
+        data[edge].append("hit")
+    except KeyError:
+        data[edge] = []
+        data[edge].append("hit")
 
-def add_to_set(fname, prev_line, cur_line):
-    #print(fname, " ", prev_line, " ", cur_line)
-    if not data.get(fname):
-        data[fname] = collections.defaultdict(int)
-    data[fname][(prev_line,cur_line)] = data[fname][(prev_line, cur_line)] + 1
-
-#def get_coverage():
-#    return sum(map(len, data.values()))
-
-
-def get_coverage():
-    global data # TODO shared?
+def get_coverage(coverage):
+    global data 
 
     # TODO test
     global prev_line
@@ -62,28 +60,14 @@ def get_coverage():
     prev_line = 0
     prev_filename = ''
 
-    for x in data:
-        for y in data[x]:
-            if(data[x][y] <= 1):
-                coverage[x].add((y, 0))
-            elif(data[x][y] <= 2):
-                coverage[x].add((y, 1))
-            elif(data[x][y] <= 3):
-                coverage[x].add((y, 2))
-            elif(data[x][y] <= 16):
-                coverage[x].add((y, 3))
-            elif(data[x][y] <= 32):
-                coverage[x].add((y, 4))
-            elif(data[x][y] <= 64):
-                coverage[x].add((y, 5))
-            elif(data[x][y] <= 128):
-                coverage[x].add((y, 6))
-            else:
-                coverage[x].add((y, 7))
+    coverage = data
+    print("Coverage: ", sum(map(len, coverage.values())))
+    print("Data: ", sum(map(len, data.values())))
 
     data = {}
-    return sum(map(len, coverage.values())) # sum(map(~~ data.value))
+    print("AFTER Data: ", sum(map(len, data.values())))
 
+    return coverage
 
 def get_crash():
     return index

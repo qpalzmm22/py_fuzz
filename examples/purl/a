@@ -1,0 +1,10202 @@
+[DEBUG] #0 READ units: 6
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googlc.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\xdb\xdb\xcd\xdfgle.\x90om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff ogle.como'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xa2\xff\xffo'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.gm\ngle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8dg\x9b\x93\xb4e.c'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x07\x85\xdb\x95\xe4M4\xa9\x00\x00\x00\x00\x00\x00\x00\x00\x00\x05\xff\xff\x05\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle\x00\x01\x00\x08\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww.\xff@\xffogle\xffcomJ'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wUK[\x8f\xffCR\x15e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.go\x00\x00\x00e.co\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\x0f\x1a\x1b:\xaaBle.com\x8a'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xff\xff\xffle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'q\x1a\x9dZ\x9c'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBlei\x98om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.gww.googl\x00\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'wwwo\x8d+\xaa\xa1\r)\x07s\x04\xfb\x96'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\n>\x86R\x8e\xa0\x90Z com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d\x00\x00o.ce\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+.com\ncom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xc2\x14\x9f\\\xff\xff\x90M\xc4v;W\x97\x9b\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffowle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'mww.google.cow\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'wj\xf4d\xa1oogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xe8w.goD\xaele.coD\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goog\x7f\xff\xff\xffom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'K\xa9\xd8\xd1K\xd2\x9f\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\x00\x01le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wwwB\x8d+\xaa.le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwwN\xa0\xde\xafwN\xa0'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google,c\xb6.I\xab\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wcw.\x8d+\xaaBle.wom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x0c\x05\xff\xff\x05e\xeb_\xae.\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xe4\x9e'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.c'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xff\x00\x00\x00\x00.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x10\xf0\x80\x90gcR\xd0\xad\x87.\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogl5\x99\xbe\xf2m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'gww.go\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www\xff\x7f+dBle.\xe3om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xffww\xff\xff\xff\xff<om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\x00\x01\x00\x00com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.c'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\x00\x00\x01\x00.com\x01'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\x93\xdf\x00\x00\x00\x00eNH\xa3\x8d\x8d\xc6\xbc\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xef\xa8\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xdf\x03\xafwZ\xefp:.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle\x7fcom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'gww.google\xd7com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\xe1\xe1\xae.co\xff\xff\xff\xff\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.cnm\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\x8e\xffo\xffe.c\xffm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle\xa8cnm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.gle.com\nom\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d\x17\xc4Bl+\xaa'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x00\x01le.cogle.cm\n\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.Yi\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.golgoe.c m\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xff\x85gle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\x03\xe8oo\xc8\xb4\xa5Kgom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xffVu\xcf\xdae.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\xdboogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w9.I\xce+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w$\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\x03\xe8eX\xf7om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\xff\xff\xab *\x15\xff+\xaaB\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\xc2\xd7S\xcd\xf1\xd0\x82$com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\x00\x00\x00\x00\x00le.c\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xffe\xff\xffggl\xff.\xb4om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.\x10\x00m\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffo\x1e\x1f\xe4\xc7B;\x8dP\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.go\x00\x00\x00\x00\x00\x00\x00m\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.goow'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'w\x00\x00\x00\x00oogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\xae'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffo\x00\x00e\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'+\xf2N\xb3\xd0P\xfd[\xd0E.com[\xd0E.\xfa\xc8\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.E\xf0\x88\x96\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle)\xc7X>\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xca\xfd\xc0\x9f'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xe7\x81\xa9\x9b\xccg\x15\xc8.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x00\x00\x00\x00\x00\x00\x00\x00l\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  146
+Data:  146
+AFTER Data:  0
+Outtttttter : 146
+DEBUG buf:  b''
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googleO\x82\xc0'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\x90\xa5\xff\x05.com\n\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'Au\xfd\x96\x0b\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goog\xffe.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g.com\n.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBl\x01\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googl\xff\x00\x00\x00m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xffU\xe8\xfekM\xa8\xfd\xff\nom\x7f'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xb9\xc7.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaa\xffle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.\x1a\xefn\x85'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.go\xa0x2?*Z\x0c\xea\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www,\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.gooL\\\xdd%com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x16ww\x05\xff\xff\x05@\x00\x00m\n\x00\xdc\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d\xff\xff\x00\x00e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'jLY^[\xe4\x92\n\xe8LY^[\xe4'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wowg\x8a.le.e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x00w.\xff\xffkg\xe9T\x04,om\xcf'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwwngoogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130DEBUG INIT buf:  bytearray(b'www.\x8d+\xaaBle.com\n')
+OUTER INIT coverage:  0
+DEBUG INIT buf:  bytearray(b'ww\xff\xff\xff\xffogle.com\n')
+OUTER INIT coverage:  0
+DEBUG INIT buf:  bytearray(b'')
+OUTER INIT coverage:  0
+DEBUG INIT buf:  bytearray(b'www.google.com\n')
+OUTER INIT coverage:  0
+DEBUG INIT buf:  bytearray(b'www.google.com\n')
+OUTER INIT coverage:  0
+DEBUG INIT buf:  bytearray(b'')
+OUTER INIT coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\x00O\xffogcrk\xe3\xffUg\x13\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBllm.om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goog\x80e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x7fww.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'w\xa0\xd8\xa7T\xc9c;\xb8e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\xb7'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.go\xa9\xd7\xea3\x13\x02\xfd\xb7\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\nw\xff\xff\xff\xffogle.comw'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\xff\x8d+\xaaBleE6\xad\xda\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\x7fog.g'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'wgw.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.co.c'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wgw.woogle.\xc3om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaa\x01\x00\x00\x00\xee\xdd\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xc7\xe3\xf2\xceg\x10og'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x05\xff\xff\x05\xff\x7f\xff\xff\xff.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.cob\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x00\x01\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.g"ogle.co\x00\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www\x00oogl\xff\x05\xff\xff\x05\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x01w.\x8d+\xaa\x8d+\xaaBl'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\xf1\xff\xff\xff\xffog\x00.com\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xb3\x87\x00\x00\x00\x00\xff'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.go\xd8\x8cP\x8e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\xf4le\xe4com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'[\xff\x00p'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\x00\x00+\xaaB\xc8\xd7]\xbbom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\xff\xdd\xff\xffle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'=\x91a\xa4l\xe4/\x81om\n\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.cmb\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.jom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googl\x00\x00\x80\x00m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xb3\x01^\x00\x00\x00\x00.com'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww .X\xc6\xb5\x8aX\xc6\xb5\x8alm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wyw\xaegoogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.\xefm\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x00@\x01\x00f'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w@w.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google\xc8\x03\x92\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d\x0b\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.c\x00\x055;\x8f\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x80\x00\x00\x00\x80\x00le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xff\x00\x00\x80\x00om\n\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xff\x00\xff\xff\xff\xffogle.i\x05m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xe7C]\xe4\xc8j\x89zm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwwdgoogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x02\x00K0w"\xa8H\x99\x9acom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x07w.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwwugoogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googlerC\xbfV\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBl\x17.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.go\x00\xffle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.@@ogl\x8c)\xe5\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogl\x00c\xe8\x00\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\xd0google.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\xfe\xa4\x1a\x13\xb0\xfdq\xe2co%hC\x86\xf1a\xab\xde'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x92\xff\xff\xff\xffkgle com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googleom\nm\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.c'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xa3.\x8d\x00Ble.\x00om\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xffm\xffog\xffogco\xff\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaB'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\x05\x97o\x00\x01\x97\xfaVgZ\xdf'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\x00\x00\x00\x00\x00\x00\x00m\n\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\x92\xb6\x01\x07\x95\n\r\xa5e. om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.gKogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www\x06\n\xb4iBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\x00google.com\x00\x00\x00'
+Coverage:  146
+Data:  146
+AFTER Data:  0
+Outtttttter : 146
+DEBUG buf:  b'www.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'.com\noogle.cCm\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xf8\x04C\xdae.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\x00\xff\xffogle.c\x00\x10\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\nogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.co'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wg\xff\xff\xff\xffowle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'3}\xbc\x8e\x0f'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'L\xb5\xc6\x11\xa5'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goo\x0f\xday\xca\xd8\xad\x18\xb9'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwle\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\x7fogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.\xd9.\x93i'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffog.elcom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.go\xff\xff\x00\x00.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogl'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d\xff\xff\xff\x7fe.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x7f\xff\xff\xffgoogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goog\xbd\x10.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\x00\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.8oogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googleomom\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www\x00\x02oogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x03+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.cxm\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.B+\xaa\x8dle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.co.\xff'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\xba\x93%le'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wwv.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\x9c\\\xd2H>\xc1ws\x7f\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xf1\r\xdb\xc3A\xc3\x94i'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle\x00\x04om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.\x00\x01\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d\x10LQLe.com\x8a'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goog\x81\x85Ocom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wRw.\x07F\xb8\x8f\xc9'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x01\x00\x00\x00\xb0\x95'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x05\xff\xff\x05le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x00\x00\x00\x00\x00\x00m\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\x02\xe8<\x1a\xac\x8d\xb5\x0ce.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.coK\x9f\x06\xe2\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\x00\x00\x00\xe8\x03com\n\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwwwwoOgle\x00\x00\x01\x00\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.\nomc'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\x9d\xf1\xa9+\xfc#\xc3ucom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\nw.\x8d+\xaaBle.comw'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x00\x00\xe8\xffogle.\x05\xff\xff\x05\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x00\x00\xff\xffle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.go$\x08\xca/\xc7q\x948\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\x00\x00\x00\x00com\n\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'dww.go\x00\x00\x01\x00\xa2\xc4\xc8.%\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww7.\x8d+\xf0\x89\xfdk.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\xf0\xce.goo\x7fwoo'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xb8v\xc1\xcc\xf2\xe6Z\x85\x0e\xee\xcd\xa2\x00\x80\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googl\xc9$\x9f\xb1\xd0\x917\x10\xbb\xbc\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\x00\x00e.c\x00\x00\n\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'.\x8d+\xaa\x8d+\xaa'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wwm\n\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\xc5"\x9cNe.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff \xff%\xf5,L\x04L\x04\xd3o'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xffw\xff\xff\xff\xfdo'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google\\\x9d\x89m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\r.gm\x00gle.com\x1f\xce\xc6m\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googl\xcf\x86com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x10\x00w.googl\xe6.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\xd0\x96\xaam\n\xd7\x8c\xe6\xcd=\xc3\x00\x00\x00\x00)\xee\xd4\x05'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\x06v7\xbd\xcc\xb1F\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.co\x1e\x00w'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.=\x00\x01\x00\x00e.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.g\x7f\xff\xff\xffe.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\x16:.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.\x84@\xff\xff'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.go\ngle.c\x80mo'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x0fww.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x00\x04w.go\x00\x00\x00\x00.com\n'
+Coverage:  146
+Data:  146
+AFTER Data:  0
+Outtttttter : 146
+DEBUG buf:  b'www.google.\x7fom'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\x87\xf1[,\xa8\xf3|\xa2'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwoggoogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.googl\x01\x00com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogl\x00\x00\x01\x00m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xff\x08\xa2\xa6\xa2r\x00\x00\x00\x00m\n\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww@\x00\x00\x00\x00\x00\x00m\n\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\x11\xf1\xf9\x02e.com\n\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x00\x80\xff\xffogle.aom\x10'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwo.gwogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x005%\xcd\x15'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.cV\x0b\xdd\xa5\x16\x106Y\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\xe4\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x00\x00\x00\x01\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googl\x14.c\x01m\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8b\x81F\x9d.\xa0{)om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.c\xefm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\x01(\xc5w\xc4 \x84\x06nm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n\xf4'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googlm.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.co.\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googl\x00\xffcom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goN\xa8\x89\xf0q\xd6\xb3=\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.c\x05m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xff\xff\xff\x7fgoogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\x00\x80\x00\x00e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xbf\xff\xff\xffogle.-om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.g\xf1\xef5\xd1\xd4\xc4\x9e\xb3m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.\xceum\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.c\x00m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'we\xff\xff\xff\xffoglw.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\xff\xff\xff\x7fCom'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.go"gl\x01.TBo\x02'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x00\xac\xca\x7f\xa1e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\x97Qy@\xf6\xc5\xfb\xc7w\xba|\x00\x00\x00\xb6\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffog\xe9\xdf\xb72\xd7\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x00\x00\x01\x00le.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googlz2m\n\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffJgle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle\xff\x7fom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xd3t(\xa6\xac'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xe8\xb8\x8d\x18*W\xece.c\xff\x7f\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffog\x80JKiom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'sw\xff\xffX\xe1ogle\x1eso\n\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wle.comgle.com\xff'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffog\x80e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.co'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x00ogle.c\x00\xca\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'3\xd6\x94\xdc'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww@.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googglecom\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d8\x9a\xa1\xed\xbbU\xa1\xac'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x1d\xefwlg\x7f\xe2gl..c\xdf\xa7\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\xed0o\x1c\xdf\x99\xcf\xfa\x87\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w.cooglgle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.co\x03\xe8'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.go\xe0\xbd\x83\x14w\x13\xd0\x9e\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\x01\x00\x00\x00\x03^e'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xe7\x81google.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google>com\nC>\x80\x14i\x91_\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.c\x00\x00\x80\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\x00\x8d*gle.com\x00\x00\x007\x9bom\x00\x1a\xfa'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x8a\xdbT\x8b\x10\xd8\xd8\xe5le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle..co'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xc8\x02\x9ei\xd9'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xff\x00gle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.como'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\x7f\x80\x00\x86\x16\xf54\xdd\n]comV'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.co\x00\xff'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.c\xaa\xcd\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.T5\xf5Dg.\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xec\xbe\x00#\xdf\x1e\x93\xd3.cem\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle\xebcom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wgw.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xdfw\xff\xff\xff\xff\xff\xffle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.c\x80m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xffc\xff\xffogle.\xffom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x80\x00w\xffr\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\x03\xe8+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x00\x00\x00\xe6\x8cjE\x00\x00\x00\x00\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w.cogoogle.co'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBl6.co'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.comg'
+Coverage:  146
+Data:  146
+AFTER Data:  0
+Outtttttter : 146
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xe4dle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xa2\xae8g\xd2\x8c.com\n\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x9c+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.bom\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d\x00\x00\x00\x00\x00\x00c\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogl\x00\x00\x00\x00m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goOgle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.coogl\x10.}\xa70\xb1'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffo@le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x86.google.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w!\xf2\x05FK\x8a\x1b\xa4..c\xc5\x00\x10'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.go\x01\x00\x00\x00\xa4c\xd8m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x8ft\x95\x05\xff\xff\x05Blb.co\xff\xff'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.p]\x99\xcf'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffgole.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wmw.\x8d+\xaaBle.cow\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\xa8le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xff\x7f.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googde.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaB\x00\x00\x00\n\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xdfw\xbc\x8b\xe3Hogle.cfd\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBley\xa9r\xf0\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xcf#\x8d\xc9\xa8\x80\x10'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xffA\x05$\x1dle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\x00\x80\x00\x00gle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goog\x00\x04.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBl\x10.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww^\x96google.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.g\x00\x00\x80\x00e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\xdaool\x14\xb3com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\xaf\xd6\xf5\xa4j\x06\xd5\x1ee.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogl'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google\x01com '
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'w~w.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b' w\x7f\xff\xff\xff\x00\x00\x00\xc9\x00c\x00\n\x00.'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x00\x00\x00\x00\x00.com\n\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\x00\x00le.cH\xda\x1b\xc3\x18w\xc2\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwwww.googleom\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\xb6\xa5+\xaa\xb5R\xdf\x10\xb8\xff\xdd\x80'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffog\x00\x00\x80\x00om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xf7\xff\xff\xffogle\xbc\x04Ne\xc8A\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle>com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xdf\xc7\x8d+\xaaBle.com\x11'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xf3ww.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'h;\xc0\xc5\xce\x19A>le.co\xff'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\xcf\xe4\xa6\xca\xaeY\x08k<\xd4:\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8f+\xaaBl\xc4.c0N\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goo\xc90\xbb7com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\x10\xff\xffogl\n.come'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xff\xff\xff\xff\x00\x01\x00\x00le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'oC\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8dy\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\xf8?\x10\x00gle.'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b"QM\xc4\xfd\x80'\xb0"
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x00\x00\x00\x00\x00e.com\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.co@\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.golgoe.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xff\xeagle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xf6$\x8aD)h\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googloo'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffo\x00\x00\x00\x01com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.c\xff\xff\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'Y(_\xacg{\xff\xffY(_\xac4m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.gooole.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x99\x07N\xe0\xdd'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xbf\xdd.\x8d\xd1\x8e\x04je.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x7f\x98D\x15Y\x02@d\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x84\x9a;\x18\xff\xcd\x07\xcdo'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\x00\x00\x00\x00\x00\x00om\n\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.m\nm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googl\x00.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x10.\x1d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.bom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.gnogl\x01\x08com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\x7fgo\xd8HQ\x9f.c\xff\xff(\xd8S\x10\xaf\x00s\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xff\xff\xff\x7fgoogle\xc5co\x1b\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\x00\x00\x00\x00.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\x00\x19\x0b\xff.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\x7fo\xebJcom\n\x00\x005\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffo\x8c\xb25\xe0h\x89\x02+'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.P\xa9%\x7f\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xc5.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBl\x00\x00\x00\n\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x01\xe5googl'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xbes'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xff\xfaU\x00\t\x17%\x10 \n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.ww.googl'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwwdgoogle.com\n'
+Coverage:  146
+Data:  146
+AFTER Data:  0
+Outtttttter : 146
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com*'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x95w.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBlcom\nm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffog\ne.coml'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xff\xff\xff\xff\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xffw.google.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xa4mw.google.cow\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\xea\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x01w\xff\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'w\x00\x00\x80\x00\x00\x00\x01le.com'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x00\x00\x00\x00\xb8com\n\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xff\x7fgle.\xffom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x00\x00l\x00\x00e.gom\n\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffo\x00\x00\x00\x00m\n\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\x7f\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\x7f\x00\x00\x00\x00.com\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffog.\nom\nmc'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wu\x05\xe5\xf7\xecogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x00\x00google.c\x00\x00\n\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'w2>}\x9e}a\xd6\xc1e.c'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+lB\x00\x00\x00\x01\xd2\xd2'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xf0e.google.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xff\x7fw.googke.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.c\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x7fww.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'w\xe5\xab\x83\xacoogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\n.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaa\xd3Ye.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xaf\xa8\xde\xe2\x90\x11\x95\xe6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\x01ogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x8c\xe2\x08\x830v+'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\x00\x04\xf8\x9b,\x86e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\x05\xff\xff\x05e.co\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goo\x0f\xea\xd4\x1e[B|{\xdf#\x85\xa2\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\xf2oo$\x8a\xf5]\xf4,\xb6\r'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.c\xffm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\x00\x01\x02\x00com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\x00\x01google.cOm\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b';\xf6\x17\x10\xff\xff\x00\x00\x03e.\x03em\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.mo\x8bF\xd1\xe7\xe7|\xed\x9e\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x04\x00\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x00\x00\x00\x01ogle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.;\xb3O\xefle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xff\xff\xff\xffg\x02\x00gme.cjl\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8dm\xaaBle.co+\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'wwd.c+uw.c'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.go\x80\x00le.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.c\x7fmd'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x00ww.+\x8d\xaaBle.\x00\x00\x80\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goo\xe7le.oogl'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\x16\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\xee\xbbd\xa4\x0f\xc1.\xb5\x05om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaB\x05\xff\xff\x05om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xff\xff\xff\x7foogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goo\x00\x01\x00\x00com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.\xffom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\x00\x80google.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xca\xa9\xdb\x00d\x17\xb7\xd6b\xfe.\xd4\xcf\x00*'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d\x00\x00le.com\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.\x00\x00\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'C^\xc9ZgooglMV\xd1\x90m\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.g\xb5Z\xa0\x7f\x05\x8d<\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\xa3\xa1KA\xf5tT\xaf\x85@\x91\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\x08\xf0google.co\xfc\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.comV\xf7}!\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaB\xb5f\n\xcco\n\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\x92I[\x15gle\xff\xff\xff\xff\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\r\xee\x8a^'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x8c\xeb\xd3Yoogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'%\x99E\xeagoog\xc3d\x00\x00o\x05\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x04\x00\xff\xff\xff\x04c\x1e\xddB\x9e\x99Zm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\xa8oogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBlele.co'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\xe7oog\xe7\xd9,\xb4oml'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaa\x8d+\xaa\xffl'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googm\n.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\x80\x00oogle\xa2\xeaom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www\x98\x8bd\xdd\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xe0\xe5\xc6\x13\xb7\x05[\xb6.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.a\xee\xd7\xe6\xad\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\x007\xe1J\xff\x00:>\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w\xff\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www\x00\x00y7\xbc\xc0om\n\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x00\x00\x00\x00\x00\x00\x00\x00\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00$|'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\xa1oogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaB+\xaaBl'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffoglegl'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle*com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.coe\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.\x05\xff\xff\x05'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goo\x00\x00\x00m \x00\x00\x00\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.coo\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.ooogle.cgm\n'
+Coverage:  146
+Data:  146
+AFTER Data:  0
+Outtttttter : 146
+DEBUG buf:  b'www.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.c\x0cm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wyw\x00\x00\x00\x00\xb1n\xe2\x9f\xc0\x12\x00\x00P\x98\xed\xbd'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'oow.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.googlB\x04\xcdu\x12\xab\xdc\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xa6\x0c-\xe8\xf7\xb5\xddC\xa3\x00\x00\x00\x00\x00\x089]\xe5\x04K\x06B\x9fdE\xad\x89\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xdb\xfbP\xe7.com\n\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xc3\x8d\xaf\xaaBle.com\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBoe.clm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.go\ngle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\xb4\xc6\xda.com\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n!\x86'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.g\x10\x00gle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwwgle.gle.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.g\x83\x01~\xabE\xeaK\xcbmw'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'wwe.\x8d+\xaaHlw.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'\x15\x9b?\xb4\xc23\x04x\x1b\x15.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.c\x00\x10\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle,co\xa6\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\x00\x00googl\xf6.com\n\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\x02\x00\xff\xffogle\xd3\xaf\n\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xfeogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\x7f\xf7o\xff\xff\xff\xffcom\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googl\xbd\r\xd1cm\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffoeu\xaf\nE\xc04p'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'w\xbb\xae\x99\xbd\x00\x00\x01 e.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.googl\x00\x00\x00\x00m\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goo\x00e.com\x00\x00\x00'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffo\xc4\xa8]\x85com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.co\xc1B\xb0wd\xe9\xb3\xee\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.e.'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'@ww.google.com\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.ocm\xce'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b't\xf0\xa7-\xe6\x93!'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.goo\x8a\xbbe.co\x01\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'\x03/c\x0e[+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.\x8d+\xaaBle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www..ooglegcom\n'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b'ww\xff\xff\xff\xffoglec.om\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'w4\xb4"!e.com\n\x00\x00\x00\x00\x00\x00\x00\x00'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.co'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b'www.google.com\n'
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\xff\xff\xffogle.com\n'
+Coverage:  10
+Data:  10
+AFTER Data:  0
+Outtttttter : 10
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'www.goog'
+Coverage:  143
+Data:  143
+AFTER Data:  0
+Outtttttter : 143
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b''
+Coverage:  130
+Data:  130
+AFTER Data:  0
+Outtttttter : 130
+DEBUG buf:  b'ww\xff\x00\x04oglS.c\x00M\n\x00\x00'
+Coverage:  10
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0
+OUTER coverage:  0

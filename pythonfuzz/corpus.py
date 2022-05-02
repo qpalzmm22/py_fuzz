@@ -1,6 +1,9 @@
+import collections
 import hashlib
 import os
 from pathlib import Path
+from re import S
+from traceback import print_tb
 from zipfile import ZIP_BZIP2
 
 from numpy import TooHardError
@@ -22,14 +25,14 @@ INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 class Corpus(object):
     def __init__(self, dirs=None, max_input_size=4096, dict_path=None):
         self._inputs = []
-        self._path = [] # path of a input
-        self._total_path = []
+        self._path = dict() # path of a input
+        self._total_path = collections.defaultdict(set)
         
         self._extensions = []
         self._depth = [] # input depth of mutate
         self._mutated = [] # Mutated or not
         
-        self._favored = [] # favored of a branch, set?
+        self._favored = collections.defaultdict(set) # favored of a branch, set?
         self._time = []
         self._size = []
 
@@ -51,7 +54,6 @@ class Corpus(object):
                         self._add_file(fname)
                         self._extensions.append(Path(fname).suffix)
 
-
         self._seed_run_finished = not self._inputs
         self._seed_idx = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
@@ -67,7 +69,6 @@ class Corpus(object):
         if n < 2:
             return 0
         return _randbelow(n)
-
 
     def _add_file(self, path):
         with open(path, 'rb') as f:
@@ -85,6 +86,24 @@ class Corpus(object):
     def put_extension(self, extension):
         self._extensions.append(extension)
 
+    def InitLoop(self):
+        if self._dirs == None:
+            return 0
+        
+        for i, path in enumerate(self._dirs):
+            if i == 0 and not os.path.exists(path):
+                os.mkdir(path)
+
+            if os.path.isfile(path):
+                self._add_file(path)
+                self._extensions.append(Path(path).suffix)
+            else:
+                for i in os.listdir(path):
+                    fname = os.path.join(path, i)
+                    if os.path.isfile(fname):
+                        self._add_file(fname)
+                        self._extensions.append(Path(fname).suffix)
+
     def Isinteresting():
         print()
 
@@ -98,8 +117,6 @@ class Corpus(object):
             if self._seed_idx >= len(self._inputs):
                 self._seed_run_finished = True
             return next_input
-        
-        # TODO seed selection
 
         buf = self._inputs[self._rand(len(self._inputs))]
         mutator = mutate.Mutator(buf, len(self._inputs), self._max_input_size, self._dictpath)
