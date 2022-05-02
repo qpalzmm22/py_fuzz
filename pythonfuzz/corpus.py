@@ -12,7 +12,9 @@ from . import mutation
 
 class Corpus(object):
     def __init__(self, dirs=None, max_input_size=4096, dict_path=None):
+        # inputs and path are coordinated with index
         self._inputs = []
+        self._total_path = set()
         self._dirs = dirs if dirs else []
         for i, path in enumerate(dirs):
             if i == 0 and not os.path.exists(path):
@@ -27,9 +29,10 @@ class Corpus(object):
                         self._add_file(fname)
         self._seed_run_finished = not self._inputs
         self._seed_idx = 0
+        self._select_idx = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
-        self._inputs.append(bytearray(0))
         self._mutation = mutation.Mutation(max_input_size, dict_path)
+        self._inputs.append(bytearray(0))
 
     def _add_file(self, path):
         with open(path, 'rb') as f:
@@ -48,13 +51,34 @@ class Corpus(object):
             with open(fname, 'wb') as f:
                 f.write(buf)
 
-    def generate_input(self):
-        if not self._seed_run_finished:
-            next_input = self._inputs[self._seed_idx]
-            self._seed_idx += 1
-            if self._seed_idx >= len(self._inputs):
+    # returns the index of the input
+    def seed_selection(self):
+        idx = self._seed_idx
+        
+        self._seed_idx += 1
+        if self._seed_idx >= len(self._inputs):
+            self._seed_idx = 0
+            if not self._seed_run_finished:
                 self._seed_run_finished = True
-            return next_input
+        return idx
+    
+    def isInteresting(self, coverage):
+        orig_len = len(self._total_path)
+        for edge in coverage :
+            self._total_path.add(edge)
+        
+        #self._total_path = self._total_path.union(coverage)
+        if(orig_len < len(self._total_path)):
+            return True
+        else:
+            return False
+    
+    def generate_input(self):
+        
+        buf_ind = self.seed_selection()
 
-        buf = self._inputs[self._mutation._rand(len(self._inputs))]
-        return buf
+        buf = self._inputs[buf_ind]
+        if self._seed_run_finished:
+            return self._mutation.mutate(buf)
+        else: 
+            return buf

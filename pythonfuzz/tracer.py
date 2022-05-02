@@ -7,8 +7,12 @@ prev_filename = ''
 func_filename = ''
 func_line_no = 0
 
-edges = collections.defaultdict(set)
-coverage = collections.defaultdict(set)
+
+# TODO
+# refactor name, "edges" to "edges_hit_count" or something like that
+edges = {}
+#edges = collections.defaultdict(set)
+#coverage = collections.defaultdict(set)
 index = 0
 
 
@@ -26,9 +30,9 @@ def trace(frame, event, arg):
         # We need a way to keep track of inter-files transferts,
         # and since we don't really care about the details of the coverage,
         # concatenating the two filenames in enough.
-        add_to_set(func_filename + prev_filename, prev_line, func_line_no)
+        add_to_set(func_filename + ":" + str(prev_line) + prev_filename + ":" + str(func_line_no))
     else:
-        add_to_set(func_filename, prev_line, func_line_no)
+        add_to_set(func_filename + ":" + str(prev_line) + ":" + str(func_line_no))
     
 
     prev_line = func_line_no
@@ -37,36 +41,37 @@ def trace(frame, event, arg):
     return trace
 
 
-def add_to_set(fname, prev_line, cur_line):
+def add_to_set(edge):
     #print(fname, " ", prev_line, " ", cur_line)
-    if not edges.get(fname):
-        edges[fname] = collections.defaultdict(int)
-    edges[fname][(prev_line,cur_line)] = edges[fname][(prev_line, cur_line)] + 1
+    if not edges.get(edge):
+        edges[edge] = 0
+    edges[edge] = edges[edge] + 1
 
 
-def get_coverage():
+def get_coverage(coverage):
     global edges
-    
-    for filename in edges:
-        for edge in edges[filename]:
-            if(edges[filename][edge] <= 1):
-                coverage[filename].add((edge, 0))
-            elif(edges[filename][edge] <= 2):
-                coverage[filename].add((edge, 1))
-            elif(edges[filename][edge] <= 3):
-                coverage[filename].add((edge, 2))
-            elif(edges[filename][edge] <= 16):
-                coverage[filename].add((edge, 3))
-            elif(edges[filename][edge] <= 32):
-                coverage[filename].add((edge, 4))
-            elif(edges[filename][edge] <= 64):
-                coverage[filename].add((edge, 5))
-            elif(edges[filename][edge] <= 128):
-                coverage[filename].add((edge, 6))
-            else:
-                coverage[filename].add((edge, 7))
-    
+
+    coverage.clear()
+
+    for edge in edges:
+        if(edges[edge] <= 1):
+            coverage[edge] = 0
+        elif(edges[edge] <= 2):
+            coverage[edge] = 1
+        elif(edges[edge] <= 3):
+            coverage[edge] = 2
+        elif(edges[edge] <= 16):
+            coverage[edge] = 3
+        elif(edges[edge] <= 32):
+            coverage[edge] = 4
+        elif(edges[edge] <= 64):
+            coverage[edge] = 5
+        elif(edges[edge] <= 128):
+            coverage[edge] = 6
+        else:
+            coverage[edge] = 7
+    #print(coverage)
     edges = {}
-    return sum(map(len, coverage.values()))
+    return coverage
 
 
