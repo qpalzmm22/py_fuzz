@@ -57,4 +57,4 @@ class Corpus(object):
             return next_input
 
         buf = self._inputs[self._mutation._rand(len(self._inputs))]
-        return self._mutation.mutate(buf)
+        return buf
