@@ -17,27 +17,32 @@ import sys
 
 
 cdic = dict()
-cdic['1'] = [] # key - coverage
-cdic['2'] = [] # key - coverage
-cdic['3'] = [] # key - coverage
+cdic['1'] = 0 #[] # key - coverage
+cdic['2'] = 0 #[] # key - coverage
+#cdic['3'] = [] # key - coverage
 
-cdic['1'].append("zz") #
-cdic['1'].append("zz") #
-cdic['2'].append("zz") #
-cdic['3'].append("zz") #
-cdic['1'].append("zz")
+#cdic['1'].append("zz") #
+#cdic['1'].append("zz") #
+#cdic['2'].append("zz") #
+#cdic['3'].append("zz") #
+#cdic['1'].append("zz")
 
-len(cdic['1']) # hit count
+cdic['1'] = cdic['1'] + 1
+cdic['1'] = cdic['1'] + 1
+cdic['1'] = cdic['1'] + 1
+cdic['2'] = cdic['2'] + 1
+
+#len(cdic['1']) # hit count
 #.append(mydic['one'])
 
 print("=================")
 
 print(cdic['1'])
+print(cdic.keys())
 print(cdic.values())
-print(cdic['1'].count('zz'))
-print(cdic['2'].count('zz'))
-print(cdic['1'].index('zz'))
-print(sum(map(len, cdic.values())))
+#print(cdic['2'].count('zz'))
+#print(cdic['1'].index('zz'))
+#print(sum(map(len, cdic.values())))
 
 
 #print(a['one'].pop)

@@ -19,9 +19,7 @@ INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 
 
 class Mutator:
-    def __init__(self, buf=None, lens=0, max_size=0, dict_path = None):
-        self._buf = buf
-        self._lens = lens
+    def __init__(self, max_size=4096, dict_path = None):
         self._max_input_size = max_size
         self._dict = dictionnary.Dictionary(dict_path)
 
@@ -61,14 +59,14 @@ class Mutator:
         byte_to_copy = min(end_source-start_source, end_dst-start_dst)
         src[start_source:start_source+byte_to_copy] = dst[start_dst:start_dst+byte_to_copy]
 
-    def mutate(self):
-        res = self._buf[:]
+    def mutate(self, buf):
+        res = buf[:]
         nm = self._rand_exp()
         for i in range(nm):
             # Remove a range of bytes.
             x = self._rand(17)
             if x == 0:
-                if self._lens <= 1:
+                if len(res) <= 1:
                     i -= 1
                     continue
                 pos0 = self._rand(len(res))

@@ -8,7 +8,7 @@ prev_filename = ''
 func_filename = ''
 func_line_no = 0
 
-data = dict()
+data = {}
 crashes = collections.defaultdict(set) #added
 coverage = collections.defaultdict(set) 
 index = 0
@@ -31,8 +31,10 @@ def trace(frame, event, arg):
         # and since we don't really care about the details of the coverage,
         # concatenating the two filenames in enough.
         add_to_set(func_filename + ":" + prev_filename + ":" + str(prev_line) + ":" + str(func_line_no))
+        #data[]
     else:
         add_to_set(func_filename + ":" + str(prev_line) + ":" + str(func_line_no))
+        #data[]
 
     prev_prev_prev_line = prev_prev_line
     prev_prev_line = prev_line
@@ -42,17 +44,12 @@ def trace(frame, event, arg):
     return trace
 
 def add_to_set(edge):
-#    print("DEBUG ", edge)
-    global data
-    try:
-        data[edge].append("hit")
-    except KeyError:
-        data[edge] = []
-        data[edge].append("hit")
+    if data.get(edge) is None:
+        data[edge] = 0
+    data[edge] = data[edge] + 1
 
 def get_coverage(coverage):
     global data 
-
     # TODO test
     global prev_line
     global prev_filename
@@ -60,13 +57,32 @@ def get_coverage(coverage):
     prev_line = 0
     prev_filename = ''
 
-    coverage = data
-    print("Coverage: ", sum(map(len, coverage.values())))
-    print("Data: ", sum(map(len, data.values())))
+    coverage.clear()
+    for edge in data:
+        if(data[edge] <= 1):
+            coverage[edge] = 0
+        elif(data[edge] <= 2):
+            coverage[edge] = 1
+        elif(data[edge] <= 3):
+            coverage[edge] = 2
+        elif(data[edge] <= 16):
+            coverage[edge] = 3
+        elif(data[edge] <= 32):
+            coverage[edge] = 4
+        elif(data[edge] <= 64):
+            coverage[edge] = 5
+        elif(data[edge] <= 128):
+            coverage[edge] = 6
+        else:
+            coverage[edge] = 7  
+
+#    for edge in coverage:
+#        print(edge, " ",  coverage[edge].count('hit'))
+
+#    print("Coverage: ", sum(map(len, coverage.values())))
+#    print("Data: ", sum(map(len, data.values())))
 
     data = {}
-    print("AFTER Data: ", sum(map(len, data.values())))
-
     return coverage
 
 def get_crash():
@@ -77,3 +93,6 @@ def set_crash():
 #   print(func_filename, "p: ", prev_prev_prev_line, "f: ", prev_prev_line)
     global index
     index = sum(map(len, crashes.values()))
+
+def dummy():
+    return 100

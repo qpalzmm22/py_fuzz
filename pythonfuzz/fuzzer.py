@@ -4,9 +4,6 @@ import os
 import sys
 import time
 import sys
-from tracemalloc import Trace
-from isort import file
-from numpy import convolve, cov
 import psutil
 import hashlib
 import logging
@@ -64,7 +61,7 @@ def worker(self, child_conn, coverage):
         try:
             with time_limit(self._timeout):
                 sys.settrace(tracer.trace)
-                print("DEBUG buf: ", buf)
+ #               print("DEBUG buf: ", buf)
                 self._target(buf)
         except (Exception, TimeoutException) as e:
                 tracer.set_crash()
@@ -81,15 +78,14 @@ def worker(self, child_conn, coverage):
                         child_conn.send(e)
                     else:
                         coverage = tracer.get_coverage(coverage)
-                        print("Outtttttter :", sum(map(len, coverage.values())))
-                        child_conn.send_bytes(b'%d' % tracer.get_crash())
+    #                    print("Outtttttter11111 :", sum(map(len, coverage.values())))
+                        child_conn.send_bytes(b'1')
      #                  sys.settrace(tracer.trace)
 
         else:
             sys.settrace(None)
             coverage = tracer.get_coverage(coverage)
-            print("Outtttttter :", sum(map(len, coverage.values())))
-            child_conn.send_bytes(b'%d' % tracer.get_crash())
+            child_conn.send_bytes(b'1')
 #           sys.settrace(tracer.trace)
 
 
@@ -172,26 +168,6 @@ class Fuzzer(object):
 
         self._p = mp.Process(target=worker, args=(self, child_conn, coverage)) #added
         self._p.start()
-        
-        for i in (self._corpus._inputs):
-            buf = self._corpus.generate_input()
-            print("DEBUG INIT buf: ", buf)
-            parent_conn.send_bytes(buf)
-            if not parent_conn.poll(self._timeout):
-                logging.info("=================================================================")
-                logging.info("timeout reached. testcase took: {}".format(self._timeout))
-                self.write_sample(buf, prefix='timeout-')
-                if not self._inf_run:
-                    self._p_kill()
-                    break
-                else:
-                    self._hangs += 1
-                    continue
-            try:
-                a = int(parent_conn.recv_bytes()) # total_coverage >> C(input), time
-                print("OUTER INIT coverage: ", sum(map(len, coverage.values())))
-            except ValueError:
-                print("ff")
 
         while True:
             if self.runs != -1 and self._total_executions >= self.runs:
@@ -215,9 +191,7 @@ class Fuzzer(object):
 
             try:
                 total_coverage = int(parent_conn.recv_bytes()) # total_coverage >> C(input), time
-                print("OUTER coverage: ", sum(map(len, coverage.values())))
-                # coverage, time = tracer.get_coverage()
-                # corpus update
+#                print("OUTER coverage: ", sum(map(len, coverage.values())), " ", total_coverage)
             except ValueError:
                 self._crashes += 1
                 self.write_sample(buf)
@@ -229,9 +203,9 @@ class Fuzzer(object):
             self._executions_in_sample += 1
             rss = 0
 
-            if total_coverage > self._total_coverage:  # TODO Isinteresting(path, Queue)
+            if self._corpus.Isinteresting(coverage):  # TODO Isinteresting(path, Queue)
                 rss = self.log_stats("NEW")
-                self._total_coverage = total_coverage
+                self._total_coverage = len(self._corpus._total_path)
                 self._corpus.put(buf)
                     # UpdateFavored
             else:
