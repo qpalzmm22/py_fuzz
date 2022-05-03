@@ -48,6 +48,8 @@ def add_to_set(edge):
 
 def get_coverage():
     global edges
+    global prev_line
+    global prev_filename
 
     coverage = {}
 
@@ -70,6 +72,9 @@ def get_coverage():
             coverage[edge] = 7
     #print(coverage)
     edges = {}
+    prev_line = 0
+    prev_filename = ""
+
     return coverage
 
 
