@@ -173,6 +173,7 @@ class Fuzzer(object):
 
             buf = self._corpus.generate_input()
             start = time.time()
+      #      print("Debug", buf[0], " ", buf[1])
             parent_conn.send_bytes(buf[1])
             
             if not parent_conn.poll(self._timeout):
@@ -208,7 +209,7 @@ class Fuzzer(object):
                 rss = self.log_stats("NEW")
                 self._total_coverage = len(self._corpus._total_path)
                 self._corpus.put(buf[1])
-         #       self._corpus.UpdatedFavored(buf, end-start, self._run_coverage)
+         #       self._corpus.UpdatedFavored(buf[1], buf[0], end-start, self._run_coverage)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')

@@ -2,6 +2,7 @@ import collections
 import hashlib
 import os
 from pathlib import Path
+from random import random
 from re import S
 from traceback import print_tb
 from zipfile import ZIP_BZIP2
@@ -28,6 +29,7 @@ class Corpus(object):
         self._run_time = [] # running time of inputs
         self._mutated = [] # Mutated or not
         self._depth = [] # input depth of mutate
+        self._is_favored = [] # favored or not
         
         self._total_path = set()
         self._favored = collections.defaultdict(set)
@@ -52,9 +54,9 @@ class Corpus(object):
 
         self._seed_run_finished = not self._inputs
         self._seed_idx = 0
-        self._zz = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
         self._inputs.append(bytearray(0))
+        self._put_inputs()
 
     @property
     def length(self):
@@ -66,12 +68,22 @@ class Corpus(object):
             return 0
         return _randbelow(n)
 
+    def _put_inputs(self):
+        self._run_time.append(0)
+        self._mutated.append(0)
+        self._depth.append(0)
+        self._is_favored.append(0)
+        
+
+
     def _add_file(self, path):
         with open(path, 'rb') as f:
             self._inputs.append(bytearray(f.read()))
+            self._put_inputs()
    
     def put(self, buf):
         self._inputs.append(buf)
+        self._put_inputs()
         if self._save_corpus:
             m = hashlib.sha256()
             m.update(buf)
@@ -90,38 +102,75 @@ class Corpus(object):
             return False
 
     def set_time(self, idx, time):
-        if self._run_time[idx] > time:
-            self._run_time[idx] = time
+        self._run_time.insert(idx, time)
 
-    def UpdatedFavored(self, buf, time, coverage):
-        isize = len(buf) * time
+    def get_index(self, input):
+            return self._inputs.index(input)
         
+            
+    def UpdatedFavored(self, buf, index, time, coverage):
+        isize = len(buf) * time
+
         for edge in coverage:
             if self._favored[edge] is None:
                 self._favored[edge] = buf
-            if (isize < (len(self._favored[edge]) * self.get_time(self._favored[edge]))):
+                self._is_favored[index] = 1
+            
+            idx = self.get_index(self._favored[edge])
+            if (isize < (len(self._favored[edge]) * self._run_time[idx])):
                 self._favored[edge] = buf
+                self._is_favored[idx] = 1
     
-    def init_run(self):
-        print("z")
+    def there_is_uumutated_favored(self):
+        mutated = 0 #self._mutated.count(1)
+        mutated_favor = 0
+        for i, inp in enumerate(self._inputs):
+            if self._mutated[i] == 1:
+                mutated += 1
+            elif self._is_favored[i] == 1 & self._mutated[i] == 1:
+                mutated_favor += 1
+        
+        print("there")
+
+        if mutated != mutated_favor:
+            return True
+        else:
+            return False      
 
     def seed_selection(self):
+        for idx in range(len(self._inputs)):
+            if self._is_favored[idx] == 1:
+                print(idx)
+                return idx
+            else:
+                if self.there_is_uumutated_favored():
+                    if random() >= 0.01:
+                        continue
+                elif self._mutated[idx] == 0:
+                    if random() >= 0.05:
+                        continue
+                else:
+                    if random() >= 0.25:
+                        continue 
+                return idx
 
-        print("z")
 
     def generate_input(self):
         if not self._seed_run_finished:
             next_input = self._inputs[self._seed_idx]
+            self._mutated[self._seed_idx] = 1
+            self._depth[self._seed_idx] += 1 
             self._seed_idx += 1
             if self._seed_idx >= len(self._inputs):
                 self._seed_run_finished = True
-            return next_input
+            return (self._seed_idx-1, next_input)
 
-        idx = self.seed_selection(self)        
+#       idx = self.seed_selection()
 
         idx = self._rand(len(self._inputs))
         buf = self._inputs[idx]
         self._mutated[idx] = 1
         self._depth[idx] += 1
+#        print("DDDEUBG ", idx, " ", buf)
 
         return (idx, self._mutation.mutate(buf))

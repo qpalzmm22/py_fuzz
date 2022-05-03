@@ -1,4 +1,5 @@
 import collections
+from random import random
 import sys
 from time import sleep, time
 
@@ -59,5 +60,9 @@ t = end - start
 
 print(end - start)
 
-if t < 0.009:
-    print("zz")
+print(random())
+
+numbers = ['one', 'two', 'three', 'four', 'five']
+
+for n in numbers:
+    print(n)
