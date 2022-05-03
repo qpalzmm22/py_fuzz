@@ -51,8 +51,6 @@ def get_coverage():
 
     coverage = {}
 
-    #coverage.clear()
-
     for edge in edges:
         if(edges[edge] <= 1):
             coverage[edge] = 0

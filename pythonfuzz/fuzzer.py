@@ -1,3 +1,5 @@
+# TODO : Refactor names isInteresting and updateFavored
+
 import os
 import sys
 import time
@@ -44,17 +46,11 @@ def worker(self, child_conn):
             sys.settrace(tracer.trace)
             self._target(buf)
         except Exception as e:
+            sys.settrace(None)
+            child_conn.send(None)
+            logging.exception(e)
             if not self._inf_run:
-                child_conn.send(None)
-                logging.exception(e)
                 break
-            else:
-                sys.settrace(None)
-                logging.exception(e)
-                #coverage = tracer.get_coverage(coverage)
-                run_coverage = tracer.get_coverage()
-                #print(coverage)
-                child_conn.send(run_coverage)
 
         else:
             sys.settrace(None)
@@ -83,7 +79,7 @@ class Fuzzer(object):
         self._timeout = timeout
         self._regression = regression
         self._close_fd_mask = close_fd_mask
-        self._corpus = corpus.Corpus(self._dirs, max_input_size, dict_path)
+        self._corpus = corpus.Corpus(self._dirs, max_input_size, dict_path, timeout)
         self._total_executions = 0
         self._executions_in_sample = 0
         self._last_sample_time = time.time()
@@ -139,7 +135,8 @@ class Fuzzer(object):
                 self._p.terminate()
                 logging.info('did %d runs, stopping now.', self.runs)
                 break
-
+        
+            start_time = time.time()
             buf = self._corpus.generate_input()
 
             parent_conn.send_bytes(buf)
@@ -152,17 +149,9 @@ class Fuzzer(object):
                 else:
                     self._p.kill()
                     break
-            '''
-            try:
-                self._run_coverage = parent_conn.recv()
-            except ValueError:
-                self._crashes += 1
-                self.write_sample(buf)
-                if not self._inf_run: # added
-                   exit_code = 76
-                   break
-            '''
+
             self._run_coverage = parent_conn.recv()
+            end_time = time.time()
             if self._run_coverage is None :
                 self._crashes += 1
                 self.write_sample(buf)
@@ -170,23 +159,15 @@ class Fuzzer(object):
                    exit_code = 76
                    break
                 continue
-                
+
             self._total_coverage = len(self._corpus._total_path)
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
-            '''
-            if total_coverage > self._total_coverage:
+            if self._corpus.is_interesting(self._run_coverage):
                 rss = self.log_stats("NEW")
-                sulf._total_coverage = total_coverage
-                self._corpus.put(buf)
-            '''
-            #print("OUTTER coverage")
-            #print(run_coverage)
-
-            if self._corpus.isInteresting(self._run_coverage):
-                rss = self.log_stats("NEW")
-                self._corpus.put(buf)
+                idx = self._corpus.put(buf)
+                self._corpus.update_favored(idx, buf, end_time - start_time, self._run_coverage)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')
