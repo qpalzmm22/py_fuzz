@@ -52,6 +52,7 @@ class Corpus(object):
 
         self._seed_run_finished = not self._inputs
         self._seed_idx = 0
+        self._zz = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
         self._inputs.append(bytearray(0))
 
@@ -88,18 +89,26 @@ class Corpus(object):
         else:
             return False
 
-    def get_time(self, idx, time):
-
-        return 1
+    def set_time(self, idx, time):
+        if self._run_time[idx] > time:
+            self._run_time[idx] = time
 
     def UpdatedFavored(self, buf, time, coverage):
+        isize = len(buf) * time
+        
         for edge in coverage:
             if self._favored[edge] is None:
                 self._favored[edge] = buf
-            
-            if (len(buf) * time) < (len(self._favored[edge]) * self.get_time(self._favored[edge])):
+            if (isize < (len(self._favored[edge]) * self.get_time(self._favored[edge]))):
                 self._favored[edge] = buf
     
+    def init_run(self):
+        print("z")
+
+    def seed_selection(self):
+
+        print("z")
+
     def generate_input(self):
         if not self._seed_run_finished:
             next_input = self._inputs[self._seed_idx]
@@ -108,9 +117,11 @@ class Corpus(object):
                 self._seed_run_finished = True
             return next_input
 
+        idx = self.seed_selection(self)        
+
         idx = self._rand(len(self._inputs))
         buf = self._inputs[idx]
         self._mutated[idx] = 1
         self._depth[idx] += 1
 
-        return idx, self._mutation.mutate(buf)
+        return (idx, self._mutation.mutate(buf))

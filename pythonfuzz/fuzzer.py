@@ -173,7 +173,7 @@ class Fuzzer(object):
 
             buf = self._corpus.generate_input()
             start = time.time()
-            parent_conn.send_bytes(buf)
+            parent_conn.send_bytes(buf[1])
             
             if not parent_conn.poll(self._timeout):
                 logging.info("=================================================================")
@@ -188,6 +188,8 @@ class Fuzzer(object):
 
             self._run_coverage = parent_conn.recv() # total_coverage >> C(input), time
             end = time.time()
+            self._corpus.set_time(buf[0], end-start)
+
             if self._run_coverage is None:
                 self._crashes += 1
                 self.write_sample(buf)
@@ -205,7 +207,7 @@ class Fuzzer(object):
             if self._corpus.Isinteresting(self._run_coverage):  # TODO Isinteresting(path, Queue)
                 rss = self.log_stats("NEW")
                 self._total_coverage = len(self._corpus._total_path)
-                self._corpus.put(buf)
+                self._corpus.put(buf[1])
          #       self._corpus.UpdatedFavored(buf, end-start, self._run_coverage)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
@@ -213,7 +215,7 @@ class Fuzzer(object):
 
             if rss > self._rss_limit_mb:
                 logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))
-                self.write_sample(buf)
+                self.write_sample(buf[1])
                 self._crashes += 1
                 if not self._inf_run:
                     self._p.kill()
