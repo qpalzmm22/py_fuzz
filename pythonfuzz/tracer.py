@@ -11,8 +11,6 @@ func_line_no = 0
 # TODO
 # refactor name, "edges" to "edges_hit_count" or something like that
 edges = {}
-#edges = collections.defaultdict(set)
-#coverage = collections.defaultdict(set)
 index = 0
 
 
@@ -48,10 +46,12 @@ def add_to_set(edge):
     edges[edge] = edges[edge] + 1
 
 
-def get_coverage(coverage):
+def get_coverage():
     global edges
 
-    coverage.clear()
+    coverage = {}
+
+    #coverage.clear()
 
     for edge in edges:
         if(edges[edge] <= 1):
