@@ -1,5 +1,3 @@
-from ast import Pass
-from cgi import print_form
 import os
 import sys
 import time
@@ -42,7 +40,7 @@ def time_limit(seconds):
     finally:
         signal.alarm(0)
 
-def worker(self, child_conn, coverage):
+def worker(self, child_conn):
     # Silence the fuzzee's noise
     class DummyFile:
         """No-op to trash stdout away."""
@@ -77,15 +75,15 @@ def worker(self, child_conn, coverage):
                         logging.exception(e)
                         child_conn.send(e)
                     else:
-                        coverage = tracer.get_coverage(coverage)
+                        run_coverage = tracer.get_coverage()
     #                    print("Outtttttter11111 :", sum(map(len, coverage.values())))
-                        child_conn.send_bytes(b'1')
+                        child_conn.send(run_coverage)
      #                  sys.settrace(tracer.trace)
 
         else:
             sys.settrace(None)
-            coverage = tracer.get_coverage(coverage)
-            child_conn.send_bytes(b'1')
+            run_coverage = tracer.get_coverage()
+            child_conn.send(run_coverage)
 #           sys.settrace(tracer.trace)
 
 
@@ -121,6 +119,7 @@ class Fuzzer(object):
         self._inf_run = inf_run # added
         self._crashes = 0
         self._hangs = 0
+        self._run_coverage = {}
         self._file_fuzz = file_fuzz # added
         self._file_extension = file_extension # added
 
@@ -163,10 +162,7 @@ class Fuzzer(object):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
         exit_code = 0
         parent_conn, child_conn = mp.Pipe()
-        manager = Manager()
-        coverage = manager.dict()
-
-        self._p = mp.Process(target=worker, args=(self, child_conn, coverage)) #added
+        self._p = mp.Process(target=worker, args=(self, child_conn)) #added
         self._p.start()
 
         while True:
@@ -176,6 +172,7 @@ class Fuzzer(object):
                 break
 
             buf = self._corpus.generate_input()
+            start = time.time()
             parent_conn.send_bytes(buf)
             
             if not parent_conn.poll(self._timeout):
@@ -189,25 +186,27 @@ class Fuzzer(object):
                     self._hangs += 1
                     continue
 
-            try:
-                total_coverage = int(parent_conn.recv_bytes()) # total_coverage >> C(input), time
-#                print("OUTER coverage: ", sum(map(len, coverage.values())), " ", total_coverage)
-            except ValueError:
+            self._run_coverage = parent_conn.recv() # total_coverage >> C(input), time
+            end = time.time()
+            if self._run_coverage is None:
                 self._crashes += 1
                 self.write_sample(buf)
                 if not self._inf_run: # added
                    exit_code = 76
                    break
+                continue
 
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
 
-            if self._corpus.Isinteresting(coverage):  # TODO Isinteresting(path, Queue)
+            #GGggself._corpus._path
+
+            if self._corpus.Isinteresting(self._run_coverage):  # TODO Isinteresting(path, Queue)
                 rss = self.log_stats("NEW")
                 self._total_coverage = len(self._corpus._total_path)
                 self._corpus.put(buf)
-                    # UpdateFavored
+         #       self._corpus.UpdatedFavored(buf, end-start, self._run_coverage)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')

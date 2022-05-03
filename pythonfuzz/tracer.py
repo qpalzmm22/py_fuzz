@@ -10,7 +10,6 @@ func_line_no = 0
 
 data = {}
 crashes = collections.defaultdict(set) #added
-coverage = collections.defaultdict(set) 
 index = 0
 
 def trace(frame, event, arg):
@@ -48,7 +47,7 @@ def add_to_set(edge):
         data[edge] = 0
     data[edge] = data[edge] + 1
 
-def get_coverage(coverage):
+def get_coverage():
     global data 
     # TODO test
     global prev_line
@@ -57,7 +56,7 @@ def get_coverage(coverage):
     prev_line = 0
     prev_filename = ''
 
-    coverage.clear()
+    coverage = {}
     for edge in data:
         if(data[edge] <= 1):
             coverage[edge] = 0
@@ -94,5 +93,3 @@ def set_crash():
     global index
     index = sum(map(len, crashes.values()))
 
-def dummy():
-    return 100

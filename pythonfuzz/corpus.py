@@ -25,17 +25,13 @@ INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 class Corpus(object):
     def __init__(self, dirs=None, max_input_size=4096, dict_path=None):
         self._inputs = []
-        self._path = dict() # path of a input
-        self._total_path = set()
-        
-        self._extensions = []
-        self._depth = [] # input depth of mutate
+        self._run_time = [] # running time of inputs
         self._mutated = [] # Mutated or not
+        self._depth = [] # input depth of mutate
         
-        self._favored = collections.defaultdict(set) # favored of a branch, set?
-        self._time = []
-        self._size = []
-
+        self._total_path = set()
+        self._favored = collections.defaultdict(set)
+        
         self._mutation = mutate.Mutator(max_input_size, dict_path)
 
         self._dictpath = dict_path
@@ -92,8 +88,17 @@ class Corpus(object):
         else:
             return False
 
-    def UpdatedFavored():
-        print()
+    def get_time(self, idx, time):
+
+        return 1
+
+    def UpdatedFavored(self, buf, time, coverage):
+        for edge in coverage:
+            if self._favored[edge] is None:
+                self._favored[edge] = buf
+            
+            if (len(buf) * time) < (len(self._favored[edge]) * self.get_time(self._favored[edge])):
+                self._favored[edge] = buf
     
     def generate_input(self):
         if not self._seed_run_finished:
@@ -103,6 +108,9 @@ class Corpus(object):
                 self._seed_run_finished = True
             return next_input
 
-        buf = self._inputs[self._rand(len(self._inputs))]
+        idx = self._rand(len(self._inputs))
+        buf = self._inputs[idx]
+        self._mutated[idx] = 1
+        self._depth[idx] += 1
 
-        return self._mutation.mutate(buf)
+        return idx, self._mutation.mutate(buf)

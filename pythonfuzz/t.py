@@ -1,8 +1,12 @@
 import collections
 import sys
+from time import sleep, time
 
-#mydic = dict() #collections.defaultdict(set)
-#mydic['one'] = []
+start = time()
+
+mydic = collections.defaultdict(set)
+mydic['one'] = 1
+mydic['one'] = 2
 
 #mydic['one'].insert(1)
 
@@ -11,9 +15,9 @@ import sys
 #mydic['one'].add(('fname1,2'))
 #mydic['one'].add(('fname2,1,2'))
 
-#print(list(mydic))
-#print(len(mydic))
-#print(mydic['one'])
+print(list(mydic))
+print(len(mydic))
+print(mydic['one'])
 
 
 cdic = dict()
@@ -46,3 +50,14 @@ print(cdic.values())
 
 
 #print(a['one'].pop)
+
+#sleep(1)
+
+end = time()
+
+t = end - start
+
+print(end - start)
+
+if t < 0.009:
+    print("zz")
