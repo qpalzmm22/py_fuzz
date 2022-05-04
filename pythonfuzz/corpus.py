@@ -32,7 +32,7 @@ class Corpus(object):
         self._is_favored = [] # favored or not
         
         self._total_path = set()
-        self._favored = collections.defaultdict(set)
+        self._favored = {} 
         
         self._mutation = mutate.Mutator(max_input_size, dict_path)
 
@@ -73,7 +73,6 @@ class Corpus(object):
         self._mutated.append(0)
         self._depth.append(0)
         self._is_favored.append(0)
-        
 
 
     def _add_file(self, path):
@@ -110,37 +109,26 @@ class Corpus(object):
             
     def UpdatedFavored(self, buf, index, time, coverage):
         isize = len(buf) * time
-
         for edge in coverage:
-            if self._favored[edge] is None:
+            if not edge in self._favored:
                 self._favored[edge] = buf
-                self._is_favored[index] = 1
-            
-            idx = self.get_index(self._favored[edge])
-            if (isize < (len(self._favored[edge]) * self._run_time[idx])):
-                self._favored[edge] = buf
-                self._is_favored[idx] = 1
+                self._is_favored[index] += 1
+            else:
+                favored_idx = self._inputs.index(self._favored[edge])
+                if (isize < (len(self._favored[edge]) * self._run_time[favored_idx])):
+                    self._favored[edge] = buf
+                    self._is_favored[favored_idx] -= 1
+                    self._is_favored[index] += 1
     
     def there_is_uumutated_favored(self):
-        mutated = 0 #self._mutated.count(1)
-        mutated_favor = 0
-        for i, inp in enumerate(self._inputs):
-            if self._mutated[i] == 1:
-                mutated += 1
-            elif self._is_favored[i] == 1 & self._mutated[i] == 1:
-                mutated_favor += 1
-        
-        print("there")
+        for i in range(len(self._inputs)):
+            if self._refcount[i] > 0 and self._mutated[i] is False :
+               return True
+        return False
 
-        if mutated != mutated_favor:
-            return True
-        else:
-            return False      
-
-    def seed_selection(self):
+    def seed_selection(self): #TODO: while
         for idx in range(len(self._inputs)):
             if self._is_favored[idx] == 1:
-                print(idx)
                 return idx
             else:
                 if self.there_is_uumutated_favored():
@@ -165,9 +153,9 @@ class Corpus(object):
                 self._seed_run_finished = True
             return (self._seed_idx-1, next_input)
 
-#       idx = self.seed_selection()
+        idx = self.seed_selection()
 
-        idx = self._rand(len(self._inputs))
+#        idx = self._rand(len(self._inputs))
         buf = self._inputs[idx]
         self._mutated[idx] = 1
         self._depth[idx] += 1

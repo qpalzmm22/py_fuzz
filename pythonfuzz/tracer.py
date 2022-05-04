@@ -9,8 +9,8 @@ func_filename = ''
 func_line_no = 0
 
 data = {}
-crashes = collections.defaultdict(set) #added
 index = 0
+crashes = collections.defaultdict(set) #added
 
 def trace(frame, event, arg):
     if event != 'line':

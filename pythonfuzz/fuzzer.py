@@ -57,15 +57,14 @@ def worker(self, child_conn):
     while True:
         buf = child_conn.recv_bytes()
         try:
-            with time_limit(self._timeout):
-                sys.settrace(tracer.trace)
- #               print("DEBUG buf: ", buf)
-                self._target(buf)
+ #           with time_limit(self._timeout):
+            sys.settrace(tracer.trace)
+            self._target(buf)
         except (Exception, TimeoutException) as e:
                 tracer.set_crash()
                 if not self._inf_run:
                     logging.exception(e)
-                    child_conn.send(e)
+                    child_conn.send(None)
                     break
                 else:
                     sys.settrace(None)
@@ -73,7 +72,7 @@ def worker(self, child_conn):
                         print("New crash ", self._crashes)
                         self._crashes += 1
                         logging.exception(e)
-                        child_conn.send(e)
+                        child_conn.send(None)
                     else:
                         run_coverage = tracer.get_coverage()
     #                    print("Outtttttter11111 :", sum(map(len, coverage.values())))
@@ -209,7 +208,7 @@ class Fuzzer(object):
                 rss = self.log_stats("NEW")
                 self._total_coverage = len(self._corpus._total_path)
                 self._corpus.put(buf[1])
-         #       self._corpus.UpdatedFavored(buf[1], buf[0], end-start, self._run_coverage)
+                self._corpus.UpdatedFavored(buf[1], buf[0], end-start, self._run_coverage)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')
