@@ -1,6 +1,12 @@
 import argparse
 from pythonfuzz import fuzzer
 
+class PythonFuzzFile(object):
+    def __init__(self, func):
+        self.function = func
+
+    def __call__(self, *args, **kwds):
+        pass
 
 class PythonFuzz(object):
     def __init__(self, func):
@@ -30,11 +36,6 @@ class PythonFuzz(object):
         f = fuzzer.Fuzzer(self.function, args.dirs, args.exact_artifact_path,
                           args.rss_limit_mb, args.timeout, args.regression, args.max_input_size,
                           args.close_fd_mask, args.runs, args.dict, args.inf_run, args.file_fuzz)
-        
-        if args.file_fuzz == True:
-            if args.dirs == []:
-                print("You should provide a seed for file-fuzz")
-                exit(1)
 
         f.start()
 

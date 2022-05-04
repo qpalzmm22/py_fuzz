@@ -54,6 +54,7 @@ class Corpus(object):
 
         self._seed_run_finished = not self._inputs
         self._seed_idx = 0
+        self._queue_idx = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
         self._inputs.append(bytearray(0))
         self._put_inputs()
@@ -122,25 +123,29 @@ class Corpus(object):
     
     def there_is_uumutated_favored(self):
         for i in range(len(self._inputs)):
-            if self._refcount[i] > 0 and self._mutated[i] is False :
+            if self._is_favored[i] > 0 and self._mutated[i] is False :
                return True
         return False
 
     def seed_selection(self): #TODO: while
-        for idx in range(len(self._inputs)):
-            if self._is_favored[idx] == 1:
-                return idx
-            else:
+        while True:
+            if(self._is_favored[self._queue_idx] == 0) :
                 if self.there_is_uumutated_favored():
-                    if random() >= 0.01:
+                    if random() >= 0.01 :
                         continue
-                elif self._mutated[idx] == 0:
-                    if random() >= 0.05:
+                elif self._mutated[self._queue_idx] is True:
+                    if random() >= 0.05 :
                         continue
-                else:
-                    if random() >= 0.25:
-                        continue 
-                return idx
+                else :
+                    if random() >= 0.25 :
+                        continue
+
+            self._queue_idx += 1
+            if self._queue_idx >= len(self._inputs):
+                self._queue_idx = 0
+            break
+
+        return self._queue_idx
 
 
     def generate_input(self):

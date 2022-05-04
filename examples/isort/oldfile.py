@@ -1,9 +1,10 @@
-from pythonfuzz.main import PythonFuzzFile
+from pythonfuzz.main import PythonFuzz
 import isort
 
 @PythonFuzzFile
-def fuzz():
+def fuzz(buf):
 	try:
+		fname = buf.decode("ascii")
 		isort.file(fname)
 	except UnicodeDecodeError:
 		pass
