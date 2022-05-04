@@ -7,7 +7,6 @@ prev_filename = ''
 func_filename = ''
 func_line_no = 0
 
-
 # TODO
 # refactor name, "edges" to "edges_hit_count" or something like that
 edges = {}
@@ -28,7 +27,7 @@ def trace(frame, event, arg):
         # We need a way to keep track of inter-files transferts,
         # and since we don't really care about the details of the coverage,
         # concatenating the two filenames in enough.
-        add_to_set(func_filename + ":" + str(prev_line) + prev_filename + ":" + str(func_line_no))
+        add_to_set(prev_filename + ":" + str(prev_line) + func_filename + ":" + str(func_line_no))
     else:
         add_to_set(func_filename + ":" + str(prev_line) + ":" + str(func_line_no))
     

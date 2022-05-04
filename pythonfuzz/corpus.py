@@ -68,8 +68,8 @@ class Corpus(object):
 
     def is_interesting(self, coverage):
         orig_len = len(self._total_path)
-        for edge in coverage :
-            self._total_path.add(edge)
+        for edge, hitcount in coverage.items() :
+            self._total_path.add((edge, hitcount))
         if orig_len < len(self._total_path):
             return True
         else:

@@ -55,8 +55,6 @@ def worker(self, child_conn):
         else:
             sys.settrace(None)
             run_coverage = tracer.get_coverage()
-            #print("INNER coverage")
-            #print(coverage)
             child_conn.send(run_coverage)
 
 class Fuzzer(object):
@@ -138,6 +136,8 @@ class Fuzzer(object):
         
             start_time = time.time()
             buf = self._corpus.generate_input()
+            
+            #print(buf)
 
             parent_conn.send_bytes(buf)
             if not parent_conn.poll(self._timeout):
