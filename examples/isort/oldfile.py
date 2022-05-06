@@ -1,7 +1,7 @@
 from pythonfuzz.main import PythonFuzz
 import isort
 
-@PythonFuzzFile
+@PythonFuzz
 def fuzz(buf):
 	try:
 		fname = buf.decode("ascii")

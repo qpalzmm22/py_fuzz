@@ -4,7 +4,7 @@ import isort
 @PythonFuzzFile
 def fuzz():
 	try:
-		isort.file(fname)
+		isort.file(PythonFuzzFile._fuzzfile())
 	except UnicodeDecodeError:
 		pass
 

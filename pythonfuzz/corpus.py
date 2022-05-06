@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 from random import random
 from re import S
+from this import d
 from traceback import print_tb
 from zipfile import ZIP_BZIP2
 
@@ -31,8 +32,8 @@ class Corpus(object):
         self._depth = [] # input depth of mutate
         self._is_favored = [] # favored or not
         
-        self._total_path = set()
         self._favored = {} 
+        self._total_path = set()
         
         self._mutation = mutate.Mutator(max_input_size, dict_path)
 
@@ -56,8 +57,7 @@ class Corpus(object):
         self._seed_idx = 0
         self._queue_idx = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
-        self._inputs.append(bytearray(0))
-        self._put_inputs()
+        self._put_inputs(bytearray(0))
 
     @property
     def length(self):
@@ -69,12 +69,14 @@ class Corpus(object):
             return 0
         return _randbelow(n)
 
-    def _put_inputs(self):
-        self._run_time.append(0)
+    def _put_inputs(self, buf):
+        self._inputs.append(buf)
+        idx = len(self._inputs) - 1
+        self._run_time.append(0) # why?
         self._mutated.append(0)
         self._depth.append(0)
         self._is_favored.append(0)
-
+        return idx
 
     def _add_file(self, path):
         with open(path, 'rb') as f:
@@ -82,14 +84,13 @@ class Corpus(object):
             self._put_inputs()
    
     def put(self, buf):
-        self._inputs.append(buf)
-        self._put_inputs()
         if self._save_corpus:
             m = hashlib.sha256()
             m.update(buf)
             fname = os.path.join(self._dirs[0], m.hexdigest())
             with open(fname, 'wb') as f:
                 f.write(buf)
+        return self._put_inputs(buf)
 
     def Isinteresting(self, coverage):
         origin_len = len(self._total_path)
@@ -149,21 +150,18 @@ class Corpus(object):
 
 
     def generate_input(self):
-        if not self._seed_run_finished:
-            next_input = self._inputs[self._seed_idx]
-            self._mutated[self._seed_idx] = 1
-            self._depth[self._seed_idx] += 1 
+        if self._seed_run_finished:
+            buf_idx = self.seed_selection()
+            buf = self._inputs[buf_idx]
+            self._mutated[buf_idx] = 1
+            self._depth[buf_idx] += 1
+            return self._mutation.mutate(buf)
+        else:
+            buf_idx = self._seed_idx
+            buf = self._inputs[buf_idx]
             self._seed_idx += 1
-            if self._seed_idx >= len(self._inputs):
+            if(self._seed_idx >= len(self._inputs)):
+                self._seed_idx = 0
                 self._seed_run_finished = True
-            return (self._seed_idx-1, next_input)
-
-        idx = self.seed_selection()
-
-#        idx = self._rand(len(self._inputs))
-        buf = self._inputs[idx]
-        self._mutated[idx] = 1
-        self._depth[idx] += 1
-#        print("DDDEUBG ", idx, " ", buf)
-
-        return (idx, self._mutation.mutate(buf))
+            return buf
+            
