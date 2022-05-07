@@ -98,7 +98,7 @@ class Corpus(object):
                     self._refcount[favored_idx] -= 1
                     self._refcount[idx] += 1
                     n_updated += 1
-        print("======= %d NEW, %d updated =======" % (n_new,n_updated))
+        #print("======= %d NEW, %d updated =======" % (n_new,n_updated))
     
     def is_there_unmutated_favored(self):
         for i in range(len(self._refcount)) :
@@ -136,9 +136,10 @@ class Corpus(object):
     def generate_input(self):
         if self._seed_run_finished:
             buf_idx = self.seed_selection()
+            #buf_idx = self._mutation._rand(len(self._inputs))
             buf = self._inputs[buf_idx]
             self._mutated[buf_idx] = True
-            return self._mutation.mutate(buf)
+            return buf
         else:
             self._seed_idx += 1
             if(self._seed_idx >= len(self._inputs)):
