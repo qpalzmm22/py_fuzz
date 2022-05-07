@@ -7,7 +7,6 @@ class PythonFuzz(object):
         self.function = func
 
     def __call__(self, *args, **kwargs):
-        print("TT")
         parser = argparse.ArgumentParser(description='Coverage-guided fuzzer for python packages')
         parser.add_argument('dirs', type=str, nargs='*',
                             help="one or more directories/files to use as seed corpus. the first directory will be used to save the generated test-cases")
@@ -30,6 +29,19 @@ class PythonFuzz(object):
                           args.rss_limit_mb, args.timeout, args.regression, args.max_input_size,
                           args.close_fd_mask, args.runs, args.dict, args.inf_run)
         f.start()
+
+
+# As a decorator, the program just needs file name, and fuzz target
+# then the fuzzer will write something in a file and execute the target
+'''
+def PythonFuzzFile(filename):
+    print(filename)
+    def wrapper(func):
+        pythonFuzz = PythonFuzz(func)
+        return pythonFuzz
+    return wrapper
+'''
+
 
 
 if __name__ == '__main__':

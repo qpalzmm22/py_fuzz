@@ -36,10 +36,12 @@ class Corpus(object):
                     if os.path.isfile(fname):
                         self._add_file(fname)
         self._seed_run_finished = False
-        self._seed_idx = 0
+        self._seed_idx = -1
+        self._init_seed_size = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
         self._mutation = mutation.Mutation(max_input_size, dict_path)
         self.enqueue(bytearray(0))
+        self._init_seed_size += 1
 
     def _add_file(self, path):
         with open(path, 'rb') as f:
@@ -50,6 +52,7 @@ class Corpus(object):
         return len(self._inputs)
 
     def put(self, buf):
+        self._init_seed_size += 1
         if self._save_corpus:
             m = hashlib.sha256()
             m.update(buf)
@@ -66,21 +69,27 @@ class Corpus(object):
         self._refcount.append(0)
         return idx
 
-    def is_interesting(self, coverage):
-        orig_len = len(self._total_path)
-        for edge, hitcount in coverage.items() :
+    def _add_to_total_coverage(self, path):
+        for edge, hitcount in path.items() :
             self._total_path.add((edge, hitcount))
+
+    def is_interesting(self, path):
+        orig_len = len(self._total_path)
+        self._add_to_total_coverage(path)
         if orig_len < len(self._total_path):
             return True
         else:
             return False
     
     def update_favored(self, idx, buf, time, coverage):
+        n_updated = 0
+        n_new = 0
         for edge in coverage :
-            if not edge in self._favored:
+            if self._favored.get(edge) is None:
                 self._favored[edge] = buf
                 self._time[idx] = time
                 self._refcount[idx] += 1
+                n_new += 1
             else:
                 favored_idx = self._inputs.index(self._favored[edge])
                 if time * len(buf) < self._time[favored_idx] * len(self._favored[edge]) :
@@ -88,6 +97,8 @@ class Corpus(object):
                     self._time[idx] = time
                     self._refcount[favored_idx] -= 1
                     self._refcount[idx] += 1
+                    n_updated += 1
+        print("======= %d NEW, %d updated =======" % (n_new,n_updated))
     
     def is_there_unmutated_favored(self):
         for i in range(len(self._refcount)) :
@@ -97,9 +108,17 @@ class Corpus(object):
     
     # returns the index of the input
     def seed_selection(self):
+        n = 0
+        unmutated_favored_in_queue = self.is_there_unmutated_favored() 
         while True:
+            self._seed_idx += 1
+            if self._seed_idx >= len(self._inputs):
+                self._seed_idx = 0
+
+            n += 1
             if(self._refcount[self._seed_idx] == 0) :
-                if self.is_there_unmutated_favored():
+                #if self.is_there_unmutated_favored():
+                if unmutated_favored_in_queue:
                     if random.random() >= 0.01 :
                         continue
                 elif self._mutated[self._seed_idx] is True:
@@ -109,25 +128,21 @@ class Corpus(object):
                     if random.random() >= 0.25 :
                         continue
 
-            self._seed_idx += 1
-            if self._seed_idx >= len(self._inputs):
-                self._seed_idx = 0
+            chosen_idx = self._seed_idx
             break
-
-        return self._seed_idx
+        #print("%d cycles b4 seed selected" % n)
+        return chosen_idx
 
     def generate_input(self):
-        
         if self._seed_run_finished:
             buf_idx = self.seed_selection()
             buf = self._inputs[buf_idx]
             self._mutated[buf_idx] = True
             return self._mutation.mutate(buf)
         else:
-            buf_idx = self._seed_idx
-            buf = self._inputs[buf_idx]
             self._seed_idx += 1
             if(self._seed_idx >= len(self._inputs)):
                 self._seed_idx = 0
-                self._seed_run_finished = True
+            buf_idx = self._seed_idx
+            buf = self._inputs[buf_idx]
             return buf

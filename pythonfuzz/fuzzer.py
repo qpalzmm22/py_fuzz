@@ -88,6 +88,9 @@ class Fuzzer(object):
         self._crashes = 0
         self._hangs = 0
         self._run_coverage = {}
+        self._n_time = 0
+        self._avg_time = 0
+        self._tot_time = 0
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
@@ -96,8 +99,27 @@ class Fuzzer(object):
         execs_per_second = int(self._executions_in_sample / (endTime - self._last_sample_time))
         self._last_sample_time = time.time()
         self._executions_in_sample = 0
-        logging.info('#{} {}     cov: {} corp: {} exec/s: {} rss: {} MB Unique Crash: {}'.format(
-            self._total_executions, log_type, self._total_coverage, self._corpus.length, execs_per_second, rss, self._crashes))
+        ### ADDED
+        n = self._n_time
+        self._avg_time = n / (n + 1) * self._avg_time + execs_per_second / (n+1)
+        self._n_time = n + 1
+        
+        #self._tot_time += execs_per_second
+        #print(self._tot_time / (n + 1))
+        logging.info('#{} {}     cov: {} corp: {} exec/s: {} rss: {} MB Unique Crash: {} total avg exec/s: {}'.format(
+            self._total_executions, log_type, self._total_coverage, self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
+        '''
+        print("---")
+        print("idx : %d" % (self._corpus._seed_idx))
+        print("favored : %d" %  len(self._corpus._favored))
+        print("run path : %d" % len(self._run_coverage))
+        print("total path : %d" % len(self._corpus._total_path))
+        print("time : %d " % len(self._corpus._time))
+        print("num(mutated) : %d" % len(self._corpus._mutated))
+        print("num(inputs) : %d" % len(self._corpus._inputs))
+        for i, inp in enumerate(self._corpus._inputs):
+            print("inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
+        '''
         with open("log.csv", "a") as log_file:
             log_file.write("%d, %d\n" %(self._total_executions, self._total_coverage))
         return rss
@@ -136,8 +158,6 @@ class Fuzzer(object):
         
             start_time = time.time()
             buf = self._corpus.generate_input()
-            
-            #print(buf)
 
             parent_conn.send_bytes(buf)
             if not parent_conn.poll(self._timeout):
@@ -164,13 +184,28 @@ class Fuzzer(object):
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
-            if self._corpus.is_interesting(self._run_coverage):
-                rss = self.log_stats("NEW")
-                idx = self._corpus.put(buf)
-                self._corpus.update_favored(idx, buf, end_time - start_time, self._run_coverage)
+            idx = self._corpus._seed_idx
+            if self._corpus._seed_run_finished :
+                if self._corpus.is_interesting(self._run_coverage):
+                    idx = self._corpus.put(buf)
+                    self._corpus.update_favored(idx, buf, end_time - start_time, self._run_coverage)
+                    rss = self.log_stats("NEW")
+                    #print(buf)
+                    #print("cov_size : " , len(self._run_coverage))
+                    #print(self._run_coverage)
+                #    print(buf)
+                else:
+                    if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
+                        rss = self.log_stats('PULSE')
             else:
-                if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
-                    rss = self.log_stats('PULSE')
+                # add to set
+                for edge, hitcount in self._run_coverage.items() :
+                    self._corpus._total_path.add((edge, hitcount))
+
+                self._corpus.update_favored(idx, buf, end_time - start_time, self._run_coverage)
+                if idx + 1 >= len(self._corpus._inputs) : 
+                    self._corpus._seed_run_finished = True
+                rss = self.log_stats("SEED")
 
             if rss > self._rss_limit_mb:
                 logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))
