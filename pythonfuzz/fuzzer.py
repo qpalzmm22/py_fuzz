@@ -100,8 +100,6 @@ class Fuzzer(object):
                  runs=-1,
                  dict_path=None,
 				 inf_run=False,
-                 file_fuzz=False,
-                 file_extension=None,
                  fname = None,
                  ):
         self._target = target
@@ -125,7 +123,7 @@ class Fuzzer(object):
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
-        print("RSS DEBUG ", self._p.pid ," ", psutil.Process(self._p.pid).memory_info().rss, " ", os.getpid() ," ", psutil.Process(os.getpid()).memory_info().rss)
+#        print("RSS DEBUG ", self._p.pid ," ", psutil.Process(self._p.pid).memory_info().rss, " ", os.getpid() ," ", psutil.Process(os.getpid()).memory_info().rss)
         endTime = time.time()
         execs_per_second = int(self._executions_in_sample / (endTime - self._last_sample_time))
         self._last_sample_time = time.time()
@@ -162,6 +160,7 @@ class Fuzzer(object):
         self._p = mp.Process(target=worker, args=(self, child_conn)) #added
         self._p.start()
 
+        init_seed_n = len(self._corpus._inputs)
         while True:
             if self.runs != -1 and self._total_executions >= self.runs:
                 self._p.terminate()
@@ -169,10 +168,15 @@ class Fuzzer(object):
                 break
 
             buf = self._corpus.generate_input()
+            
+            # for i range(len(buf)):
+            #   for m in mutate_type():
+
             start = time.time()
-      #      print("Debug", buf[0], " ", buf[1])
             parent_conn.send_bytes(buf)
             
+      #     self._corpus.set_time(1, 10) why...
+
             if not parent_conn.poll(self._timeout):
                 logging.info("=================================================================")
                 logging.info("timeout reached. testcase took: {}".format(self._timeout))
@@ -195,23 +199,32 @@ class Fuzzer(object):
                    break
                 continue
 
-            self._total_coverage = len(self._corpus._total_path)
             self._total_executions += 1
             self._executions_in_sample += 1
             rss = 0
             
-            if self._corpus.Isinteresting(run_coverage):  # TODO Isinteresting(path, Queue)
+            if self._corpus.Isinteresting(run_coverage):  
+                self._total_coverage = len(self._corpus._total_path)
                 rss = self.log_stats("NEW")
-                print("{", len(self._corpus._inputs), "},  {", len(self._corpus._inputs)- self._corpus._is_favored.count(0), "} , {", len(self._corpus._favored), "}")
-                idx =self._corpus.put(buf)
+         #       print("{", len(self._corpus._inputs), "},  {", len(self._corpus._inputs)- self._corpus._is_favored.count(0), "} , {", len(self._corpus._favored), "}")
+                if self._total_executions <= init_seed_n:
+                    idx = self._total_executions - 1
+                else:
+                    idx = self._corpus.put(buf)
                 self._corpus.UpdatedFavored(buf, idx, end-start, run_coverage)
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
+                    print("{", len(self._corpus._inputs), "},  {", len(self._corpus._inputs) - self._corpus._is_favored.count(0), "} , {", len(self._corpus._favored), "}")
                     rss = self.log_stats('PULSE')
+ #                   for edge in self._corpus._favored:
+ #                       print("KEY: ", edge, " Value:", self._corpus._favored.get(edge))
+ #                       print("DEBUG ", self._corpus._inputs.index(self._corpus._favored[edge]))
+ #                   for i, inp in enumerate(self._corpus._inputs):
+ #                       print("iNPUTS: " , inp, " refcount", self._corpus._is_favored[i])
 
             if rss > self._rss_limit_mb:
                 logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))
-                self.write_sample(buf[1])
+                self.write_sample(buf)
                 self._crashes += 1
                 if not self._inf_run:
                     self._p.kill()

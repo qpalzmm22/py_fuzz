@@ -29,7 +29,7 @@ def trace(frame, event, arg):
         # We need a way to keep track of inter-files transferts,
         # and since we don't really care about the details of the coverage,
         # concatenating the two filenames in enough.
-        add_to_set(func_filename + ":" + prev_filename + ":" + str(prev_line) + ":" + str(func_line_no))
+        add_to_set(prev_filename + ":" + func_filename + ":" + str(prev_line) + ":" + str(func_line_no))
         #data[]
     else:
         add_to_set(func_filename + ":" + str(prev_line) + ":" + str(func_line_no))
