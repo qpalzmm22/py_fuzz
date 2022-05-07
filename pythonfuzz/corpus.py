@@ -152,7 +152,8 @@ class Corpus(object):
             buf = self._inputs[buf_idx]
             self._mutated[buf_idx] = 1
             self._depth[buf_idx] += 1
-            return self._mutation.mutate(buf)
+#            return self._mutation.mutate(buf)
+            return buf
         else:
             buf_idx = self._seed_idx
             buf = self._inputs[buf_idx]
