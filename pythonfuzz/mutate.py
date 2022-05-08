@@ -242,18 +242,15 @@ class Mutator:
             res[pos + 3] = v[3] % 256
         elif x == 14:
             # Replace an ascii digit with another digit.
-            digits = []
-            for k in range(len(res)):
-                if ord('0') <= res[k] <= ord('9'):
-                    digits.append(k)
-            if len(digits) == 0:
+            if len(res) <= index:
                 return res
-            pos = self._rand(len(digits)) # TODO indexing
-            was = res[digits[pos]]
-            now = was
-            while was == now:
-                now = self._rand(10) + ord('0')
-            res[digits[pos]] = now
+            pos = index
+            if ord('0') <= res[pos] <= ord('9'):
+                was = res[pos]
+                now = was
+                while was == now:
+                    now = self._rand(10) + ord('0')
+                res[pos] = now
         elif x == 15:
             # Insert Dictionary word
             dict_word = self._dict.get_word()
