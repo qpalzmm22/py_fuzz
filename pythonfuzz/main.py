@@ -5,6 +5,7 @@ from pythonfuzz import fuzzer
 class PythonFuzz(object):
     def __init__(self, func):
         self.function = func
+        self._fname = None
 
     def __call__(self, *args, **kwargs):
         parser = argparse.ArgumentParser(description='Coverage-guided fuzzer for python packages')
@@ -23,13 +24,12 @@ class PythonFuzz(object):
         parser.add_argument('--timeout', type=int, default=5,
                             help='If input takes longer then this timeout the process is treated as failure case')
         parser.add_argument('--inf-run', default=False, action='store_true', help='Decide the fuzzing wherter stop or keep runing after it finds a failure') # added
-        parser.add_argument('--file-fuzz', default=False, action='store_true', help='Fuzzing with file not stdin') # added
-
+        parser.add_argument('--fname', type=str, default=None, help='Specific file name for PythonfuzzFile driver') # added
 
         args = parser.parse_args()
         f = fuzzer.Fuzzer(self.function, args.dirs, args.exact_artifact_path,
                           args.rss_limit_mb, args.timeout, args.regression, args.max_input_size,
-                          args.close_fd_mask, args.runs, args.dict, args.inf_run, args.file_fuzz)
+                          args.close_fd_mask, args.runs, args.dict, args.inf_run) #, self._fname)
 
         f.start()
 
@@ -58,10 +58,15 @@ class PythonFuzzFile(object):
         parser.add_argument('--timeout', type=int, default=5,
                             help='If input takes longer then this timeout the process is treated as failure case')
         parser.add_argument('--inf-run', default=False, action='store_true', help='Decide the fuzzing wherter stop or keep runing after it finds a failure') # added
-        parser.add_argument('--f', type=str, default=None, help='Specific file name') # added
-
+        parser.add_argument('--fname', type=str, default=None, help='Specific file name for PythonfuzzFile driver') # added
 
         args = parser.parse_args()
+
+        if args.fname:
+            self._fname = args.fname
+
+        print("MAIN fname: ", self._fname)
+        
         f = fuzzer.Fuzzer(self.function, args.dirs, args.exact_artifact_path,
                           args.rss_limit_mb, args.timeout, args.regression, args.max_input_size,
                           args.close_fd_mask, args.runs, args.dict, args.inf_run, self._fname)

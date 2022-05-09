@@ -74,7 +74,7 @@ class Corpus(object):
     def _put_inputs(self, buf):
         self._inputs.append(buf)
         idx = len(self._inputs) - 1
-        self._run_time.append(0) # why?
+        self._run_time.append(0)
         self._mutated.append(0)
         self._depth.append(0)
         self._is_favored.append(0)
@@ -93,15 +93,20 @@ class Corpus(object):
                 f.write(buf)
         return self._put_inputs(buf)
 
-    def Isinteresting(self, coverage):
-        origin_len = len(self._total_path)
-        for edge in coverage: 
-            self._total_path.add((edge, coverage[edge]))
-        
-        if(len(self._total_path) > origin_len):
+
+    def _add_to_total_coverage(self, path):
+        for edge, hitcount in path.items() :
+            self._total_path.add((edge, hitcount))
+
+
+    def Isinteresting(self, path):
+        orig_len = len(self._total_path)
+        self._add_to_total_coverage(path)
+        if orig_len < len(self._total_path):
             return True
         else:
             return False
+
             
     def UpdatedFavored(self, buf, index, time, coverage):
         isize = len(buf) * time
@@ -125,24 +130,25 @@ class Corpus(object):
         return False
 
     def seed_selection(self):
+        unmutated_favored_in_queue = self.there_is_uumutated_favored()
         while True:
-            if(self._is_favored[self._queue_idx] == 0) :
-                if self.there_is_uumutated_favored():
+            self._seed_idx += 1
+            if self._seed_idx >= len(self._inputs):
+                self._seed_idx = 0
+       
+            if(self._is_favored[self._seed_idx] == 0) :
+                if unmutated_favored_in_queue:
                     if random() >= 0.01 :
                         continue
-                elif self._mutated[self._queue_idx] == 1:
+                elif self._mutated[self._seed_idx] == 1:
                     if random() >= 0.05 :
                         continue
                 else :
                     if random() >= 0.25 :
                         continue
-
-            self._queue_idx += 1
-            if self._queue_idx >= len(self._inputs):
-                self._queue_idx = 0
             break
 
-        return self._queue_idx
+        return self._seed_idx
 
 
     def generate_input(self):
@@ -155,10 +161,10 @@ class Corpus(object):
 #            return self._mutation.mutate(buf)
             return buf
         else:
-            buf_idx = self._seed_idx
-            buf = self._inputs[buf_idx]
             self._seed_idx += 1
             if(self._seed_idx >= len(self._inputs)):
-                self._seed_run_finished = True
+                self._seed_idx = 0
+            buf_idx = self._seed_idx
+            buf = self._inputs[buf_idx]
             return buf
             

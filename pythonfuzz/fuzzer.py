@@ -62,7 +62,6 @@ def worker(self, child_conn):
  #           with time_limit(self._timeout):
             sys.settrace(tracer.trace)
             self._target(buf)
-            ## self._target()
         except (Exception, TimeoutException) as e:
                 tracer.set_crash()
                 if not self._inf_run:
@@ -88,7 +87,6 @@ def worker(self, child_conn):
             child_conn.send(run_coverage)
 #           sys.settrace(tracer.trace)
 
-
 class Fuzzer(object):
     def __init__(self,
                  target,
@@ -101,9 +99,7 @@ class Fuzzer(object):
                  close_fd_mask=0,
                  runs=-1,
                  dict_path=None,
-				 inf_run=False,
-                 fname = None,
-                 ):
+				 inf_run=False):
         self._target = target
         self._dirs = [] if dirs is None else dirs
         self._exact_artifact_path = exact_artifact_path
@@ -122,24 +118,46 @@ class Fuzzer(object):
         self._inf_run = inf_run # added
         self._crashes = 0
         self._hangs = 0
-        self._fname = fname
+        self._run_coverage = {}
+        self._n_time = 0
+        self._avg_time = 0
+        self._tot_time = 0
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
-#        print("RSS DEBUG ", self._p.pid ," ", psutil.Process(self._p.pid).memory_info().rss, " ", os.getpid() ," ", psutil.Process(os.getpid()).memory_info().rss)
+
         endTime = time.time()
         execs_per_second = int(self._executions_in_sample / (endTime - self._last_sample_time))
         self._last_sample_time = time.time()
         self._executions_in_sample = 0
-        logging.info('#{} {}     cov: {} corp: {} exec/s: {} rss: {} MB Unique Crash: {}'.format(
-            self._total_executions, log_type, self._total_coverage, self._corpus.length, execs_per_second, rss, self._crashes))
-#        with open("log.csv", "a") as log_file:
-#            log_file.write("%d, %d\n" %(self._total_executions, self._total_coverage))
+        ### ADDED
+        n = self._n_time
+        self._avg_time = n / (n + 1) * self._avg_time + execs_per_second / (n+1)
+        self._n_time = n + 1
+        
+        #self._tot_time += execs_per_second
+        #print(self._tot_time / (n + 1))
+        logging.info('#{} {}     cov: {} corp: {} exec/s: {} rss: {} MB Unique Crash: {} total avg exec/s: {}'.format(
+            self._total_executions, log_type, self._total_coverage, self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
+        '''
+        print("idx : %d" % (self._corpus._seed_idx))
+        print("favored : %d" %  len(self._corpus._favored))
+        print("run path : %d" % len(self._run_coverage))
+        print("total path : %d" % len(self._corpus._total_path))
+        print("time : %d " % len(self._corpus._time))
+        print("num(mutated) : %d" % len(self._corpus._mutated))
+        print("num(inputs) : %d" % len(self._corpus._inputs))
+        for i, inp in enumerate(self._corpus._inputs):
+            print("inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
+        print("---")
+        '''
+        with open("log.csv", "a") as log_file:
+            log_file.write("%d, %d\n" %(self._total_executions, self._total_coverage))
         return rss
 
     def write_sample(self, buf, prefix='crash-'):
         m = hashlib.sha256()
-        m.update(buf) # TODO: TypeError: object supporting the buffer API required
+        m.update(buf)
         if self._exact_artifact_path:
             crash_path = self._exact_artifact_path
         else:
@@ -156,91 +174,84 @@ class Fuzzer(object):
         if len(buf) < 200:
             logging.info('sample = {}'.format(buf.hex()))
 
+    def exit_protocol(self, exit_code):
+        self._p.join()
+        sys.exit(exit_code)
+
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
-        exit_code = 0
         parent_conn, child_conn = mp.Pipe()
         self._p = mp.Process(target=worker, args=(self, child_conn)) #added
         self._p.start()
 
-        init_seed_n = len(self._corpus._inputs)
         while True:
-            
+
             buf = self._corpus.generate_input()
-            
-            for i in range(len(buf)):
-                for m in range(self._mutation._mutators):
 
-                    if self._corpus._seed_run_finished:
-                        buf = self._mutation.mutate_afl(buf, i, m)
-                    
-                    start = time.time()
-                    parent_conn.send_bytes(buf)
+            if not self._corpus._seed_run_finished:
+                #self.fuzz_loop(buf, parent_conn)
+                self.fuzz_loop(buf, parent_conn, 0, 0)
+                if self._corpus._seed_idx + 1 >= len(self._corpus._inputs) : 
+                    self._corpus._seed_run_finished = True
+            else :
+                for buf_idx in range(len(buf)):
+                    for m in range(self._mutation._mutators):
+                        mutated_buf = self._mutation.mutate_afl(buf, buf_idx, m)
+                        self.fuzz_loop(mutated_buf, parent_conn, buf_idx, m)
+ 
+    def fuzz_loop(self, buf, parent_conn, buf_idx, m):
 
-                    if self.runs != -1 and self._total_executions >= self.runs:
-                        self._p.terminate()
-                        logging.info('did %d runs, stopping now.', self.runs)
-                        break
-
-
-                    if not parent_conn.poll(self._timeout):
-                        logging.info("=================================================================")
-                        logging.info("timeout reached. testcase took: {}".format(self._timeout))
-                        self.write_sample(buf, prefix='timeout-')
-                        if self._inf_run:
-                            self._hangs += 1
-                        else:
-                            self._p_kill()
-                            break
-
-                    run_coverage = parent_conn.recv() # total_coverage >> C(input), time
-                    end = time.time()
-        #           self._corpus.set_time(buf[0], end-start)
-
-                    if run_coverage is None:
-                        self._crashes += 1
-                        self.write_sample(buf)
-                        if not self._inf_run: # added
-                            exit_code = 76
-                            break
-                        continue
-
-                    self._total_executions += 1
-                    self._executions_in_sample += 1
-                    rss = 0
-                    
-                    if self._corpus.Isinteresting(run_coverage):  
-                        self._total_coverage = len(self._corpus._total_path)
-                        rss = self.log_stats("NEW")
-                #       print("{", len(self._corpus._inputs), "},  {", len(self._corpus._inputs)- self._corpus._is_favored.count(0), "} , {", len(self._corpus._favored), "}")
-                        if self._total_executions <= init_seed_n:
-                            idx = self._total_executions - 1
-                        else:
-                            idx = self._corpus.put(buf)
-                        self._corpus.UpdatedFavored(buf, idx, end-start, run_coverage)
-                    else:
-                        if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
-                            print("{", len(self._corpus._inputs), "},  {", len(self._corpus._inputs) - self._corpus._is_favored.count(0), "} , {", len(self._corpus._favored), "}")
-                            rss = self.log_stats('PULSE')
-        #                   for edge in self._corpus._favored:
-        #                       print("KEY: ", edge, " Value:", self._corpus._favored.get(edge))
-        #                       print("DEBUG ", self._corpus._inputs.index(self._corpus._favored[edge]))
-        #                   for i, inp in enumerate(self._corpus._inputs):
-        #                       print("iNPUTS: " , inp, " refcount", self._corpus._is_favored[i])
-
-                    if rss > self._rss_limit_mb:
-                        logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))
-                        self.write_sample(buf)
-                        self._crashes += 1
-                        if not self._inf_run:
-                            self._p.kill()
-                            break 
-                else:
-                    continue
-                break
+        exit_code = 0
+        if self.runs != -1 and self._total_executions >= self.runs:
+            self._p.terminate()
+            logging.info('did %d runs, stopping now.', self.runs)
+            self.exit_protocol(exit_code)
+    
+        start_time = time.time()
+        parent_conn.send_bytes(buf)
+        if not parent_conn.poll(self._timeout):
+            logging.info("=================================================================")
+            logging.info("timeout reached. testcase took: {}".format(self._timeout))
+            self.write_sample(buf, prefix='timeout-')
+            if self._inf_run:
+                self._hangs += 1
             else:
-                continue
-            break
+                self._p.kill()
+                self.exit_protocol(exit_code)
 
-        self._p.join()
-        sys.exit(exit_code)
+        self._run_coverage = parent_conn.recv()
+        end_time = time.time()
+        if self._run_coverage is None :
+            self._crashes += 1
+            self.write_sample(buf)
+            if not self._inf_run: # added
+               exit_code = 76
+               self.exit_protocol(exit_code)
+            return
+
+        self._total_coverage = len(self._corpus._total_path)
+        self._total_executions += 1
+        self._executions_in_sample += 1
+        rss = 0
+        idx = self._corpus._seed_idx
+        if self._corpus._seed_run_finished :
+            if self._corpus.Isinteresting(self._run_coverage):
+                idx = self._corpus.put(buf)
+                self._corpus.UpdatedFavored(buf, idx, end_time - start_time, self._run_coverage)
+                #print("idx : %d, mutation : %d" %(buf_idx, m))
+                rss = self.log_stats("NEW")
+            else:
+                if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
+                    rss = self.log_stats('PULSE')
+        else:
+            self._corpus._add_to_total_coverage(self._run_coverage)
+            self._corpus.UpdatedFavored(buf, idx, end_time - start_time, self._run_coverage)
+            rss = self.log_stats("SEED")
+
+        if rss > self._rss_limit_mb:
+            logging.info('MEMORY OOM: exceeded {} MB. Killing worker'.format(self._rss_limit_mb))
+            self.write_sample(buf)
+            self._crashes += 1
+            if not self._inf_run:
+                self._p.kill()
+                self.exit_protocol(exit_code)
