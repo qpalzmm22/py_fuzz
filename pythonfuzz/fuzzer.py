@@ -178,6 +178,9 @@ class Fuzzer(object):
         self._p.join()
         sys.exit(exit_code)
 
+    def calculate_score(self, input):
+        pass
+
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
         parent_conn, child_conn = mp.Pipe()
@@ -187,6 +190,8 @@ class Fuzzer(object):
         while True:
 
             buf = self._corpus.generate_input()
+            score = 0
+#            score = self.calculate_score(buf)
 
             if not self._corpus._seed_run_finished:
                 #self.fuzz_loop(buf, parent_conn)
@@ -196,8 +201,14 @@ class Fuzzer(object):
             else :
                 for buf_idx in range(len(buf)):
                     for m in range(self._mutation._mutators):
-                        mutated_buf = self._mutation.mutate_afl(buf, buf_idx, m)
+                        mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
+                        score += 1
                         self.fuzz_loop(mutated_buf, parent_conn, buf_idx, m)
+                for buf_idx in range(score):
+                    havoc_buf = self._mutation.mutate_havoc(buf)
+                    self.fuzz_loop(havoc_buf, parent_conn, buf_idx, m)
+                    pass
+
  
     def fuzz_loop(self, buf, parent_conn, buf_idx, m):
 
