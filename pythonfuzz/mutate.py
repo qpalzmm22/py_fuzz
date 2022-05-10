@@ -22,12 +22,6 @@ INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 Deterministic = 10
 Havoc = 8
 
-def put_index():
-    try:
-        pass
-    except:
-        pass
-
 class Mutator:
     def __init__(self, max_size=4096, dict_path = None):
         self._max_input_size = max_size

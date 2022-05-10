@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+span.note {
+    font-size: 120%;
+    color: red;
+}
+</style>
+</head>
+<body>
+
+<h1>Mtml>
+<head>
+<style>
+span.note {
+    font-size: 120%;
+    color: red;
+}
+</style>
+</head>
+<body>
+
+<h1>My <span class="note">Imptml>

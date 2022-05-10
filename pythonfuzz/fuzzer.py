@@ -181,7 +181,7 @@ class Fuzzer(object):
         sys.exit(exit_code)
 
     def calculate_score(self, score):
-        score = score * uniform(1.1, 1.8)
+        score = score * uniform(1.1, 1.2)
         return score
 
     def start(self):
@@ -189,16 +189,15 @@ class Fuzzer(object):
         parent_conn, child_conn = mp.Pipe()
         self._p = mp.Process(target=worker, args=(self, child_conn)) #added
         self._p.start()
+        score = 0
 
         while True:
 
             buf = self._corpus.generate_input()
-            score = 0
 #            score = self.calculate_score(buf)
-
             if not self._corpus._seed_run_finished:
                 #self.fuzz_loop(buf, parent_conn)
-                self.fuzz_loop(buf, parent_conn, 0, 0)
+                self.fuzz_loop(buf, parent_conn)
                 if self._corpus._seed_idx + 1 >= len(self._corpus._inputs) : 
                     self._corpus._seed_run_finished = True
             else :
@@ -206,15 +205,13 @@ class Fuzzer(object):
                     for m in range(self._mutation._deterministics):
                         mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
                         score += 1
-                        self.fuzz_loop(mutated_buf, parent_conn, buf_idx, m)
-                print("HAVOC, idx: ", buf_idx, self.calculate_score(score))
-                for buf_idx in range(int(self.calculate_score(score))):
+                        self.fuzz_loop(mutated_buf, parent_conn)
+            #    print("HAVOC, idx: ", buf_idx, self.calculate_score(score))
+                for i in range(int(self.calculate_score(score))):
                     havoc_buf = self._mutation.mutate_havoc(buf, self._dict_path)
-                    self.fuzz_loop(havoc_buf, parent_conn, buf_idx, m)
-                    pass
+                    self.fuzz_loop(havoc_buf, parent_conn)
 
- 
-    def fuzz_loop(self, buf, parent_conn, buf_idx, m):
+    def fuzz_loop(self, buf, parent_conn):
 
         exit_code = 0
         if self.runs != -1 and self._total_executions >= self.runs:
