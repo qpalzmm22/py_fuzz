@@ -1,4 +1,5 @@
 import os
+from random import random, uniform
 import sys
 import time
 import sys
@@ -107,6 +108,7 @@ class Fuzzer(object):
         self._timeout = timeout
         self._regression = regression
         self._close_fd_mask = close_fd_mask
+        self._dict_path = dict_path
         self._corpus = corpus.Corpus(self._dirs, max_input_size, dict_path)
         self._mutation = mutate.Mutator(max_input_size, dict_path)
         self._total_executions = 0
@@ -178,8 +180,9 @@ class Fuzzer(object):
         self._p.join()
         sys.exit(exit_code)
 
-    def calculate_score(self, input):
-        pass
+    def calculate_score(self, score):
+        score = score * uniform(1.1, 1.8)
+        return score
 
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
@@ -200,12 +203,13 @@ class Fuzzer(object):
                     self._corpus._seed_run_finished = True
             else :
                 for buf_idx in range(len(buf)):
-                    for m in range(self._mutation._mutators):
+                    for m in range(self._mutation._deterministics):
                         mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
                         score += 1
                         self.fuzz_loop(mutated_buf, parent_conn, buf_idx, m)
-                for buf_idx in range(score):
-                    havoc_buf = self._mutation.mutate_havoc(buf)
+                print("HAVOC, idx: ", buf_idx, self.calculate_score(score))
+                for buf_idx in range(int(self.calculate_score(score))):
+                    havoc_buf = self._mutation.mutate_havoc(buf, self._dict_path)
                     self.fuzz_loop(havoc_buf, parent_conn, buf_idx, m)
                     pass
 
