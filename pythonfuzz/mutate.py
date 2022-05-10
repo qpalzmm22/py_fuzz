@@ -20,7 +20,7 @@ INTERESTING16 = [0, 128, 255, 256, 512, 1000, 1024, 4096, 32767, 65535]
 INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 
 Deterministic = 10
-Havoc = 8
+Havoc = 11
 
 class Mutator:
     def __init__(self, max_size=4096, dict_path = None):
@@ -225,6 +225,42 @@ class Mutator:
             for k in range(n):
                 res[pos+k] = self._rand(256)
         elif x == 2:
+            # Insert an Interesting8
+            pos = self._rand(len(res) + 1)
+            n = 1
+            v = random.choice(INTERESTING8)
+            res.append(0)
+            self.copy(res, res, pos, pos+n)
+            res[pos] = v % 256
+        elif x == 3:
+            # Insert an Interesting16
+            pos = self._rand(len(res) + 1)
+            n = 2
+            v = random.choice(INTERESTING16)
+            if bool(random.getrandbits(1)):
+                v = struct.pack('>H', v)
+            else:
+                v = struct.pack('<H', v) 
+            for k in range(n):
+                res.append(0)
+            self.copy(res, res, pos, pos+n)
+            for k in range(n):
+                res[pos+k] = v[k] % 256
+        elif x == 4:
+            # Insert an Interesting32
+            pos = self._rand(len(res) + 1)
+            n = 4
+            v = random.choice(INTERESTING32)
+            if bool(random.getrandbits(1)):
+                v = struct.pack('>I', v)
+            else:
+                v = struct.pack('<I', v)
+            for k in range(n):
+                res.append(0)
+            self.copy(res, res, pos, pos+n)
+            for k in range(n):
+                res[pos+k] = v[k] % 256
+        elif x == 5:
             # Duplicate a range of bytes.
             if len(res) <= 1:
                 return res
@@ -240,7 +276,7 @@ class Mutator:
             self.copy(res, res, dst, dst+n)
             for k in range(n):
                 res[dst+k] = tmp[k]
-        elif x == 3:
+        elif x == 6:
             #i Copy a range of bytes.
             if len(res) <= 1:
                 return res
@@ -250,7 +286,7 @@ class Mutator:
                 dst = self._rand(len(res))
             n = self._choose_len(len(res) - src)
             self.copy(res, res, src, dst, src+n)
-        elif x == 4:
+        elif x == 7:
             # Swap 2 bytes.
             if len(res) <= 1:
                 return res
@@ -259,13 +295,13 @@ class Mutator:
             while src == dst:
                 dst = self._rand(len(res))
                 res[src], res[dst] = res[dst], res[src]
-        elif x == 5:
+        elif x == 8:
             # Bit flip. Spooky!
             if len(res) == 0:
                 return res
             pos = self._rand(len(res))
-            res[pos] ^= 1
-        elif x == 6:
+            res[pos] ^= 1 << self._rand(8)
+        elif x == 9:
             # Insert Dictionary word
             dict_word = self._dict.get_word()
             pos = self._rand(len(res) + 1)
@@ -275,7 +311,7 @@ class Mutator:
             self.copy(res, res, pos, pos+n)
             for k in range(n):
                 res[pos+k] = dict_word[k]
-        elif x == 7:
+        elif x == 10:
             # Replace with Dictionary word
             dict_word = self._dict.get_word()
             if(len(res) < len(dict_word)):
