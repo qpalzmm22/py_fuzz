@@ -1,6 +1,8 @@
 import collections
 import sys
 
+prev_prev_prev_line = 0
+prev_prev_line = 0
 prev_line = 0
 prev_filename = ''
 
@@ -11,12 +13,14 @@ func_line_no = 0
 # refactor name, "edges" to "edges_hit_count" or something like that
 edges = {}
 index = 0
-
+crashes = collections.defaultdict(set)
 
 def trace(frame, event, arg):
     if event != 'line':
         return trace
 
+    global prev_prev_prev_line
+    global prev_prev_line
     global prev_line
     global prev_filename
 
@@ -31,7 +35,8 @@ def trace(frame, event, arg):
     else:
         add_to_set(func_filename + ":" + str(prev_line) + ":" + str(func_line_no))
     
-
+    prev_prev_prev_line = prev_prev_line
+    prev_prev_line = prev_line
     prev_line = func_line_no
     prev_filename = func_filename
 
@@ -76,4 +81,11 @@ def get_coverage():
 
     return coverage
 
+def get_crash():
+	return index
 
+def set_crash():
+	crashes[func_filename].add((prev_prev_prev_line, prev_prev_line))
+
+	global index
+	index = sum(map(len, crashes.values()))

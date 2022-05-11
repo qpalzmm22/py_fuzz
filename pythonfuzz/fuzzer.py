@@ -46,11 +46,22 @@ def worker(self, child_conn):
             sys.settrace(tracer.trace)
             self._target(buf)
         except Exception as e:
-            sys.settrace(None)
-            child_conn.send(None)
-            logging.exception(e)
+            tracer.set_crash()
+            
             if not self._inf_run:
+                logging.exception(e)
+                child_conn.send(None)
                 break
+            else:
+                sys.settrace(None)
+                if(tracer.get_crash() > self._crashes):
+                    print("new crash ", self._crashes)
+                    self._crashes += 1
+                    logging.exception(e)
+                    child_conn.send(None)
+                else :
+                    run_coverage = tracer.get_coverage()    
+                    child_conn.send(run_coverage)
 
         else:
             sys.settrace(None)
@@ -190,10 +201,6 @@ class Fuzzer(object):
                     idx = self._corpus.put(buf)
                     self._corpus.update_favored(idx, buf, end_time - start_time, self._run_coverage)
                     rss = self.log_stats("NEW")
-                    #print(buf)
-                    #print("cov_size : " , len(self._run_coverage))
-                    #print(self._run_coverage)
-                #    print(buf)
                 else:
                     if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                         rss = self.log_stats('PULSE')

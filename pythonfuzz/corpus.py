@@ -82,14 +82,11 @@ class Corpus(object):
             return False
     
     def update_favored(self, idx, buf, time, coverage):
-        n_updated = 0
-        n_new = 0
         for edge in coverage :
             if self._favored.get(edge) is None:
                 self._favored[edge] = buf
                 self._time[idx] = time
                 self._refcount[idx] += 1
-                n_new += 1
             else:
                 favored_idx = self._inputs.index(self._favored[edge])
                 if time * len(buf) < self._time[favored_idx] * len(self._favored[edge]) :
@@ -97,8 +94,6 @@ class Corpus(object):
                     self._time[idx] = time
                     self._refcount[favored_idx] -= 1
                     self._refcount[idx] += 1
-                    n_updated += 1
-        print("======= %d NEW, %d updated =======" % (n_new,n_updated))
     
     def is_there_unmutated_favored(self):
         for i in range(len(self._refcount)) :
