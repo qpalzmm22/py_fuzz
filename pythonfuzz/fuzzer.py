@@ -77,7 +77,7 @@ class Fuzzer(object):
         self._timeout = timeout
         self._regression = regression
         self._close_fd_mask = close_fd_mask
-        self._corpus = corpus.Corpus(self._dirs, max_input_size, dict_path, timeout)
+        self._corpus = corpus.Corpus(self._dirs, max_input_size, dict_path)
         self._mutation = mutation.Mutation(max_input_size, dict_path)
         self._total_executions = 0
         self._executions_in_sample = 0
@@ -100,6 +100,8 @@ class Fuzzer(object):
         execs_per_second = int(self._executions_in_sample / (endTime - self._last_sample_time))
         self._last_sample_time = time.time()
         self._executions_in_sample = 0
+        self._total_coverage = len(self._corpus._total_path)
+        
         ### ADDED
         n = self._n_time
         self._avg_time = n / (n + 1) * self._avg_time + execs_per_second / (n+1)
@@ -117,10 +119,10 @@ class Fuzzer(object):
         print("time : %d " % len(self._corpus._time))
         print("num(mutated) : %d" % len(self._corpus._mutated))
         print("num(inputs) : %d" % len(self._corpus._inputs))
-        for i, inp in enumerate(self._corpus._inputs):
-            print("inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
-        print("---")
         '''
+        for i, inp in enumerate(self._corpus._inputs):
+            print( i,  "] inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
+        #print("---")
         with open("log.csv", "a") as log_file:
             log_file.write("%d, %d\n" %(self._total_executions, self._total_coverage))
         return rss
@@ -144,7 +146,8 @@ class Fuzzer(object):
         if len(buf) < 200:
             logging.info('sample = {}'.format(buf.hex()))
 
-    def exit_protocol(exit_code):
+
+    def exit_protocol(self, exit_code):
         self._p.join()
         sys.exit(exit_code)
 
@@ -157,17 +160,22 @@ class Fuzzer(object):
         while True:
 
             buf = self._corpus.generate_input()
-
+            score = 0
             if not self._corpus._seed_run_finished:
                 #self.fuzz_loop(buf, parent_conn)
                 self.fuzz_loop(buf, parent_conn, 0, 0)
                 if self._corpus._seed_idx + 1 >= len(self._corpus._inputs) : 
                     self._corpus._seed_run_finished = True
             else :
-                for buf_idx in range(len(buf) + 1):
-                    for m in range(self._mutation._nm):
-                        mutated_buf = self._mutation.mutate(buf, buf_idx, m)
-                        self.fuzz_loop(mutated_buf, parent_conn, buf_idx, m)
+                if not self._corpus.is_det_ran() :
+                    for buf_idx in range(len(buf) + 1):
+                        for m in range(self._mutation._deter_nm):
+                            mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
+                            self.fuzz_loop(mutated_buf, parent_conn, buf_idx, m)
+                # HAVOC
+                for i in range(int(self._corpus.calculate_score(score))):
+                    havoc_buf = self._mutation.mutate_havoc(buf)
+                    self.fuzz_loop(mutated_buf, parent_conn, buf_idx, m)
  
     def fuzz_loop(self, buf, parent_conn, buf_idx, m):
 
@@ -199,16 +207,15 @@ class Fuzzer(object):
                self.exit_protocol(exit_code)
             return
 
-        self._total_coverage = len(self._corpus._total_path)
         self._total_executions += 1
         self._executions_in_sample += 1
         rss = 0
         idx = self._corpus._seed_idx
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
-                idx = self._corpus.put(buf)
+                idx = self._corpus.put(buf, self._corpus._depth[idx])
                 self._corpus.update_favored(idx, buf, end_time - start_time, self._run_coverage)
-                #print("idx : %d, mutation : %d" %(buf_idx, m))
+                print("idx : %d, mutation : %d" %(buf_idx, m))
                 rss = self.log_stats("NEW")
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
@@ -216,6 +223,7 @@ class Fuzzer(object):
         else:
             self._corpus._add_to_total_coverage(self._run_coverage)
             self._corpus.update_favored(idx, buf, end_time - start_time, self._run_coverage)
+            self._corpus._depth[idx] = 0
             rss = self.log_stats("SEED")
 
         if rss > self._rss_limit_mb:

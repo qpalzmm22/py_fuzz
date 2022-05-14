@@ -24,7 +24,8 @@ class Mutation(object):
     def __init__(self, max_input_size=4096, dict_path=None):
         self._dict = dictionnary.Dictionary(dict_path)
         self._max_input_size = max_input_size
-        self._nm = 17
+        self._deter_nm = 10
+        self._havoc_nm = 7
 
     @staticmethod
     def _rand(n):
@@ -64,80 +65,9 @@ class Mutation(object):
         dst[start_dst:start_dst+byte_to_copy] = src[start_source:start_source+byte_to_copy]
 
 
-    def mutate(self, buf, idx, x):
+    def mutate_det(self, buf, idx, x):
         res = buf[:]
         if x == 0:
-            # Remove a range of bytes.
-            if len(res) <= 1 or len(res) <= idx:
-                return res
-            pos0 = idx
-            #pos0 = self._rand(len(res))
-            pos1 = pos0 + self._choose_len(len(res) - pos0)
-            self.copy(res, res, pos1, pos0)
-            res = res[:len(res) - (pos1-pos0)]
-        elif x == 1:
-            # Insert a range of random bytes.
-            #pos = self._rand(len(res) + 1)
-            pos = idx
-            n = self._choose_len(10)
-            for k in range(n):
-                res.append(0)
-            self.copy(res, res, pos, pos+n)
-            for k in range(n):
-                res[pos+k] = self._rand(256)
-        elif x == 2:
-            # Duplicate a range of bytes.
-            if len(res) <= 1 or len(res) <= idx:
-                return res
-            #src = self._rand(len(res))
-            src = idx
-            dst = self._rand(len(res))
-            while src == dst:
-                dst = self._rand(len(res))
-            n = self._choose_len(len(res) - src)
-            tmp = bytearray(n)
-            self.copy(res, tmp, src, 0)
-            for k in range(n):
-                res.append(0)
-            self.copy(res, res, dst, dst+n)
-            for k in range(n):
-                res[dst+k] = tmp[k]
-        elif x == 3:
-            # Copy a range of bytes.
-            if len(res) <= 1 or len(res) <= idx:
-                return res
-            #src = self._rand(len(res))
-            src = idx
-            dst = self._rand(len(res))
-            while src == dst:
-                dst = self._rand(len(res))
-            n = self._choose_len(len(res) - src)
-            self.copy(res, res, src, dst, src+n)
-        elif x == 4:
-            # Bit flip. Spooky!
-            if len(res) == 0 or len(res) <= idx:
-                return res
-            #pos = self._rand(len(res))
-            pos = idx
-            res[pos] ^= 1 << self._rand(8)
-        elif x == 5:
-            # Set a byte to a random value.
-            if len(res) == 0 or len(res) <= idx:
-                return res
-            #pos = self._rand(len(res))
-            pos = idx
-            res[pos] ^= self._rand(255) + 1
-        elif x == 6:
-            # Swap 2 bytes.
-            if len(res) <= 1 or len(res) <= idx:
-                return res
-            #src = self._rand(len(res))
-            src = idx
-            dst = self._rand(len(res))
-            while src == dst:
-                dst = self._rand(len(res))
-            res[src], res[dst] = res[dst], res[src]
-        elif x == 7:
             # Add/subtract from a byte.
             if len(res) == 0 or len(res) <= idx:
                 return res
@@ -145,7 +75,7 @@ class Mutation(object):
             pos = idx
             v = self._rand(2 ** 8)
             res[pos] = (res[pos] + v) % 256
-        elif x == 8:
+        elif x == 1:
             # Add/subtract from a uint16.
             if len(res) < 2 or len(res) - 1 <= idx:
                 return res
@@ -158,7 +88,7 @@ class Mutation(object):
                 v = struct.pack('<H', v)
             res[pos] = (res[pos] + v[0]) % 256
             res[pos + 1] = (res[pos] + v[1]) % 256
-        elif x == 9:
+        elif x == 2:
             # Add/subtract from a uint32.
             if len(res) < 4 or len(res) - 3 <= idx:
                 return res
@@ -173,7 +103,7 @@ class Mutation(object):
             res[pos + 1] = (res[pos + 1] + v[1]) % 256
             res[pos + 2] = (res[pos + 2] + v[2]) % 256
             res[pos + 3] = (res[pos + 3] + v[3]) % 256
-        elif x == 10:
+        elif x == 3:
             # Add/subtract from a uint64.
             if len(res) < 8 or len(res) - 7 <= idx:
                 return res
@@ -192,14 +122,14 @@ class Mutation(object):
             res[pos + 5] = (res[pos + 5] + v[5]) % 256
             res[pos + 6] = (res[pos + 6] + v[6]) % 256
             res[pos + 7] = (res[pos + 7] + v[7]) % 256
-        elif x == 11:
+        elif x == 4:
             # Replace a byte with an interesting value.
             if len(res) == 0 or len(res) <= idx :
                 return res
             #pos = self._rand(len(res))
             pos = idx
             res[pos] = INTERESTING8[self._rand(len(INTERESTING8))] % 256
-        elif x == 12:
+        elif x == 5:
             # Replace an uint16 with an interesting value.
             if len(res) < 2 or len(res) - 1 <= idx:
                 return res
@@ -212,7 +142,7 @@ class Mutation(object):
                 v = struct.pack('<H', v)
             res[pos] = v[0] % 256
             res[pos + 1] = v[1] % 256
-        elif x == 13:
+        elif x == 6:
             # Replace an uint32 with an interesting value.
             if len(res) < 4 or len(res) - 3 <= idx:
                 return res
@@ -227,22 +157,8 @@ class Mutation(object):
             res[pos + 1] = v[1] % 256
             res[pos + 2] = v[2] % 256
             res[pos + 3] = v[3] % 256
-        elif x == 14:
+        elif x == 7:
             # Replace an ascii digit with another digit.
-            '''
-            digits = []
-            for k in range(len(res)):
-                if ord('0') <= res[k] <= ord('9'):
-                    digits.append(k)
-            if len(digits) == 0:
-                return res
-            pos = self._rand(len(digits))
-            was = res[digits[pos]]
-            now = was
-            while was == now:
-                now = self._rand(10) + ord('0')
-            res[digits[pos]] = now
-            '''
             if len(res) <= idx:
                 return res
             pos = idx
@@ -252,8 +168,7 @@ class Mutation(object):
                 while was == now:
                     now = self._rand(10) + ord('0')
                 res[pos] = now
-
-        elif x == 15:
+        elif x == 8:
             # Insert Dictionary word
             dict_word = self._dict.get_word()
             if dict_word is None:
@@ -266,7 +181,7 @@ class Mutation(object):
             self.copy(res, res, pos, pos+n)
             for k in range(n):
                 res[pos+k] = dict_word[k]
-        elif x == 16:
+        elif x == 9:
             # Replace with Dictionary word
             dict_word = self._dict.get_word()
             if(dict_word == None or len(res) < len(dict_word) or len(res) - len(dict_word) <= idx):
@@ -274,6 +189,90 @@ class Mutation(object):
             #pos = self._rand(len(res) - len(dict_word))
             pos = idx
             self.copy(dict_word, res, 0, pos)
+        
+        if len(res) > self._max_input_size:
+            res = res[:self._max_input_size]
+        return res
+
+    def mutate_havoc(self, buf):
+        res = buf[:]
+        
+        if self._dict is None:
+            x = self._rand(self._havoc_nm-2)
+        else:
+            x = self._rand(self._havoc_nm)
+
+        if x == 0:
+            # Remove a range of bytes.
+            if len(res) <= 1 :
+                return res
+            #pos0 = idx
+            pos0 = self._rand(len(res))
+            pos1 = pos0 + self._choose_len(len(res) - pos0)
+            self.copy(res, res, pos1, pos0)
+            res = res[:len(res) - (pos1-pos0)]
+        elif x == 1:
+            # Insert a range of random bytes.
+            pos = self._rand(len(res) + 1)
+            #pos = idx
+            n = self._choose_len(10)
+            for k in range(n):
+                res.append(0)
+            self.copy(res, res, pos, pos+n)
+            for k in range(n):
+                res[pos+k] = self._rand(256)
+        elif x == 2:
+            # Duplicate a range of bytes.
+            if len(res) <= 1 :
+                return res
+            src = self._rand(len(res))
+            #src = idx
+            dst = self._rand(len(res))
+            while src == dst:
+                dst = self._rand(len(res))
+            n = self._choose_len(len(res) - src)
+            tmp = bytearray(n)
+            self.copy(res, tmp, src, 0)
+            for k in range(n):
+                res.append(0)
+            self.copy(res, res, dst, dst+n)
+            for k in range(n):
+                res[dst+k] = tmp[k]
+        elif x == 3:
+            # Copy a range of bytes.
+            if len(res) <= 1 :
+                return res
+            src = self._rand(len(res))
+            #src = idx
+            dst = self._rand(len(res))
+            while src == dst:
+                dst = self._rand(len(res))
+            n = self._choose_len(len(res) - src)
+            self.copy(res, res, src, dst, src+n)
+        elif x == 4:
+            # Bit flip. Spooky!
+            if len(res) == 0 :
+                return res
+            pos = self._rand(len(res))
+            #pos = idx
+            res[pos] ^= 1 << self._rand(8)
+        elif x == 5:
+            # Set a byte to a random value.
+            if len(res) == 0 :
+                return res
+            pos = self._rand(len(res))
+            #pos = idx
+            res[pos] ^= self._rand(255) + 1
+        elif x == 6:
+            # Swap 2 bytes.
+            if len(res) <= 1 :
+                return res
+            src = self._rand(len(res))
+            #src = idx
+            dst = self._rand(len(res))
+            while src == dst:
+                dst = self._rand(len(res))
+            res[src], res[dst] = res[dst], res[src]
         
         if len(res) > self._max_input_size:
             res = res[:self._max_input_size]
