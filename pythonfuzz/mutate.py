@@ -26,8 +26,8 @@ class Mutator:
     def __init__(self, max_size=4096, dict_path = None):
         self._max_input_size = max_size
         self._dict = dictionnary.Dictionary(dict_path)
-        self._deterministics = Deterministic
-        self._havocs = Havoc
+        self._deter_nm = Deterministic
+        self._havoc_nm = Havoc
 
     @staticmethod
     def _rand(n):
@@ -66,9 +66,8 @@ class Mutator:
         dst[start_dst:start_dst+byte_to_copy] = src[start_source:start_source+byte_to_copy] 
 
 
-    def mutate_det(self, buf, index, mutate_t):
+    def mutate_det(self, buf, index, x):
         res = buf[:]
-        x = mutate_t
         if x == 0:
             # Bit flip. Spooky!
             if len(res) == 0:
@@ -200,9 +199,9 @@ class Mutator:
             res = res[:self._max_input_size]
         return res
 
-    def mutate_havoc(self, buf, dict):
+    def mutate_havoc(self, buf):
         res = buf[:]
-        if dict is None:
+        if self._dict is None:
             x = self._rand(Havoc-2)
         else:
             x = self._rand(Havoc)
@@ -277,7 +276,7 @@ class Mutator:
             for k in range(n):
                 res[dst+k] = tmp[k]
         elif x == 6:
-            #i Copy a range of bytes.
+            # Copy a range of bytes.
             if len(res) <= 1:
                 return res
             src = self._rand(len(res))
@@ -304,6 +303,8 @@ class Mutator:
         elif x == 9:
             # Insert Dictionary word
             dict_word = self._dict.get_word()
+            if dict_word is None:
+                return res
             pos = self._rand(len(res) + 1)
             n = len(dict_word)
             for k in range(n):
@@ -314,7 +315,7 @@ class Mutator:
         elif x == 10:
             # Replace with Dictionary word
             dict_word = self._dict.get_word()
-            if(len(res) < len(dict_word)):
+            if(dict_word == None or len(res) < len(dict_word)):
                 return res
             
             pos = self._rand(len(res) - len(dict_word))

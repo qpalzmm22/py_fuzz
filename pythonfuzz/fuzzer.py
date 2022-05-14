@@ -132,7 +132,9 @@ class Fuzzer(object):
         execs_per_second = int(self._executions_in_sample / (endTime - self._last_sample_time))
         self._last_sample_time = time.time()
         self._executions_in_sample = 0
-        ### ADDED
+        self._total_coverage = len(self._corpus._total_path)
+
+
         n = self._n_time
         self._avg_time = n / (n + 1) * self._avg_time + execs_per_second / (n+1)
         self._n_time = n + 1
@@ -199,18 +201,16 @@ class Fuzzer(object):
                 if self._corpus._seed_idx + 1 >= len(self._corpus._inputs) : 
                     self._corpus._seed_run_finished = True
             else :
-#                print("Depth, idx: ", self._corpus._depth[self._corpus._seed_idx], self._corpus._seed_idx)
-                if self._corpus._depth[self._corpus._seed_idx] == 1:
-#                    print("DETER")
+#                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
+                if self._corpus._passed_det[self._corpus._seed_idx] is False:
                     for buf_idx in range(len(buf)):
-                        for m in range(self._mutation._deterministics):
+                        for m in range(self._mutation._deter_nm):
                             mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
                             self.fuzz_loop(mutated_buf, parent_conn)
+                    self._corpus._passed_det[self._corpus._seed_idx] = True
                 else:
-                    score = 100 * uniform(1, 30)
- #                   print("HAVOC", score)
-                    for i in range(int(score)):
-                        havoc_buf = self._mutation.mutate_havoc(buf, self._dict_path)
+                    for i in range(self._corpus.calculate_score()):
+                        havoc_buf = self._mutation.mutate_havoc(buf)
                         self.fuzz_loop(havoc_buf, parent_conn)
 
     def fuzz_loop(self, buf, parent_conn):
@@ -243,15 +243,16 @@ class Fuzzer(object):
                self.exit_protocol(exit_code)
             return
 
-        self._total_coverage = len(self._corpus._total_path)
         self._total_executions += 1
         self._executions_in_sample += 1
+        self._corpus._run_time = end_time - start_time
         rss = 0
         idx = self._corpus._seed_idx
+        
         if self._corpus._seed_run_finished :
-            if self._corpus.Isinteresting(self._run_coverage):
-                idx = self._corpus.put(buf)
-                self._corpus.UpdatedFavored(buf, idx, end_time - start_time, self._run_coverage)
+            if self._corpus.is_interesting(self._run_coverage):
+                idx = self._corpus.put(buf, self._corpus._depth[idx])
+                self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
                 #print("idx : %d, mutation : %d" %(buf_idx, m))
                 rss = self.log_stats("NEW")
             else:
@@ -259,7 +260,7 @@ class Fuzzer(object):
                     rss = self.log_stats('PULSE')
         else:
             self._corpus._add_to_total_coverage(self._run_coverage)
-            self._corpus.UpdatedFavored(buf, idx, end_time - start_time, self._run_coverage)
+            self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
             rss = self.log_stats("SEED")
 
         if rss > self._rss_limit_mb:
