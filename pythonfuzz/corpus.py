@@ -46,7 +46,7 @@ class Corpus(object):
                         self._add_file(fname)
 
         self._seed_run_finished = False
-        self._seed_idx = 0
+        self._seed_idx = -1
         self._save_corpus = dirs and os.path.isdir(dirs[0])
         self._mutation = mutate.Mutator(max_input_size, dict_path)
         self._put_inputs(bytearray(0))

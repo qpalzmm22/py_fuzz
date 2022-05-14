@@ -245,9 +245,9 @@ class Fuzzer(object):
 
         self._total_executions += 1
         self._executions_in_sample += 1
-        self._corpus._run_time = end_time - start_time
         rss = 0
         idx = self._corpus._seed_idx
+        self._corpus._run_time[idx] = end_time - start_time
         
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
