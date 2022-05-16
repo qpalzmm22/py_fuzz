@@ -1,28 +1,36 @@
+import collections
 import hashlib
-import math
 import os
-import random
-import struct
-#import copy
+from pathlib import Path
+from random import random
+from traceback import print_tb
 from zipfile import ZIP_BZIP2
+from keyring import set_keyring
 
 from numpy import TooHardError
 
-from . import dictionnary
-from . import mutation
+from . import mutate
+
+INTERESTING8 = [-128, -1, 0, 1, 16, 32, 64, 100, 127]
+INTERESTING16 = [0, 128, 255, 256, 512, 1000, 1024, 4096, 32767, 65535]
+INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
+
 
 class Corpus(object):
     def __init__(self, dirs=None, max_input_size=4096, dict_path=None):
-        # inputs and path are coordinated with index
         self._inputs = []
 
         self._input_path = []
-        self._refcount = []
-        self._time = []
-        self._mutated = []
+        self._refcount = [] # favored or not
+        self._run_time = [] # running time of inputs
+        self._mutated = [] # Mutated or not
+        self._select_count = []
         self._depth = []
+        self._passed_det = []
+
+        self._queue_cycle = 0
         
-        self._favored = {}
+        self._favored = {} 
         self._total_path = set()
         self._dirs = dirs if dirs else []
         for i, path in enumerate(dirs):
@@ -36,21 +44,32 @@ class Corpus(object):
                     fname = os.path.join(path, i)
                     if os.path.isfile(fname):
                         self._add_file(fname)
+
         self._seed_run_finished = False
         self._seed_idx = -1
-        self._init_seed_size = 0
         self._save_corpus = dirs and os.path.isdir(dirs[0])
-        self._mutation = mutation.Mutation(max_input_size, dict_path)
-        self.enqueue(bytearray(0))
-
-    def _add_file(self, path):
-        with open(path, 'rb') as f:
-            self.enqueue(bytearray(f.read()))
+        #self._mutation = mutate.Mutator(max_input_size, dict_path)
+        self._put_inputs(bytearray(0))
 
     @property
     def length(self):
         return len(self._inputs)
 
+    def _put_inputs(self, buf):
+        self._inputs.append(buf)
+        idx = len(self._inputs) - 1
+        self._refcount.append(0)
+        self._run_time.append(0)
+        self._mutated.append(False)
+        self._select_count.append(0)
+        self._depth.append(0)
+        self._passed_det.append(False)
+        return idx
+
+    def _add_file(self, path):
+        with open(path, 'rb') as f:
+            self._put_inputs(bytearray(f.read()))
+   
     def put(self, buf, depth):
         if self._save_corpus:
             m = hashlib.sha256()
@@ -58,38 +77,16 @@ class Corpus(object):
             fname = os.path.join(self._dirs[0], m.hexdigest())
             with open(fname, 'wb') as f:
                 f.write(buf)
-        idx = self.enqueue(buf)
+        idx = self._put_inputs(buf)
         self._depth[idx] = depth
-        return idx
 
-    def enqueue(self, buf):
-        self._inputs.append(buf)
-        idx = len(self._inputs) - 1
-        self._time.append(0)
-        self._mutated.append(False)
-        self._refcount.append(0)
-        self._depth.append(0)
-        return idx
+        return self._put_inputs(buf)
 
-    def is_det_ran(self):
-        if self._depth[self._seed_idx] > 0:
-            return True
-        else :
-            return False
 
     def _add_to_total_coverage(self, path):
-        '''
-        comp = copy.deepcopy(self._total_path)
-        print(comp)
-        '''
         for edge, hitcount in path.items() :
             self._total_path.add((edge, hitcount))
-        '''
-        diff = self._total_path - comp
-        if diff is not None:
-            print(diff)
-            print("new path added: ",  len(self._total_path - comp))
-        '''
+
 
     def is_interesting(self, path):
         orig_len = len(self._total_path)
@@ -98,56 +95,55 @@ class Corpus(object):
             return True
         else:
             return False
-    
-    def update_favored(self, idx, buf, time, coverage):
-        for edge in coverage :
-            if self._favored.get(edge) is None:
+
+            
+    def update_favored(self, buf, index, time, coverage):
+        for edge in coverage:
+            if self._favored.get(edge) is None: 
                 self._favored[edge] = buf
-                self._time[idx] = time
-                self._refcount[idx] += 1
+                self._refcount[index] += 1
             else:
-                favored_idx = self._inputs.index(self._favored[edge])
-                if time * len(buf) < self._time[favored_idx] * len(self._favored[edge]) :
+                favored_idx = self._inputs.index(self._favored[edge]) 
+                if (len(buf) * time < (len(self._favored[edge]) * self._run_time[favored_idx])):
                     self._favored[edge] = buf
-                    self._time[idx] = time
                     self._refcount[favored_idx] -= 1
-                    self._refcount[idx] += 1
+                    self._refcount[index] += 1
     
-    def is_there_unmutated_favored(self):
-        for i in range(len(self._refcount)) :
-            if self._refcount[i] > 0 and self._mutated[i] is False :
+    def is_there_uumutated_favored(self):
+        for i in range(len(self._inputs)):
+            if self._refcount[i] > 0 and self._mutated[i] == 0 :
                return True
         return False
-    
-    # returns the index of the input
+
     def seed_selection(self):
-        unmutated_favored_in_queue = self.is_there_unmutated_favored() 
+        unmutated_favored_in_queue = self.is_there_uumutated_favored()
         while True:
             self._seed_idx += 1
             if self._seed_idx >= len(self._inputs):
+                self._queue_cycle += 1
                 self._seed_idx = 0
-
+       
             if(self._refcount[self._seed_idx] == 0) :
-                #if self.is_there_unmutated_favored():
                 if unmutated_favored_in_queue:
-                    if random.random() >= 0.01 :
+                    if random() >= 0.01 :
                         continue
-                elif self._mutated[self._seed_idx] is True:
-                    if random.random() >= 0.05 :
+                elif self._mutated[self._seed_idx] == 1:
+                    if random() >= 0.05 :
                         continue
                 else :
-                    if random.random() >= 0.25 :
+                    if random() >= 0.25 :
                         continue
-
             break
+
         return self._seed_idx
 
+
     def generate_input(self):
-        if self._seed_run_finished:
+        if self._seed_run_finished is True:
             buf_idx = self.seed_selection()
-            #buf_idx = self._mutation._rand(len(self._inputs))
             buf = self._inputs[buf_idx]
             self._mutated[buf_idx] = True
+            self._select_count[buf_idx] += 1
             return buf
         else:
             self._seed_idx += 1
@@ -156,7 +152,6 @@ class Corpus(object):
             buf_idx = self._seed_idx
             buf = self._inputs[buf_idx]
             return buf
-
-    def calculate_score(self, score):
-        score = 1 << self._mutation._rand(6)
-        return score
+    
+    def calculate_score(self):
+        return 500
