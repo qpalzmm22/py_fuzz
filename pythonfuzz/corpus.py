@@ -65,7 +65,7 @@ class Corpus(object):
         self._select_count.append(0)
         self._depth.append(0)
         self._passed_det.append(False)
-        self._energy.append(1)
+        self._energy.append(20)
         return idx
 
     def _add_file(self, path):
@@ -156,11 +156,11 @@ class Corpus(object):
             return buf
     
     def calculate_score(self, idx):
-        iter = 1000 * self._energy[idx]
+        iter = 100 * self._energy[idx]
         if iter < 12:
             iter = 12
-        elif iter > 64000:
-            iter = 64000
+        elif iter > 32000:
+            iter = 32000
         
         print("Iter, Energy: ", iter, " ", self._energy[idx])
         return iter

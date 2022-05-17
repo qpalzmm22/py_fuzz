@@ -2,6 +2,7 @@ import os
 from random import random, uniform
 import sys
 import time
+import math
 import sys
 import psutil
 import hashlib
@@ -249,16 +250,17 @@ class Fuzzer(object):
         rss = 0
         idx = self._corpus._seed_idx
         self._corpus._run_time[idx] = end_time - start_time
-        
+        prev_coverage = self._total_coverage
+
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
-                self._corpus._energy[idx] *= 2
+                self._corpus._energy[idx] *= 1.8 if (len(self._corpus._total_path) - prev_coverage) <= 3 else math.log2((len(self._corpus._total_path) - prev_coverage))
                 idx = self._corpus.put(buf, self._corpus._depth[idx])
                 self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
                 #print("idx : %d, mutation : %d" %(buf_idx, m))
                 rss = self.log_stats("NEW")
             else:
-                self._corpus._energy[idx] *= 0.999
+                self._corpus._energy[idx] *= 0.9991
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')
         else:
