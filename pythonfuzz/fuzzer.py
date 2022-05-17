@@ -1,5 +1,7 @@
+import operator
 import os
 from random import random, uniform
+import sched
 import sys
 import time
 import sys
@@ -100,7 +102,9 @@ class Fuzzer(object):
                  close_fd_mask=0,
                  runs=-1,
                  dict_path=None,
-				 inf_run=False):
+				 inf_run=False,
+                 sched=False,
+                 ):
         self._target = target
         self._dirs = [] if dirs is None else dirs
         self._exact_artifact_path = exact_artifact_path
@@ -124,6 +128,7 @@ class Fuzzer(object):
         self._n_time = 0
         self._avg_time = 0
         self._tot_time = 0
+        self._sched = sched
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
@@ -181,11 +186,7 @@ class Fuzzer(object):
     def exit_protocol(self, exit_code):
         self._p.join()
         sys.exit(exit_code)
-
-    def calculate_score(self, score):
-        score = score * uniform(1.1, 1.2)
-        return score
-
+    
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
         parent_conn, child_conn = mp.Pipe()
@@ -193,23 +194,43 @@ class Fuzzer(object):
         self._p.start()
 
         while True:
-
             buf = self._corpus.generate_input()
-#            score = self.calculate_score(buf)
+            idx = self._corpus._seed_idx
+#            print("\n[CHECK] ", buf)
+            self.fuzz_loop(buf, parent_conn)
+            hitcount = ''
+            
+            sorted_total = dict(sorted(self._corpus._total_path.items(), key=operator.itemgetter(1)))
+            for tot_edge in sorted_total:
+                for cur_edge in self._run_coverage.keys():
+                    if tot_edge[:-1] == cur_edge:
+                        hitcount = tot_edge[len(tot_edge)-1]
+#                        print("DDDDDDEBUG rarest_edge:", tot_edge)
+                        self._corpus._rarest[idx] = cur_edge
+                        break
+                else:
+                    continue
+                break
+
             if not self._corpus._seed_run_finished:
                 self.fuzz_loop(buf, parent_conn)
                 if self._corpus._seed_idx + 1 >= len(self._corpus._inputs) : 
                     self._corpus._seed_run_finished = True
             else :
 #                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
-                if self._corpus._passed_det[self._corpus._seed_idx] is False:
+#                print("DEBUGZZ: ", self._corpus._rarest[idx] ," fsaf" ,self._corpus._total_path[self._corpus._rarest[idx]], " zzz:", self._corpus._rarity_cutoff)
+                if self._corpus._total_path[self._corpus._rarest[idx] + hitcount] > self._corpus._rarity_cutoff:
+                    print("PASS", self._corpus._total_path[self._corpus._rarest[idx]+hitcount], " ", self._corpus._rarity_cutoff)
+                    continue
+
+                if self._corpus._passed_det[idx] is False:
                     for buf_idx in range(len(buf)):
                         for m in range(self._mutation._deter_nm):
                             mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
                             self.fuzz_loop(mutated_buf, parent_conn)
-                    self._corpus._passed_det[self._corpus._seed_idx] = True
+                    self._corpus._passed_det[idx] = True
                 else:
-                    for i in range(self._corpus.calculate_score()):
+                    for i in range(self._corpus.calculate_score(self._sched)):
                         havoc_buf = self._mutation.mutate_havoc(buf)
                         self.fuzz_loop(havoc_buf, parent_conn)
 
@@ -249,6 +270,16 @@ class Fuzzer(object):
         idx = self._corpus._seed_idx
         self._corpus._run_time[idx] = end_time - start_time
         
+        if self._corpus._seed_run_finished:
+            lowest = min(self._corpus._total_path, key=self._corpus._total_path.get)
+            self._corpus._rarity_cutoff = self._corpus._total_path[lowest]
+            i = 0
+            while True:
+                if pow(2, i) > self._corpus._rarity_cutoff:
+                    self._corpus._rarity_cutoff = pow(2, i)
+                    break
+                i += 1
+
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
                 idx = self._corpus.put(buf, self._corpus._depth[idx])
@@ -258,6 +289,9 @@ class Fuzzer(object):
             else:
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')
+                    for edge in self._corpus._total_path.keys():
+                        print("DEBUG", edge, " |||||| ", self._corpus._total_path[edge])
+                    #print("DEEEEEEEEEBGRU REREST: ", self._corpus._rarest[idx], " Count: ", self._corpus._total_path[self._corpus._rarest[idx]+'0'])
         else:
             self._corpus._add_to_total_coverage(self._run_coverage)
             self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)

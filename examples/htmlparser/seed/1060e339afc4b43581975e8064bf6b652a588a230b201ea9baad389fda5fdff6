@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<htmln> Heading</h1>
+<p>This is some <span class=&note">important</span> textyle>
+</head>
+<body>
+
+<h1>My <span class="note">Important</span> Heading</h1>
+<p>This is some <span class=&note">important</span> text.</p>
+
+</body>
+</html>

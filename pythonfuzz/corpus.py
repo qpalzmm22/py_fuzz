@@ -21,17 +21,23 @@ class Corpus(object):
         self._inputs = []
 
         self._input_path = []
+
+        self._rarest = [] # rerest path of inputs
         self._refcount = [] # favored or not
         self._run_time = [] # running time of inputs
         self._mutated = [] # Mutated or not
         self._select_count = []
-        self._depth = []
+        self._depth = [] # Depth of inputs
         self._passed_det = []
 
         self._queue_cycle = 0
+        self._rarity_cutoff = 0
         
         self._favored = {} 
-        self._total_path = set()
+        self._total_path = collections.defaultdict(set)
+        # self._numhit = []
+         
+
         self._dirs = dirs if dirs else []
         for i, path in enumerate(dirs):
             if i == 0 and not os.path.exists(path):
@@ -64,6 +70,7 @@ class Corpus(object):
         self._select_count.append(0)
         self._depth.append(0)
         self._passed_det.append(False)
+        self._rarest.append("")
         return idx
 
     def _add_file(self, path):
@@ -82,15 +89,23 @@ class Corpus(object):
 
         return self._put_inputs(buf)
 
+    def _getrerest(self, idx):
+        pass
+
 
     def _add_to_total_coverage(self, path):
         for edge, hitcount in path.items() :
-            self._total_path.add((edge, hitcount))
-
+            if self._total_path.get(edge + str(hitcount)) is None:
+                self._total_path[edge + str(hitcount)] = 0
+            self._total_path[edge + str(hitcount)] = self._total_path[edge + str(hitcount)] + 1
+        
+#           self._total_path.add((edge, hitcount))
 
     def is_interesting(self, path):
         orig_len = len(self._total_path)
+#        orig_len = sum(map(len, self._total_path.values()))
         self._add_to_total_coverage(path)
+
         if orig_len < len(self._total_path):
             return True
         else:
@@ -153,5 +168,10 @@ class Corpus(object):
             buf = self._inputs[buf_idx]
             return buf
     
-    def calculate_score(self):
-        return 500
+    def calculate_score(self, sched):
+        if sched is None:
+            return 500
+        elif sched is "perf":
+            return 1000
+        else:
+            return 2000

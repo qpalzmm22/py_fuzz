@@ -52,7 +52,7 @@ def get_coverage():
     # TODO test
     global prev_line
     global prev_filename
-
+    
     coverage = {}
     
     for edge in edges:
