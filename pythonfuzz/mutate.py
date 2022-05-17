@@ -20,7 +20,8 @@ INTERESTING8 = [-128, -1, 0, 1, 16, 32, 64, 100, 127]
 INTERESTING16 = [0, 128, 255, 256, 512, 1000, 1024, 4096, 32767, 65535]
 INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 
-Deterministic = 11
+#Deterministic = 11
+Deterministic = 14
 Havoc = 14
 
 class Mutator:
@@ -93,14 +94,22 @@ class Mutator:
         return False
     '''
     # helper function to pack as little and big endian and assign
-    def assign(self, res, buf, pos, endian, n_bytes, positive=True):
+    def assign(self, res, buf, pos, endian, n_bytes):
+        for i in range(n_bytes):
+            res[pos + i] = (buf[pos + i] + endian[i]) % 256
+    
+    # add value to res and return added value
+    def add_assign(self, res, pos, n_bytes, val, positive=True):
         if positive is True:
             mult = 1
         else:
             mult = -1
-
+        tot = 0
         for i in range(n_bytes):
-            res[pos + i] = (buf[pos + i] + mult * endian[i]) % 256
+            tot = (tot << 8) + res[pos + i]
+
+        tot = tot + mult * val
+        return tot
 
     def mutate_det(self, buf, fuzz_loop):
         if self._dict is None :
@@ -109,7 +118,6 @@ class Mutator:
             num_mutation = self._deter_nm
 
         res = copy.deepcopy(buf)
-        '''
         for index in range(len(buf)):
             for x in range(num_mutation):
                 #res = buf[:]
@@ -175,42 +183,50 @@ class Mutator:
 
                     pos = index
                     for v in range(self._max_arith):
-                        # Big endian Add/subtract
-                        big_endian = struct.pack('>H', v)
-                        self.assign(res, buf, pos, big_endian, 2, True)
+                        # Add
+                        val_16 = self.add_assign(buf, pos, 2, v, True) % 0xffff
+                        big_endian = struct.pack('>H', val_16)
+                        self.assign(res, buf, pos, big_endian, 2)
                         self.cut_and_run(res, fuzz_loop)
 
-                        self.assign(res, buf, pos, big_endian, 2, False)
+                        little_endian = struct.pack('<H', val_16)
+                        self.assign(res, buf, pos, little_endian, 2)
                         self.cut_and_run(res, fuzz_loop)
                         
-                        # little endian Add/subtract
-                        little_endian = struct.pack('<H', v)
-                        self.assign(res, buf, pos, little_endian, 2, True)
+                        # Subtract
+                        val_16 = self.add_assign(buf, pos, 2, v, False) % 0xffff
+                        big_endian = struct.pack('>H', val_16)
+                        self.assign(res, buf, pos, big_endian, 2)
                         self.cut_and_run(res, fuzz_loop)
                         
-                        self.assign(res, buf, pos, little_endian, 2, False)
+                        little_endian = struct.pack('<H', val_16)
+                        self.assign(res, buf, pos, little_endian, 2)
                         self.cut_and_run(res, fuzz_loop)
                 elif x == 6:
                     # print("add/subtract 4 byte")
-                    # Add/subtract from a uint32.
+                    # Add/subtract from a uint32
                     if len(res) < 4 or len(res) - 4 < index:
                         continue
                     pos = index
                     for v in range(self._max_arith):
-                        # Big endian Add/subtract
-                        big_endian = struct.pack('>I', v)
-                        self.assign(res, buf, pos, big_endian, 4, True)
+                        # Add
+                        val_32 = self.add_assign(buf, pos, 4, v, True) % 0xffffffff
+                        big_endian = struct.pack('>I', val_32)
+                        self.assign(res, buf, pos, big_endian, 4)
                         self.cut_and_run(res, fuzz_loop)
 
-                        self.assign(res, buf, pos, big_endian, 4, False)
+                        little_endian = struct.pack('<I', val_32)
+                        self.assign(res, buf, pos, little_endian, 4)
                         self.cut_and_run(res, fuzz_loop)
                         
-                        # little endian Add/subtract
-                        little_endian = struct.pack('<I', v)
-                        self.assign(res, buf, pos, little_endian, 4, True)
+                        # Subtract
+                        val_32 = self.add_assign(buf, pos, 4, v, False) % 0xffffffff
+                        big_endian = struct.pack('>I', val_32)
+                        self.assign(res, buf, pos, big_endian, 4)
                         self.cut_and_run(res, fuzz_loop)
                         
-                        self.assign(res, buf, pos, little_endian, 4, False)
+                        little_endian = struct.pack('<I', val_32)
+                        self.assign(res, buf, pos, little_endian, 4)
                         self.cut_and_run(res, fuzz_loop)
                 elif x == 7:
                     # print("add/subtract 8 byte")
@@ -219,20 +235,24 @@ class Mutator:
                         continue
                     pos = index
                     for v in range(self._max_arith):
-                        # Big endian Add/subtract
-                        big_endian = struct.pack('>Q', v)
-                        self.assign(res, buf, pos, big_endian, 8, True)
+                        # Add
+                        val_64 = self.add_assign(buf, pos, 8, v, True)
+                        big_endian = struct.pack('>Q', val_64)
+                        self.assign(res, buf, pos, big_endian, 8)
                         self.cut_and_run(res, fuzz_loop)
 
-                        self.assign(res, buf, pos, big_endian, 8, False)
+                        little_endian = struct.pack('<Q', val_64)
+                        self.assign(res, buf, pos, little_endian, 8)
                         self.cut_and_run(res, fuzz_loop)
                         
-                        # little endian Add/subtract
-                        little_endian = struct.pack('<Q', v)
-                        self.assign(res, buf, pos, little_endian, 8, True)
+                        # Subtract
+                        val_64 = self.add_assign(buf, pos, 8, v, False)
+                        big_endian = struct.pack('>Q', val_64)
+                        self.assign(res, buf, pos, big_endian, 8)
                         self.cut_and_run(res, fuzz_loop)
                         
-                        self.assign(res, buf, pos, little_endian, 8, False)
+                        little_endian = struct.pack('<Q', val_64)
+                        self.assign(res, buf, pos, little_endian, 8)
                         self.cut_and_run(res, fuzz_loop)
                 elif x == 8:
                     # print("replace interesting byte")
@@ -446,7 +466,7 @@ class Mutator:
                     pos = idx
                     self.copy(dict_word, res, 0, pos)
                     self.cut_and_run(res, fuzz_loop)
-
+        '''
     def mutate_havoc(self, buf, corpus):
         res = buf[:]
 
