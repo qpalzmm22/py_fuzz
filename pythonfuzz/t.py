@@ -64,22 +64,12 @@ print(random())
 
 numbers = ['one', 'two', 'three', 'four', 'five']
 
-for n in numbers:
-    print(n)
+print("-====")
 
-print("========================")
+t = []
 
-while True:
-    for i in range(10):
-        for j in range(10):
-            print(i+j)
-            if i + j == 18:
-                break
-        else:
-            continue
-        break
-    else:
-        continue
-    break
+t.append(1)
+t.append(2)
+t.append(3)
 
-    
+print(t)

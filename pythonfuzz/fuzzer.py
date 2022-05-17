@@ -195,6 +195,7 @@ class Fuzzer(object):
         while True:
 
             buf = self._corpus.generate_input()
+            idx = self._corpus._seed_idx
 #            score = self.calculate_score(buf)
             if not self._corpus._seed_run_finished:
                 self.fuzz_loop(buf, parent_conn)
@@ -202,14 +203,14 @@ class Fuzzer(object):
                     self._corpus._seed_run_finished = True
             else :
 #                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
-                if self._corpus._passed_det[self._corpus._seed_idx] is False:
+                if self._corpus._passed_det[idx] is False:
                     for buf_idx in range(len(buf)):
                         for m in range(self._mutation._deter_nm):
                             mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
                             self.fuzz_loop(mutated_buf, parent_conn)
-                    self._corpus._passed_det[self._corpus._seed_idx] = True
+                    self._corpus._passed_det[idx] = True
                 else:
-                    for i in range(self._corpus.calculate_score()):
+                    for i in range(self._corpus.calculate_score(idx)):
                         havoc_buf = self._mutation.mutate_havoc(buf)
                         self.fuzz_loop(havoc_buf, parent_conn)
 
@@ -251,11 +252,13 @@ class Fuzzer(object):
         
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
+                self._corpus._energy[idx] *= 2
                 idx = self._corpus.put(buf, self._corpus._depth[idx])
                 self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
                 #print("idx : %d, mutation : %d" %(buf_idx, m))
                 rss = self.log_stats("NEW")
             else:
+                self._corpus._energy[idx] *= 0.999
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')
         else:
