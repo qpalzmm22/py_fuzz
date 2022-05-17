@@ -210,7 +210,7 @@ class Fuzzer(object):
                             self.fuzz_loop(mutated_buf, parent_conn)
                     self._corpus._passed_det[idx] = True
                 else:
-                    for i in range(self._corpus.calculate_score(idx)):
+                    for i in range(int(self._corpus.calculate_score(idx))):
                         havoc_buf = self._mutation.mutate_havoc(buf)
                         self.fuzz_loop(havoc_buf, parent_conn)
 
