@@ -27,6 +27,7 @@ class Corpus(object):
         self._select_count = []
         self._depth = []
         self._passed_det = []
+        self._newseed = []
 
         self._queue_cycle = 0
         
@@ -64,6 +65,7 @@ class Corpus(object):
         self._select_count.append(0)
         self._depth.append(0)
         self._passed_det.append(False)
+        self._newseed.append(5)
         return idx
 
     def _add_file(self, path):
@@ -121,15 +123,19 @@ class Corpus(object):
             self._seed_idx += 1
             if self._seed_idx >= len(self._inputs):
                 self._queue_cycle += 1
-                self._seed_idx = 0
+                self._seed_idx = -1
+            
+            if self._mutated[self._seed_idx] is False:
+                break
+            else:
+                self._newseed[self._seed_idx] = 1
        
             if(self._refcount[self._seed_idx] == 0) :
                 if unmutated_favored_in_queue:
                     if random() >= 0.01 :
                         continue
-                elif self._mutated[self._seed_idx] == 1:
-                    if random() >= 0.05 :
-                        continue
+                elif random() >= 0.05:
+                    continue
                 else :
                     if random() >= 0.25 :
                         continue
@@ -148,10 +154,10 @@ class Corpus(object):
         else:
             self._seed_idx += 1
             if(self._seed_idx >= len(self._inputs)):
-                self._seed_idx = 0
+                self._seed_idx = -1
             buf_idx = self._seed_idx
             buf = self._inputs[buf_idx]
             return buf
     
-    def calculate_score(self):
-        return 500
+    def calculate_score(self, idx):
+        return 1000 * self._newseed[idx]
