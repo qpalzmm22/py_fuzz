@@ -1,5 +1,6 @@
 import os
 from random import random, uniform
+from re import S
 import sys
 import time
 import sys
@@ -100,7 +101,8 @@ class Fuzzer(object):
                  close_fd_mask=0,
                  runs=-1,
                  dict_path=None,
-				 inf_run=False):
+				 inf_run=False,
+                 sched=None):
         self._target = target
         self._dirs = [] if dirs is None else dirs
         self._exact_artifact_path = exact_artifact_path
@@ -124,6 +126,8 @@ class Fuzzer(object):
         self._n_time = 0
         self._avg_time = 0
         self._tot_time = 0
+        self._sched = sched
+
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
@@ -195,21 +199,26 @@ class Fuzzer(object):
         while True:
 
             buf = self._corpus.generate_input()
+            idx = self._corpus._seed_idx
 #            score = self.calculate_score(buf)
             if not self._corpus._seed_run_finished:
                 self.fuzz_loop(buf, parent_conn)
-                if self._corpus._seed_idx + 1 >= len(self._corpus._inputs) : 
+                if idx + 1 >= len(self._corpus._inputs) : 
                     self._corpus._seed_run_finished = True
             else :
 #                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
-                if self._corpus._passed_det[self._corpus._seed_idx] is False:
+                if self._corpus._passed_det[idx] is False:
                     for buf_idx in range(len(buf)):
                         for m in range(self._mutation._deter_nm):
                             mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
                             self.fuzz_loop(mutated_buf, parent_conn)
-                    self._corpus._passed_det[self._corpus._seed_idx] = True
+                    self._corpus._passed_det[idx] = True
                 else:
-                    for i in range(self._corpus.calculate_score()):
+                    if self._sched:
+                        score = self._corpus.calculate_score(idx, self._sched)
+                    else:
+                        score = 1000
+                    for i in range(int(score)):
                         havoc_buf = self._mutation.mutate_havoc(buf)
                         self.fuzz_loop(havoc_buf, parent_conn)
 
@@ -248,6 +257,9 @@ class Fuzzer(object):
         rss = 0
         idx = self._corpus._seed_idx
         self._corpus._run_time[idx] = end_time - start_time
+        if self._corpus._input_path[idx] is None:
+            self._corpus._input_path[idx] = self._run_coverage
+#            print("DEBUG ipath: ", self._corpus._input_path[idx], " len:", len(self._corpus._input_path[idx]))
         
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
