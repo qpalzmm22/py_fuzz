@@ -80,7 +80,7 @@ class Corpus(object):
         idx = self._put_inputs(buf)
         self._depth[idx] = depth
 
-        return self._put_inputs(buf)
+        return idx
 
 
     def _add_to_total_coverage(self, path):
