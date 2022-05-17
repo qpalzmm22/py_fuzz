@@ -95,13 +95,12 @@ class Mutator:
         res = copy.deepcopy(buf)
 
         for index in range(len(buf)):
-            
             for x in range(num_mutation):
                 #res = buf[:]
                 if x == 0:
                     # Bit flip. Spooky!
                     if len(res) == 0:
-                        return 
+                        continue
                     pos = index
                     for bit in range(8):
                         res[pos] = buf[pos] ^ (1 << bit)
@@ -112,7 +111,7 @@ class Mutator:
                     n_bit = 2
                     mask = 0x03
                     if len(res) == 0:
-                        return 
+                        continue
                     pos = index
                     for bit in range(7):
                         res[pos] = buf[pos] ^ (mask << bit)
@@ -123,7 +122,7 @@ class Mutator:
                     n_bit = 2
                     mask = 0x0f
                     if len(res) == 0:
-                        return 
+                        continue
                     pos = index
                     for bit in range(4):
                         res[pos] = buf[pos] ^ (mask << bit)
@@ -134,7 +133,7 @@ class Mutator:
                     n_bit = 2
                     mask = 0xff
                     if len(res) == 0:
-                        return 
+                        continue
                     pos = index
                     res[pos] = buf[pos] ^ mask
                     self.cut_and_run(res, fuzz_loop)
@@ -142,7 +141,7 @@ class Mutator:
                     # print("add/subtract a byte")
                     # Add/subtract from a byte.
                     if len(res) == 0:
-                        return 
+                        continue
                     pos = index
                     for v in range(self._max_arith):
                         # Arithmetic + MAX_ARITH big endian
@@ -156,7 +155,7 @@ class Mutator:
                     # print("add/subtract 2 byte")
                     # Add/subtract from a uint16.
                     if len(res) < 2 or len(res) - 2 < index:
-                        return 
+                        continue
 
                     pos = index
                     for v in range(self._max_arith):
@@ -179,7 +178,7 @@ class Mutator:
                     # print("add/subtract 4 byte")
                     # Add/subtract from a uint32.
                     if len(res) < 4 or len(res) - 4 < index:
-                        return 
+                        continue
                     pos = index
                     for v in range(self._max_arith):
                         # Big endian Add/subtract
@@ -201,7 +200,7 @@ class Mutator:
                     # print("add/subtract 8 byte")
                     # Add/subtract from a uint64.
                     if len(res) < 8 or len(res) - 8 < index:
-                        return 
+                        continue
                     pos = index
                     for v in range(self._max_arith):
                         # Big endian Add/subtract
@@ -223,7 +222,7 @@ class Mutator:
                     # print("replace interesting byte")
                     # Replace a byte with an interesting value.
                     if len(res) == 0:
-                        return 
+                        continue
                     pos = index
                     for interest8 in INTERESTING8:
                         res[pos] = interest8 % 256
@@ -232,7 +231,7 @@ class Mutator:
                     # print("replace interesting 2 byte")
                     # Replace an uint16 with an interesting value.
                     if len(res) < 2 or len(res) - 2 < index:
-                        return 
+                        continue
                     pos = index
                     for interest16 in INTERESTING16:
                         # Big endian interest16
@@ -248,7 +247,7 @@ class Mutator:
                     # print("replace interesting 4 byte")
                     # Replace an uint32 with an interesting value.
                     if len(res) < 4 or len(res) - 4 < index:
-                        return 
+                        continue
 
                     pos = index
 
@@ -266,7 +265,7 @@ class Mutator:
                     # print("ASCII to other")
                     # Replace an ascii digit with another digit.
                     if len(res) <= index:
-                        return 
+                        continue
                     pos = index
                     if ord('0') <= buf[pos] <= ord('9'):
                         for i in range(10):
@@ -277,7 +276,7 @@ class Mutator:
                     # Insert Dictionary word
                     dict_word = self._dict.get_word()
                     if dict_word is None:
-                        return 
+                        continue
                     pos = idx
                     n = len(dict_word)
                     for k in range(n):
@@ -291,7 +290,7 @@ class Mutator:
                     dict_word = self._dict.get_word()
                     
                     if(dict_word == None or len(res) < len(dict_word) or idx > len(res) - len(dict_word)):
-                        return 
+                        continue
                     
                     pos = idx
                     self.copy(dict_word, res, 0, pos)

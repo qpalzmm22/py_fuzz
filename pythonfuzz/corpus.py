@@ -72,6 +72,8 @@ class Corpus(object):
    
     def put(self, buf, depth):
         
+        # check if seed already exist.
+        # could fix self._inputs to be set but the cost is not that high, so let it be
         for index, seed in enumerate(self._inputs):
             if seed == buf :
                 return index
@@ -86,10 +88,6 @@ class Corpus(object):
 
         idx = self._put_inputs(buf)
         self._depth[idx] = depth
-        '''
-        idx = self._put_inputs(buf)
-        self._depth[idx] = depth
-        '''
         return idx
 
 

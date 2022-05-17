@@ -219,6 +219,7 @@ class Fuzzer(object):
 
     def fuzz_loop(self, buf, parent_conn):
         #print(self._corpus._inputs[self._corpus._seed_idx])
+        #print(buf.hex())
         exit_code = 0
         if self.runs != -1 and self._total_executions >= self.runs:
             self._p.terminate()
