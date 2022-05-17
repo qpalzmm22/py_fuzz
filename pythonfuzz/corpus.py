@@ -129,7 +129,7 @@ class Corpus(object):
             self._seed_idx += 1
             if self._seed_idx >= len(self._inputs):
                 self._queue_cycle += 1
-                self._seed_idx = 0
+                self._seed_idx = -1
        
             if(self._refcount[self._seed_idx] == 0) :
                 if unmutated_favored_in_queue:
@@ -156,7 +156,7 @@ class Corpus(object):
         else:
             self._seed_idx += 1
             if(self._seed_idx >= len(self._inputs)):
-                self._seed_idx = 0
+                self._seed_idx = -1
             buf_idx = self._seed_idx
             buf = self._inputs[buf_idx]
             return buf

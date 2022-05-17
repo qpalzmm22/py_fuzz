@@ -5,3 +5,5 @@ crash-*
 dist/
 build/
 pythonfuzz.egg-info/
+.swp
+.swo
