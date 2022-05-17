@@ -21,7 +21,7 @@ INTERESTING16 = [0, 128, 255, 256, 512, 1000, 1024, 4096, 32767, 65535]
 INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 
 Deterministic = 14
-Havoc = 13
+Havoc = 14
 
 class Mutator:
     def __init__(self, max_size=4096, max_arith=35, dict_path = None, parent_conn = None):
@@ -406,21 +406,17 @@ class Mutator:
             res[pos] ^= 0xff
         elif x == 10:
             # 2 Byte flip. Spooky!
-            if len(res) == 0:
+            if len(res) < 2:
                 return res
             pos = self._rand(len(res) - 1)
             res[pos] ^= 0xff
             res[pos+1] ^= 0xff
         elif x == 11:
-            # splicing(replace)
-            target = corpus._inputs[self._rand(len(corpus._inputs))]
-            if len(target) == 0:
+            # Set a byte to a random value.
+            if len(res) == 0:
                 return res
-            src = self._rand(len(target))
-            dst = self._rand(len(res))
-            short_len  = len(target) - src if len(target) - src < len(res) - dst else len(res) - dst
-            n = self._choose_len(short_len)
-            self.copy(target, res, src, dst, src+n)
+            pos = self._rand(len(res))
+            res[pos] ^= self._rand(255) + 1
         elif x == 12:
             # splicing(insert)
             target = corpus._inputs[self._rand(len(corpus._inputs))]
@@ -434,6 +430,16 @@ class Mutator:
             self.copy(res, res, dst, dst+n)
             for k in range(n):
                 res[dst+k] = target[src+k]
+        elif x == 13:
+            # splicing(replace)
+            target = corpus._inputs[self._rand(len(corpus._inputs))]
+            if len(target) == 0:
+                return res
+            src = self._rand(len(target))
+            dst = self._rand(len(res))
+            short_len  = len(target) - src if len(target) - src < len(res) - dst else len(res) - dst
+            n = self._choose_len(short_len)
+            self.copy(target, res, src, dst, src+n)
 
         if len(res) > self._max_input_size:
             res = res[:self._max_input_size]
