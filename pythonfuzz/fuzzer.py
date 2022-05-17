@@ -183,9 +183,6 @@ class Fuzzer(object):
         self._p.join()
         sys.exit(exit_code)
 
-    def calculate_score(self, score):
-        score = score * uniform(1.1, 1.2)
-        return score
 
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
@@ -206,19 +203,22 @@ class Fuzzer(object):
             else :
 #                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
                 if self._corpus._passed_det[self._corpus._seed_idx] is False:
-                    print("running det")
-                    for buf_idx in range(len(buf)):
-                        for m in range(self._mutation._deter_nm):
-                            self._mutation.mutate_det(buf, buf_idx, m, self.fuzz_loop)
+                    print(self._corpus._seed_idx, "]================ running det========== ", buf)
+                    #for i, inp in enumerate(self._corpus._inputs):
+                    #    print(i, "] inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
+                    #for buf_idx in range(len(buf)):
+                    #    for m in range(self._mutation._deter_nm):
+                            #print("buf_idx : ",buf_idx, " m :" )
+                    self._mutation.mutate_det(buf, self.fuzz_loop)
                     self._corpus._passed_det[self._corpus._seed_idx] = True
                 else:
-                    print("running havoc")
+                    print(self._corpus._seed_idx, "] running havoc ", buf)
                     for i in range(self._corpus.calculate_score()):
                         havoc_buf = self._mutation.mutate_havoc(buf, self._corpus)
                         self.fuzz_loop(havoc_buf, parent_conn)
 
     def fuzz_loop(self, buf, parent_conn):
-        # print(buf.hex())
+        #print(self._corpus._inputs[self._corpus._seed_idx])
         exit_code = 0
         if self.runs != -1 and self._total_executions >= self.runs:
             self._p.terminate()
@@ -255,6 +255,9 @@ class Fuzzer(object):
         
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
+                #print(self._run_coverage)
+                #for i, inp in enumerate(self._corpus._inputs):
+                #    print(i, "] inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
                 idx = self._corpus.put(buf, self._corpus._depth[idx])
                 self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
                 #print("idx : %d, mutation : %d" %(buf_idx, m))

@@ -71,16 +71,26 @@ class Corpus(object):
             self._put_inputs(bytearray(f.read()))
    
     def put(self, buf, depth):
+        
+        for index, seed in enumerate(self._inputs):
+            if seed == buf :
+                return index
+        
         if self._save_corpus:
             m = hashlib.sha256()
             m.update(buf)
             fname = os.path.join(self._dirs[0], m.hexdigest())
+            #fileExist = os.path.exists(fname)
             with open(fname, 'wb') as f:
                 f.write(buf)
+
         idx = self._put_inputs(buf)
         self._depth[idx] = depth
-
-        return self._put_inputs(buf)
+        '''
+        idx = self._put_inputs(buf)
+        self._depth[idx] = depth
+        '''
+        return idx
 
 
     def _add_to_total_coverage(self, path):
