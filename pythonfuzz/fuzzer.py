@@ -186,33 +186,21 @@ class Fuzzer(object):
 
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
-        #parent_conn, child_conn = mp.Pipe()
         parent_conn = self._parent_conn
         child_conn = self._child_conn
-        #self._p = mp.Process(target=worker, args=(self, child_conn)) #added
         self._p.start()
 
         while True:
-
             buf = self._corpus.generate_input()
-#            score = self.calculate_score(buf)
             if not self._corpus._seed_run_finished:
                 self.fuzz_loop(buf, parent_conn)
                 if self._corpus._seed_idx + 1 >= len(self._corpus._inputs) : 
                     self._corpus._seed_run_finished = True
             else :
-#                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
                 if self._corpus._passed_det[self._corpus._seed_idx] is False:
-                    print(self._corpus._seed_idx, "]================ running det========== ", buf)
-                    #for i, inp in enumerate(self._corpus._inputs):
-                    #    print(i, "] inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
-                    #for buf_idx in range(len(buf)):
-                    #    for m in range(self._mutation._deter_nm):
-                            #print("buf_idx : ",buf_idx, " m :" )
                     self._mutation.mutate_det(buf, self.fuzz_loop)
                     self._corpus._passed_det[self._corpus._seed_idx] = True
                 else:
-                    print(self._corpus._seed_idx, "] running havoc ", buf)
                     for i in range(self._corpus.calculate_score()):
                         havoc_buf = self._mutation.mutate_havoc(buf, self._corpus)
                         self.fuzz_loop(havoc_buf, parent_conn)
