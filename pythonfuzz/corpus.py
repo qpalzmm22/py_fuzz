@@ -166,6 +166,7 @@ class Corpus(object):
         cur_exec_time = self._run_time[idx]
         cur_coverage = len(self._input_path[idx])
 
+        # Adjust score via execution time
         if cur_exec_time * 0.1 > avg_exec_time:
             perf_score = 10
         elif cur_exec_time * 0.25 > avg_exec_time:
@@ -181,6 +182,7 @@ class Corpus(object):
         elif cur_exec_time * 2 < avg_exec_time:
             perf_score = 150
 
+        # Adjust score via coverage
         if cur_coverage * 0.3 > avg_coverage:
             perf_score *= 3
         elif cur_coverage * 0.5 > avg_coverage:
@@ -197,6 +199,7 @@ class Corpus(object):
         # TODO handicap
         perf_score *= 2
 
+        # Adjust score via input depth
         if self._depth[idx] < 3:
             pass
         elif self._depth[idx] < 7:
