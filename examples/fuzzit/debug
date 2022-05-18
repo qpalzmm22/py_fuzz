@@ -1,0 +1,6 @@
+TT
+[DEBUG] #0 READ units: 1
+OUTTER coverage
+{'/Users/chaejeong-yeong/workspace/py_fuzz/examples/fuzzit/fuzz.py:0:6': 0, '/Users/chaejeong-yeong/workspace/py_fuzz/examples/fuzzit/fuzz.py:6:7': 0, '/Users/chaejeong-yeong/workspace/py_fuzz/examples/fuzzit/fuzz.py:7:8': 0}
+INNER coverage
+{'/Users/chaejeong-yeong/workspace/py_fuzz/examples/fuzzit/fuzz.py:0:6': 0, '/Users/chaejeong-yeong/workspace/py_fuzz/examples/fuzzit/fuzz.py:6:7': 0, '/Users/chaejeong-yeong/workspace/py_fuzz/examples/fuzzit/fuzz.py:7:8': 0}
