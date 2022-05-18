@@ -3,6 +3,8 @@ import hashlib
 import os
 from pathlib import Path
 from random import random
+import statistics
+import numpy as np
 from traceback import print_tb
 from zipfile import ZIP_BZIP2
 from keyring import set_keyring
@@ -64,6 +66,7 @@ class Corpus(object):
         self._select_count.append(0)
         self._depth.append(0)
         self._passed_det.append(False)
+        self._input_path.append(None)
         return idx
 
     def _add_file(self, path):
@@ -71,13 +74,6 @@ class Corpus(object):
             self._put_inputs(bytearray(f.read()))
    
     def put(self, buf, depth):
-        
-        # check if seed already exist.
-        # could fix self._inputs to be set but the cost is not that high, so let it be
-        for index, seed in enumerate(self._inputs):
-            if seed == buf :
-                return index
-        
         if self._save_corpus:
             m = hashlib.sha256()
             m.update(buf)
@@ -85,9 +81,9 @@ class Corpus(object):
             #fileExist = os.path.exists(fname)
             with open(fname, 'wb') as f:
                 f.write(buf)
-
         idx = self._put_inputs(buf)
         self._depth[idx] = depth
+
         return idx
 
 
@@ -161,5 +157,68 @@ class Corpus(object):
             buf = self._inputs[buf_idx]
             return buf
     
-    def calculate_score(self):
-        return 500
+    def calculate_score(self, idx, sched):
+        HVCOV_CYCLE = 256
+        perf_score = 100
+        t = np.array(self._run_time)
+        avg_exec_time = t[np.nonzero(t)].mean()
+        avg_coverage = np.mean(len(self._input_path))
+
+        cur_exec_time = self._run_time[idx]
+        cur_coverage = len(self._input_path[idx])
+
+        # Adjust score via execution time
+        if cur_exec_time * 0.1 > avg_exec_time:
+            perf_score = 10
+        elif cur_exec_time * 0.25 > avg_exec_time:
+            perf_score = 25 
+        elif cur_exec_time* 0.5 > avg_exec_time:
+            perf_score = 50
+        elif cur_exec_time * 0.75 > avg_exec_time:
+            perf_score = 70
+        elif cur_exec_time * 4 < avg_exec_time:
+            perf_score = 300
+        elif cur_exec_time * 3 < avg_exec_time:
+            perf_score = 200
+        elif cur_exec_time * 2 < avg_exec_time:
+            perf_score = 150
+
+        # Adjust score via coverage
+        if cur_coverage * 0.3 > avg_coverage:
+            perf_score *= 3
+        elif cur_coverage * 0.5 > avg_coverage:
+            perf_score *= 2 
+        elif cur_coverage * 0.75 > avg_coverage:
+            perf_score *= 1.5
+        elif cur_coverage * 3 < avg_coverage:
+            perf_score * 0.25
+        elif cur_coverage * 2 < avg_coverage:
+            perf_score = 0.5
+        elif cur_coverage * 1.5 < avg_coverage:
+            perf_score = 0.75
+
+        # TODO handicap
+        perf_score *= 2
+
+        # Adjust score via input depth
+        if self._depth[idx] < 3:
+            pass
+        elif self._depth[idx] < 7:
+            perf_score *= 2
+        elif self._depth[idx] < 13:
+            perf_score *= 3
+        elif self._depth[idx] < 24:
+            perf_score *= 4
+        else:
+            perf_score *= 5        
+
+#        print("RUNS: , Score: ", HVCOV_CYCLE * perf_score / 100 / 1, " ", perf_score)
+
+        if perf_score < 1:
+            perf_score = 1
+        
+        if perf_score > 6400:
+            perf_score = 6400
+
+        perf_score = HVCOV_CYCLE * perf_score / 100 / 1 # TODO havoc div
+        return perf_score

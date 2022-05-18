@@ -1,13 +1,15 @@
-from furl import furl
 from pythonfuzz.main import PythonFuzz
+from furl import furl
 
 @PythonFuzz
 def fuzz(buf):
-    try:
-        url = buf.decode("ascii")
-        f = furl(url)
-    except UnicodeDecodeError:
-        pass
+	try:
+		string = buf.decode("ascii")
+		f = furl(string)
+		f.path.segments
+		f.path.normalize()
+	except UnicodeDecodeError:
+		pass
 
 if __name__ == '__main__':
-    fuzz()
+	fuzz()

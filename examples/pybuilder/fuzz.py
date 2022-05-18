@@ -1,22 +1,23 @@
-# Fuzz cli options
-
 from pythonfuzz.main import PythonFuzz
+from pybuilder.errors import PyBuilderException
+from pybuilder.core import *
+from pybuilder.scaffolding import * 
+import tempfile
 
 @PythonFuzz
 def fuzz(buf):
+	try:
+		p_name = buf.decode("ascii")
+		with tempfile.TemporaryDirectory() as tempDir:
+			pass
+		project = Project(basedir= tempDir, name = p_name)
+		project.validate()
 
-    if(len(buf) < 8):
-        return
+		scaffold = PythonProjectScaffolding(project)
+		scaffold.build_initializer()
 
-    file_ext = buf[:8]
-    file_ext = file_ext.decode("ascii")
-    file_content = buf[8:]
-
-    try:
-        with tempfile.NamedTemporaryFile(suffix=file_ext) as af:
-            print(af.name)
-    except ValueError:
-        pass
+	except (PyBuilderException, UnicodeDecodeError):
+		pass
 
 if __name__ == '__main__':
-    fuzz()
+	fuzz()

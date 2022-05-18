@@ -5,9 +5,12 @@ from purl import URL
 def fuzz(buf):
 	try:
 		string = buf.decode("ascii")
-		URL(string)
+		u = URL(string)
+		u.as_string()
 	except UnicodeDecodeError:
 		pass
 
 if __name__ == '__main__':
 	fuzz()
+
+

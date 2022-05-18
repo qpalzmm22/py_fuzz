@@ -1,23 +1,30 @@
-import tempfile
-from tinytag import TinyTag
 from pythonfuzz.main import PythonFuzz
+from tinytag import TinyTag
+import tempfile
+import random
+def suffix():
+	randnum = random.randint(0, 3)
+	if(randnum == 0):
+		return ".mp4"
+	elif(randnum == 1):
+		return ".mp3"
+	elif(randnum == 2):
+		return ".WMA"
+	elif(randnum == 3):
+		return ".riff"
 
 @PythonFuzz
 def fuzz(buf):
-
-    if(len(buf) < 8):
-        return
-
-    try:
-        file_ext = buf.decode("ascii")
-        file_ext = file_ext[:8]
-        file_content = buf[8:]
-        with tempfile.NamedTemporaryFile(suffix=file_ext) as af:
-            af.write(file_content)
-            TinyTag.get(af.name)
- #           print(af.name)
-    except UnicodeDecodeError:
-        pass
+	try:
+		f = tempfile.NamedTemporaryFile('wb', suffix=suffix())
+		f.write(buf)
+		f.seek(0)
+		tag = TinyTag.get(f.name)
+		f.close()
+	except UnicodeDecodeError:
+		pass
 
 if __name__ == '__main__':
-   fuzz()
+	fuzz()
+
+
