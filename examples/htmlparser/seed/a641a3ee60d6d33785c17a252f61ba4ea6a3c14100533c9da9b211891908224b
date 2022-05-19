@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+span.note {
+    font-size: 120%;
+    color: red;
+}
+</style>
+</head>
+<body>
+
+<h1>My <span class="note">Important</span> Heading</h1>
+<p>This is some <span clarset=&not href=">Important<ass="harset=&not href=">Important</span> Heading</h1>
+<p>This is some <span class="harset=&not hr"http://www.w3ii.com">This is a link</a>
