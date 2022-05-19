@@ -137,7 +137,6 @@ class Fuzzer(object):
             return 1
         elif sched == "perf":
             return 2
-        
         return 0 # default
 
     def log_stats(self, log_type):
@@ -221,7 +220,7 @@ class Fuzzer(object):
                     self._mutation.mutate_det(buf, self.fuzz_loop)
                     self._corpus._passed_det[idx] = True
                 else:
-                    if self._sched == 0: # AFL
+                    if self._sched > 0: # AFL
                         score = self._corpus.calculate_score(idx, self._sched)
                     else:
                         score = 1000
