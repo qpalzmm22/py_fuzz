@@ -1,4 +1,5 @@
 #!/bin/bash
+# removes inp seeds and crashes
 
 mv ./seed/inp ./inp
 

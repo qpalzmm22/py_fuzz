@@ -1,4 +1,5 @@
 import random
+import copy
 from re import S
 import re
 import struct
@@ -19,15 +20,19 @@ INTERESTING8 = [-128, -1, 0, 1, 16, 32, 64, 100, 127]
 INTERESTING16 = [0, 128, 255, 256, 512, 1000, 1024, 4096, 32767, 65535]
 INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 
-Deterministic = 10
-Havoc = 11
+#Deterministic = 11
+Deterministic = 14
+Havoc = 14
 
 class Mutator:
-    def __init__(self, max_size=4096, dict_path = None):
+    def __init__(self, max_size=4096, max_arith=35, dict_path = None, parent_conn = None):
         self._max_input_size = max_size
+        self._max_arith = max_arith
         self._dict = dictionnary.Dictionary(dict_path)
         self._deter_nm = Deterministic
         self._havoc_nm = Havoc
+        self._deter_idx = 0
+        self._parent_conn = parent_conn
 
     @staticmethod
     def _rand(n):
@@ -54,6 +59,7 @@ class Mutator:
         if x < 90:
             return Mutator._rand(min(8, n)) + 1
         elif x < 99:
+            
             return Mutator._rand(min(32, n)) + 1
         else:
             return Mutator._rand(n) + 1
@@ -65,147 +71,406 @@ class Mutator:
         byte_to_copy = min(end_source-start_source, end_dst-start_dst)
         dst[start_dst:start_dst+byte_to_copy] = src[start_source:start_source+byte_to_copy] 
 
-
-    def mutate_det(self, buf, index, x):
-        res = buf[:]
-        if x == 0:
-            # Bit flip. Spooky!
-            if len(res) == 0:
-                return res
-            pos = index
-            res[pos] ^= 1 << self._rand(8)
-        elif x == 1:
-            # Set a byte to a random value.
-            if len(res) == 0:
-                return res
-            pos = index
-            res[pos] ^= self._rand(255) + 1
-        elif x == 2:
-            # Add/subtract from a byte.
-            if len(res) == 0:
-                return res
-            pos = index
-            v = self._rand(2 ** 8)
-            res[pos] = (res[pos] + v) % 256 # += 35
-        elif x == 3:
-            # Add/subtract from a uint16.
-            if len(res) < 2:
-                return res
-            try:
-                pos = index - 1
-            except:
-                return res
-
-            v = self._rand(2 ** 16)
-            if bool(random.getrandbits(1)):
-                v = struct.pack('>H', v)
-            else:
-                v = struct.pack('<H', v)
-            res[pos] = (res[pos] + v[0]) % 256
-            res[pos + 1] = (res[pos] + v[1]) % 256
-        elif x == 4:
-            # Add/subtract from a uint32.
-            if len(res) < 4:
-                return res
-            try:
-                pos = index - 3
-            except:
-                return res
-
-            v = self._rand(2 ** 32)
-            if bool(random.getrandbits(1)):
-                v = struct.pack('>I', v)
-            else:
-                v = struct.pack('<I', v)
-            res[pos] = (res[pos] + v[0]) % 256
-            res[pos + 1] = (res[pos + 1] + v[1]) % 256
-            res[pos + 2] = (res[pos + 2] + v[2]) % 256
-            res[pos + 3] = (res[pos + 3] + v[3]) % 256
-        elif x == 5:
-            # Add/subtract from a uint64.
-            if len(res) < 8:
-                return res
-            try:
-                pos = index - 7
-            except:
-                return res
-
-            v = self._rand(2 ** 64)
-            if bool(random.getrandbits(1)):
-                v = struct.pack('>Q', v)
-            else:
-                v = struct.pack('<Q', v)
-            res[pos] = (res[pos] + v[0]) % 256
-            res[pos + 1] = (res[pos + 1] + v[1]) % 256
-            res[pos + 2] = (res[pos + 2] + v[2]) % 256
-            res[pos + 3] = (res[pos + 3] + v[3]) % 256
-            res[pos + 4] = (res[pos + 4] + v[4]) % 256
-            res[pos + 5] = (res[pos + 5] + v[5]) % 256
-            res[pos + 6] = (res[pos + 6] + v[6]) % 256
-            res[pos + 7] = (res[pos + 7] + v[7]) % 256
-        elif x == 6:
-            # Replace a byte with an interesting value.
-            if len(res) == 0:
-                return res
-            pos = index
-            res[pos] = INTERESTING8[self._rand(len(INTERESTING8))] % 256
-        elif x == 7:
-            # Replace an uint16 with an interesting value.
-            if len(res) < 2:
-                return res
-            try:
-                pos = index - 1
-            except:
-                return res
-
-            v = random.choice(INTERESTING16)
-            if bool(random.getrandbits(1)):
-                v = struct.pack('>H', v)
-            else:
-                v = struct.pack('<H', v)
-            res[pos] = v[0] % 256
-            res[pos + 1] = v[1] % 256
-        elif x == 8:
-            # Replace an uint32 with an interesting value.
-            if len(res) < 4:
-                return res
-            try:
-                pos = index - 3
-            except:
-                return res
-
-            v = random.choice(INTERESTING32)
-            if bool(random.getrandbits(1)):
-                v = struct.pack('>I', v)
-            else:
-                v = struct.pack('<I', v)
-            res[pos] = v[0] % 256
-            res[pos + 1] = v[1] % 256
-            res[pos + 2] = v[2] % 256
-            res[pos + 3] = v[3] % 256
-        elif x == 9:
-            # Replace an ascii digit with another digit.
-            if len(res) <= index:
-                return res
-            pos = index
-            if ord('0') <= res[pos] <= ord('9'):
-                was = res[pos]
-                now = was
-                while was == now:
-                    now = self._rand(10) + ord('0')
-                res[pos] = now
-        
+    def cut_and_run(self, res, fuzz_loop):
         if len(res) > self._max_input_size:
             res = res[:self._max_input_size]
-        return res
+        fuzz_loop(res, self._parent_conn)
 
-    def mutate_havoc(self, buf):
-        res = buf[:]
-        if self._dict is None:
-            x = self._rand(Havoc-2)
+    # diff = old ^ new
+    '''
+    def could_be_bitflip(self, diff):
+        if diff == 0 :
+            return False
+        
+        while ! (diff & 0x1):
+            diff = diff >> 1
+
+        if diff == 0x1 or diff == 0x3 or diff == 0xf:
+            return True
+
+        if diff == 0xff:
+            return True
+
+        return False
+    '''
+    # helper function to pack as little and big endian and assign
+    def assign(self, res, buf, pos, endian, n_bytes):
+        for i in range(n_bytes):
+            res[pos + i] = (buf[pos + i] + endian[i]) % 256
+    
+    # add value to res and return added value
+    def add_assign(self, res, pos, n_bytes, val, positive=True):
+        if positive is True:
+            mult = 1
         else:
-            x = self._rand(Havoc)
+            mult = -1
+        tot = 0
+        for i in range(n_bytes):
+            tot = (tot << 8) + res[pos + i]
 
+        tot = tot + mult * val
+        return tot
+
+    def mutate_det(self, buf, fuzz_loop):
+        if self._dict is None :
+            num_mutation = self._deter_nm-2
+        else:
+            num_mutation = self._deter_nm
+
+        res = copy.deepcopy(buf)
+        for index in range(len(buf)):
+            for x in range(num_mutation):
+                #res = buf[:]
+                if x == 0:
+                    # Bit flip. Spooky!
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for bit in range(8):
+                        res[pos] = buf[pos] ^ (1 << bit)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 1:
+                    # 2 Bit flip
+                    # print("2 bit flipping")
+                    n_bit = 2
+                    mask = 0x03
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for bit in range(7):
+                        res[pos] = buf[pos] ^ (mask << bit)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 2:
+                    # 4 Bit flip
+                    # print("4 bit flipping")
+                    n_bit = 2
+                    mask = 0x0f
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for bit in range(4):
+                        res[pos] = buf[pos] ^ (mask << bit)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 3:
+                    # 8 Bit flip
+                    # print("8 bit flipping")
+                    n_bit = 2
+                    mask = 0xff
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    res[pos] = buf[pos] ^ mask
+                    self.cut_and_run(res, fuzz_loop)
+                elif x == 4:
+                    # print("add/subtract a byte")
+                    # Add/subtract from a byte.
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for v in range(self._max_arith):
+                        # Arithmetic + MAX_ARITH big endian
+                        res[pos] = (buf[pos] + v) % 256
+                        self.cut_and_run(res, fuzz_loop)
+
+                        # Arithmetic  - MAX_ARITH
+                        res[pos] = (buf[pos] - v) % 256
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 5:
+                    # print("add/subtract 2 byte")
+                    # Add/subtract from a uint16.
+                    if len(res) < 2 or len(res) - 2 < index:
+                        continue
+
+                    pos = index
+                    for v in range(self._max_arith):
+                        # Add
+                        val_16 = self.add_assign(buf, pos, 2, v, True) % 0xffff
+                        big_endian = struct.pack('>H', val_16)
+                        self.assign(res, buf, pos, big_endian, 2)
+                        self.cut_and_run(res, fuzz_loop)
+
+                        little_endian = struct.pack('<H', val_16)
+                        self.assign(res, buf, pos, little_endian, 2)
+                        self.cut_and_run(res, fuzz_loop)
+                        
+                        # Subtract
+                        val_16 = self.add_assign(buf, pos, 2, v, False) % 0xffff
+                        big_endian = struct.pack('>H', val_16)
+                        self.assign(res, buf, pos, big_endian, 2)
+                        self.cut_and_run(res, fuzz_loop)
+                        
+                        little_endian = struct.pack('<H', val_16)
+                        self.assign(res, buf, pos, little_endian, 2)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 6:
+                    # print("add/subtract 4 byte")
+                    # Add/subtract from a uint32
+                    if len(res) < 4 or len(res) - 4 < index:
+                        continue
+                    pos = index
+                    for v in range(self._max_arith):
+                        # Add
+                        val_32 = self.add_assign(buf, pos, 4, v, True) % 0xffffffff
+                        big_endian = struct.pack('>I', val_32)
+                        self.assign(res, buf, pos, big_endian, 4)
+                        self.cut_and_run(res, fuzz_loop)
+
+                        little_endian = struct.pack('<I', val_32)
+                        self.assign(res, buf, pos, little_endian, 4)
+                        self.cut_and_run(res, fuzz_loop)
+                        
+                        # Subtract
+                        val_32 = self.add_assign(buf, pos, 4, v, False) % 0xffffffff
+                        big_endian = struct.pack('>I', val_32)
+                        self.assign(res, buf, pos, big_endian, 4)
+                        self.cut_and_run(res, fuzz_loop)
+                        
+                        little_endian = struct.pack('<I', val_32)
+                        self.assign(res, buf, pos, little_endian, 4)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 7:
+                    # print("add/subtract 8 byte")
+                    # Add/subtract from a uint64.
+                    if len(res) < 8 or len(res) - 8 < index:
+                        continue
+                    pos = index
+                    for v in range(self._max_arith):
+                        # Add
+                        val_64 = self.add_assign(buf, pos, 8, v, True)
+                        big_endian = struct.pack('>Q', val_64)
+                        self.assign(res, buf, pos, big_endian, 8)
+                        self.cut_and_run(res, fuzz_loop)
+
+                        little_endian = struct.pack('<Q', val_64)
+                        self.assign(res, buf, pos, little_endian, 8)
+                        self.cut_and_run(res, fuzz_loop)
+                        
+                        # Subtract
+                        val_64 = self.add_assign(buf, pos, 8, v, False)
+                        big_endian = struct.pack('>Q', val_64)
+                        self.assign(res, buf, pos, big_endian, 8)
+                        self.cut_and_run(res, fuzz_loop)
+                        
+                        little_endian = struct.pack('<Q', val_64)
+                        self.assign(res, buf, pos, little_endian, 8)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 8:
+                    # print("replace interesting byte")
+                    # Replace a byte with an interesting value.
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for interest8 in INTERESTING8:
+                        res[pos] = interest8 % 256
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 9:
+                    # print("replace interesting 2 byte")
+                    # Replace an uint16 with an interesting value.
+                    if len(res) < 2 or len(res) - 2 < index:
+                        continue
+                    pos = index
+                    for interest16 in INTERESTING16:
+                        # Big endian interest16
+                        big_endian = struct.pack('>H', interest16)
+                        self.assign(res, buf, pos, big_endian, 2)
+                        self.cut_and_run(res, fuzz_loop)
+
+                        # Little endian interest16
+                        little_endian = struct.pack('<H', interest16)
+                        self.assign(res, buf, pos, little_endian, 2)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 10:
+                    # print("replace interesting 4 byte")
+                    # Replace an uint32 with an interesting value.
+                    if len(res) < 4 or len(res) - 4 < index:
+                        continue
+
+                    pos = index
+
+                    for interest32 in INTERESTING32:
+                        # Big endian interest32
+                        big_endian = struct.pack('>I', interest32)
+                        self.assign(res, buf, pos, big_endian, 4)
+                        self.cut_and_run(res, fuzz_loop)
+
+                        # Little endian interest32
+                        little_endian = struct.pack('<I', interest32)
+                        self.assign(res, buf, pos, little_endian, 4)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 11:
+                    # print("ASCII to other")
+                    # Replace an ascii digit with another digit.
+                    if len(res) <= index:
+                        continue
+                    pos = index
+                    if ord('0') <= buf[pos] <= ord('9'):
+                        for i in range(10):
+                            if i is buf[pos] - ord('0'):
+                                continue
+                            res[pos] = ord('0') + i
+                elif x == 12:
+                    # Insert Dictionary word
+                    dict_word = self._dict.get_word()
+                    if dict_word is None:
+                        continue
+                    pos = idx
+                    n = len(dict_word)
+                    for k in range(n):
+                        res.append(0)
+                    self.copy(buf, res, pos, pos+n)
+                    for k in range(n):
+                        res[pos+k] = dict_word[k]
+                    self.cut_and_run(res, fuzz_loop)
+                elif x == 13:
+                    # Replace with Dictionary word
+                    dict_word = self._dict.get_word()
+                    
+                    if(dict_word == None or len(res) < len(dict_word) or idx > len(res) - len(dict_word)):
+                        continue
+                    
+                    pos = idx
+                    self.copy(dict_word, res, 0, pos)
+                    self.cut_and_run(res, fuzz_loop)
+        '''
+        for index in range(len(buf)):
+            for x in range(num_mutation):
+                #res = buf[:]
+                if x == 0:
+                    # Bit flip. Spooky!
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for bit in range(8):
+                        res[pos] = buf[pos] ^ (1 << bit)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 1:
+                    # 2 Bit flip
+                    # print("2 bit flipping")
+                    n_bit = 2
+                    mask = 0x03
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for bit in range(7):
+                        res[pos] = buf[pos] ^ (mask << bit)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 2:
+                    # 4 Bit flip
+                    # print("4 bit flipping")
+                    n_bit = 2
+                    mask = 0x0f
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for bit in range(4):
+                        res[pos] = buf[pos] ^ (mask << bit)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 3:
+                    # 8 Bit flip
+                    # print("8 bit flipping")
+                    n_bit = 2
+                    mask = 0xff
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    res[pos] = buf[pos] ^ mask
+                    self.cut_and_run(res, fuzz_loop)
+                elif x == 4:
+                    # print("add/subtract a byte")
+                    # Add/subtract from a byte.
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for v in range(self._max_arith):
+                        # Arithmetic + MAX_ARITH big endian
+                        res[pos] = (buf[pos] + v) % 256
+                        self.cut_and_run(res, fuzz_loop)
+
+                        # Arithmetic  - MAX_ARITH
+                        res[pos] = (buf[pos] - v) % 256
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 5:
+                    # print("replace interesting byte")
+                    # Replace a byte with an interesting value.
+                    if len(res) == 0:
+                        continue
+                    pos = index
+                    for interest8 in INTERESTING8:
+                        res[pos] = interest8 % 256
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 6:
+                    # print("replace interesting 2 byte")
+                    # Replace an uint16 with an interesting value.
+                    if len(res) < 2 or len(res) - 2 < index:
+                        continue
+                    pos = index
+                    for interest16 in INTERESTING16:
+                        # Big endian interest16
+                        big_endian = struct.pack('>H', interest16)
+                        self.assign(res, buf, pos, big_endian, 2)
+                        self.cut_and_run(res, fuzz_loop)
+
+                        # Little endian interest16
+                        little_endian = struct.pack('<H', interest16)
+                        self.assign(res, buf, pos, little_endian, 2)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 7:
+                    # print("replace interesting 4 byte")
+                    # Replace an uint32 with an interesting value.
+                    if len(res) < 4 or len(res) - 4 < index:
+                        continue
+
+                    pos = index
+
+                    for interest32 in INTERESTING32:
+                        # Big endian interest32
+                        big_endian = struct.pack('>I', interest32)
+                        self.assign(res, buf, pos, big_endian, 4)
+                        self.cut_and_run(res, fuzz_loop)
+
+                        # Little endian interest32
+                        little_endian = struct.pack('<I', interest32)
+                        self.assign(res, buf, pos, little_endian, 4)
+                        self.cut_and_run(res, fuzz_loop)
+                elif x == 8:
+                    # print("ASCII to other")
+                    # Replace an ascii digit with another digit.
+                    if len(res) <= index:
+                        continue
+                    pos = index
+                    if ord('0') <= buf[pos] <= ord('9'):
+                        for i in range(10):
+                            if i is buf[pos] - ord('0'):
+                                continue
+                            res[pos] = ord('0') + i
+                elif x == 9:
+                    # Insert Dictionary word
+                    dict_word = self._dict.get_word()
+                    if dict_word is None:
+                        continue
+                    pos = idx
+                    n = len(dict_word)
+                    for k in range(n):
+                        res.append(0)
+                    self.copy(buf, res, pos, pos+n)
+                    for k in range(n):
+                        res[pos+k] = dict_word[k]
+                    self.cut_and_run(res, fuzz_loop)
+                elif x == 10:
+                    # Replace with Dictionary word
+                    dict_word = self._dict.get_word()
+                    
+                    if(dict_word == None or len(res) < len(dict_word) or idx > len(res) - len(dict_word)):
+                        continue
+                    
+                    pos = idx
+                    self.copy(dict_word, res, 0, pos)
+                    self.cut_and_run(res, fuzz_loop)
+        '''
+    def mutate_havoc(self, buf, corpus):
+        res = buf[:]
+
+        x = self._rand(self._havoc_nm)
         if x == 0:
             # Remove a range of bytes
             if len(res) <= 1:
@@ -301,26 +566,48 @@ class Mutator:
             pos = self._rand(len(res))
             res[pos] ^= 1 << self._rand(8)
         elif x == 9:
-            # Insert Dictionary word
-            dict_word = self._dict.get_word()
-            if dict_word is None:
+            # Byte flip. Spooky!
+            if len(res) == 0:
                 return res
-            pos = self._rand(len(res) + 1)
-            n = len(dict_word)
+            pos = self._rand(len(res))
+            res[pos] ^= 0xff
+        elif x == 10:
+            # 2 Byte flip. Spooky!
+            if len(res) < 2:
+                return res
+            pos = self._rand(len(res) - 1)
+            res[pos] ^= 0xff
+            res[pos+1] ^= 0xff
+        elif x == 11:
+            # Set a byte to a random value.
+            if len(res) == 0:
+                return res
+            pos = self._rand(len(res))
+            res[pos] ^= self._rand(255) + 1
+        elif x == 12:
+            # splicing(insert)
+            target = corpus._inputs[self._rand(len(corpus._inputs))]
+            if len(target) == 0:
+                return res
+            src = self._rand(len(target))
+            dst = self._rand(len(res))
+            n = self._choose_len(len(target) - src)
             for k in range(n):
                 res.append(0)
-            self.copy(res, res, pos, pos+n)
+            self.copy(res, res, dst, dst+n)
             for k in range(n):
-                res[pos+k] = dict_word[k]
-        elif x == 10:
-            # Replace with Dictionary word
-            dict_word = self._dict.get_word()
-            if(dict_word == None or len(res) < len(dict_word)):
+                res[dst+k] = target[src+k]
+        elif x == 13:
+            # splicing(replace)
+            target = corpus._inputs[self._rand(len(corpus._inputs))]
+            if len(target) == 0:
                 return res
-            
-            pos = self._rand(len(res) - len(dict_word))
-            self.copy(dict_word, res, 0, pos)
-        
+            src = self._rand(len(target))
+            dst = self._rand(len(res))
+            short_len  = len(target) - src if len(target) - src < len(res) - dst else len(res) - dst
+            n = self._choose_len(short_len)
+            self.copy(target, res, src, dst, src+n)
+
         if len(res) > self._max_input_size:
             res = res[:self._max_input_size]
         return res 

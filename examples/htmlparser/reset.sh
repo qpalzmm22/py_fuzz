@@ -1,4 +1,5 @@
 #!/bin/bash
+# removes inp seeds and crashes
 
 mv ./seed/inp ./inp
 
@@ -8,4 +9,4 @@ mv ./inp ./seed/inp
 
 rm ./crashes/*
 
-rm log.csv bug.csv
+rm log.csv

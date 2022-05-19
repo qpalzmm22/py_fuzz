@@ -1,7 +1,9 @@
 import os
 from random import random, uniform
+from re import S
 import sys
 import time
+import math
 import sys
 import psutil
 import hashlib
@@ -100,7 +102,8 @@ class Fuzzer(object):
                  close_fd_mask=0,
                  runs=-1,
                  dict_path=None,
-				 inf_run=False):
+				 inf_run=False,
+                 sched=None):
         self._target = target
         self._dirs = [] if dirs is None else dirs
         self._exact_artifact_path = exact_artifact_path
@@ -110,12 +113,13 @@ class Fuzzer(object):
         self._close_fd_mask = close_fd_mask
         self._dict_path = dict_path
         self._corpus = corpus.Corpus(self._dirs, max_input_size, dict_path)
-        self._mutation = mutate.Mutator(max_input_size, dict_path)
+        self._child_conn, self._parent_conn = mp.Pipe()
+        self._p = mp.Process(target=worker, args=(self, self._child_conn))
+        self._mutation = mutate.Mutator(max_input_size, 35, dict_path, self._parent_conn)
         self._total_executions = 0
         self._executions_in_sample = 0
         self._last_sample_time = time.time()
         self._total_coverage = 0
-        self._p = None
         self.runs = runs
         self._inf_run = inf_run # added
         self._crashes = 0
@@ -124,6 +128,17 @@ class Fuzzer(object):
         self._n_time = 0
         self._avg_time = 0
         self._tot_time = 0
+        self._sched = self._parse_sched(sched)
+        print("sched : ", self._sched)
+    
+    def _parse_sched(self, sched) :
+
+        if sched == "afl":
+            return 1
+        elif sched == "perf":
+            return 2
+        
+        return 0 # default
 
     def log_stats(self, log_type):
         rss = (psutil.Process(self._p.pid).memory_info().rss + psutil.Process(os.getpid()).memory_info().rss) / 1024 / 1024
@@ -188,29 +203,30 @@ class Fuzzer(object):
 
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
-        parent_conn, child_conn = mp.Pipe()
-        self._p = mp.Process(target=worker, args=(self, child_conn)) #added
+        parent_conn = self._parent_conn
+        child_conn = self._child_conn
         self._p.start()
 
         while True:
-
             buf = self._corpus.generate_input()
+            idx = self._corpus._seed_idx
 #            score = self.calculate_score(buf)
             if not self._corpus._seed_run_finished:
                 self.fuzz_loop(buf, parent_conn)
-                if self._corpus._seed_idx + 1 >= len(self._corpus._inputs) : 
+                if idx + 1 >= len(self._corpus._inputs) : 
                     self._corpus._seed_run_finished = True
             else :
 #                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
-                if self._corpus._passed_det[self._corpus._seed_idx] is False:
-                    for buf_idx in range(len(buf)):
-                        for m in range(self._mutation._deter_nm):
-                            mutated_buf = self._mutation.mutate_det(buf, buf_idx, m)
-                            self.fuzz_loop(mutated_buf, parent_conn)
-                    self._corpus._passed_det[self._corpus._seed_idx] = True
+                if self._corpus._passed_det[idx] is False:
+                    self._mutation.mutate_det(buf, self.fuzz_loop)
+                    self._corpus._passed_det[idx] = True
                 else:
-                    for i in range(self._corpus.calculate_score()):
-                        havoc_buf = self._mutation.mutate_havoc(buf)
+                    if self._sched == 0: # AFL
+                        score = self._corpus.calculate_score(idx, self._sched)
+                    else:
+                        score = 1000
+                    for i in range(int(score)):
+                        havoc_buf = self._mutation.mutate_havoc(buf, self._corpus)
                         self.fuzz_loop(havoc_buf, parent_conn)
 
     def fuzz_loop(self, buf, parent_conn):
@@ -248,14 +264,21 @@ class Fuzzer(object):
         rss = 0
         idx = self._corpus._seed_idx
         self._corpus._run_time[idx] = end_time - start_time
+        prev_coverage = self._total_coverage
+
+        if self._corpus._input_path[idx] is None:
+            self._corpus._input_path[idx] = self._run_coverage
+#            print("DEBUG ipath: ", self._corpus._input_path[idx], " len:", len(self._corpus._input_path[idx]))
         
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
+                self._corpus._energy[idx] *= 1.8 if (len(self._corpus._total_path) - prev_coverage) <= 3 else math.log2((len(self._corpus._total_path) - prev_coverage))
                 idx = self._corpus.put(buf, self._corpus._depth[idx])
                 self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
                 #print("idx : %d, mutation : %d" %(buf_idx, m))
                 rss = self.log_stats("NEW")
             else:
+                self._corpus._energy[idx] *= 0.9991
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')
         else:
