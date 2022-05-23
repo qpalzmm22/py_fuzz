@@ -147,7 +147,8 @@ class Fuzzer(object):
         self._last_sample_time = time.time()
         self._executions_in_sample = 0
         self._total_coverage = len(self._corpus._total_path)
-
+ #       print("DEBUG Tlen: ", self._total_coverage)
+ #       print("DEBUG Branch len", self._corpus._total_branch)
 
         n = self._n_time
         self._avg_time = n / (n + 1) * self._avg_time + execs_per_second / (n+1)
@@ -155,8 +156,8 @@ class Fuzzer(object):
         
         #self._tot_time += execs_per_second
         #print(self._tot_time / (n + 1))
-        logging.info('#{} {}     cov: {} corp: {} exec/s: {} rss: {} MB Unique Crash: {} total avg exec/s: {}'.format(
-            self._total_executions, log_type, self._total_coverage, self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
+        logging.info('#{} {}     cov: {}, {} corp: {} exec/s: {} rss: {} MB Unique Crash: {} total avg exec/s: {}'.format(
+            self._total_executions, log_type, self._total_coverage, len(self._corpus._total_branch) ,self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
         '''
         print("idx : %d" % (self._corpus._seed_idx))
         print("favored : %d" %  len(self._corpus._favored))
@@ -195,10 +196,6 @@ class Fuzzer(object):
     def exit_protocol(self, exit_code):
         self._p.join()
         sys.exit(exit_code)
-
-    def calculate_score(self, score):
-        score = score * uniform(1.1, 1.2)
-        return score
 
     def start(self):
         logging.info("[DEBUG] #0 READ units: {}".format(self._corpus.length))
@@ -271,11 +268,11 @@ class Fuzzer(object):
         
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
-                self._corpus._energy[idx] *= 1.8 if (len(self._corpus._total_path) - prev_coverage) <= 3 else math.log2((len(self._corpus._total_path) - prev_coverage))
                 idx = self._corpus.put(buf, self._corpus._depth[idx])
                 self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
                 #print("idx : %d, mutation : %d" %(buf_idx, m))
                 rss = self.log_stats("NEW")
+                self._corpus._energy[idx] *= 1.8 if (len(self._corpus._total_path) - prev_coverage) <= 3 else math.log2((len(self._corpus._total_path) - prev_coverage))
             else:
                 self._corpus._energy[idx] *= 0.9991
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:

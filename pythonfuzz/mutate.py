@@ -76,23 +76,6 @@ class Mutator:
             res = res[:self._max_input_size]
         fuzz_loop(res, self._parent_conn)
 
-    # diff = old ^ new
-    '''
-    def could_be_bitflip(self, diff):
-        if diff == 0 :
-            return False
-        
-        while ! (diff & 0x1):
-            diff = diff >> 1
-
-        if diff == 0x1 or diff == 0x3 or diff == 0xf:
-            return True
-
-        if diff == 0xff:
-            return True
-
-        return False
-    '''
     # helper function to pack as little and big endian and assign
     def assign(self, res, buf, pos, endian, n_bytes):
         for i in range(n_bytes):
@@ -236,7 +219,7 @@ class Mutator:
                     pos = index
                     for v in range(self._max_arith):
                         # Add
-                        val_64 = self.add_assign(buf, pos, 8, v, True)
+                        val_64 = self.add_assign(buf, pos, 8, v, True) % 0xffffffffffffffff
                         big_endian = struct.pack('>Q', val_64)
                         self.assign(res, buf, pos, big_endian, 8)
                         self.cut_and_run(res, fuzz_loop)
@@ -246,7 +229,7 @@ class Mutator:
                         self.cut_and_run(res, fuzz_loop)
                         
                         # Subtract
-                        val_64 = self.add_assign(buf, pos, 8, v, False)
+                        val_64 = self.add_assign(buf, pos, 8, v, False) % 0xffffffffffffffff
                         big_endian = struct.pack('>Q', val_64)
                         self.assign(res, buf, pos, big_endian, 8)
                         self.cut_and_run(res, fuzz_loop)
