@@ -1,15 +1,9 @@
 import collections
 import hashlib
 import os
-from pathlib import Path
 from random import random
-import statistics
 import numpy as np
 from traceback import print_tb
-from zipfile import ZIP_BZIP2
-from keyring import set_keyring
-
-from numpy import TooHardError
 
 from . import mutate
 
@@ -35,7 +29,6 @@ class Corpus(object):
         
         self._favored = {} 
         self._total_path = set()
-        self._total_branch = set()
         
         self._dirs = dirs if dirs else []
         for i, path in enumerate(dirs):
@@ -94,8 +87,6 @@ class Corpus(object):
         for edge in path:
             self._total_path.add((edge, path[edge]))
  #           print("[DEBUG] ", edge, " ", hitcount)
-        for edge in path:
-            self._total_branch.add(edge)
 
     def is_interesting(self, path):
         orig_len = len(self._total_path)

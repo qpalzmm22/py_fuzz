@@ -157,7 +157,7 @@ class Fuzzer(object):
         #self._tot_time += execs_per_second
         #print(self._tot_time / (n + 1))
         logging.info('#{} {}     cov: {}, {} corp: {} exec/s: {} rss: {} MB Unique Crash: {} total avg exec/s: {}'.format(
-            self._total_executions, log_type, self._total_coverage, len(self._corpus._total_branch) ,self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
+            self._total_executions, log_type, self._total_coverage, len(self._corpus._favored) ,self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
         '''
         print("idx : %d" % (self._corpus._seed_idx))
         print("favored : %d" %  len(self._corpus._favored))

@@ -1,12 +1,6 @@
 import random
 import copy
-from re import S
-import re
 import struct
-from pathlib import Path
-from zipfile import ZIP_BZIP2
-
-from numpy import TooHardError
 
 from . import dictionnary, corpus
 
