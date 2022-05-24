@@ -4,12 +4,12 @@ import os
 from pathlib import Path
 from random import random
 import statistics
-import numpy as np
+#import numpy as np
 from traceback import print_tb
-from zipfile import ZIP_BZIP2
-from keyring import set_keyring
+#from zipfile import ZIP_BZIP2
+#from keyring import set_keyring
 
-from numpy import TooHardError
+#from numpy import TooHardError
 
 from . import mutate
 
