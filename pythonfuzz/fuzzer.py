@@ -45,6 +45,11 @@ def time_limit(seconds):
     finally:
         signal.alarm(0)
 
+def _log_hangs(self, buf):
+    logging.info("=================================================================")
+    logging.info("timeout reached. testcase took: {}".format(self._timeout))
+    self.write_sample(buf, prefix='timeout-')
+
 def worker(self, child_conn):
     # Silence the fuzzee's noise
     class DummyFile:
@@ -62,28 +67,26 @@ def worker(self, child_conn):
     while True:
         buf = child_conn.recv_bytes()
         try:
- #           with time_limit(self._timeout):
-            sys.settrace(tracer.trace)
-            self._target(buf)
-        except (Exception, TimeoutException) as e:
-                tracer.set_crash()
-                if not self._inf_run:
-                    logging.exception(e)
-                    child_conn.send(None)
-                    break
-                else:
-                    sys.settrace(None)
-                    if(tracer.get_crash() > self._crashes):
-                        print("New crash ", self._crashes)
-                        self._crashes += 1
-                        logging.exception(e)
-                        child_conn.send(None)
-                    else:
-                        run_coverage = tracer.get_coverage()
-    #                    print("Outtttttter11111 :", sum(map(len, coverage.values())))
-                        child_conn.send(run_coverage)
-     #                  sys.settrace(tracer.trace)
-
+            with time_limit(self._timeout):
+                sys.settrace(tracer.trace)
+                self._target(buf)
+        except TimeoutException as e:
+            if not self._inf_run:
+                logging.exception(e)
+                child_conn.send(None)
+                break
+            else:
+                _log_hangs(self, buf)
+                sys.settrace(None)
+                child_conn.send(None)
+        except Exception as e:
+            if not self._inf_run:
+                logging.exception(e)
+                child_conn.send(None)
+                break
+            else:
+                sys.settrace(None)
+                child_conn.send(None)
         else:
             sys.settrace(None)
             run_coverage = tracer.get_coverage()
@@ -102,7 +105,7 @@ class Fuzzer(object):
                  close_fd_mask=0,
                  runs=-1,
                  dict_path=None,
-				 inf_run=False,
+                 inf_run=False,
                  sched=None):
         self._target = target
         self._dirs = [] if dirs is None else dirs
@@ -129,7 +132,6 @@ class Fuzzer(object):
         self._avg_time = 0
         self._tot_time = 0
         self._sched = self._parse_sched(sched)
-        print("sched : ", self._sched)
     
     def _parse_sched(self, sched) :
 
@@ -154,24 +156,11 @@ class Fuzzer(object):
         self._avg_time = n / (n + 1) * self._avg_time + execs_per_second / (n+1)
         self._n_time = n + 1
         
-        #self._tot_time += execs_per_second
-        #print(self._tot_time / (n + 1))
         logging.info('#{} {}     cov: {}, {} corp: {} exec/s: {} rss: {} MB Unique Crash: {} total avg exec/s: {}'.format(
             self._total_executions, log_type, self._total_coverage, len(self._corpus._favored) ,self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
-        '''
-        print("idx : %d" % (self._corpus._seed_idx))
-        print("favored : %d" %  len(self._corpus._favored))
-        print("run path : %d" % len(self._run_coverage))
-        print("total path : %d" % len(self._corpus._total_path))
-        print("time : %d " % len(self._corpus._time))
-        print("num(mutated) : %d" % len(self._corpus._mutated))
-        print("num(inputs) : %d" % len(self._corpus._inputs))
-        for i, inp in enumerate(self._corpus._inputs):
-            print("inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
-        print("---")
-        '''
+
         with open("log.csv", "a") as log_file:
-            log_file.write("%d, %d\n" %(self._total_executions, self._total_coverage))
+            log_file.write("%d, %d, %d\n" %(self._total_executions, len(self._corpus._favored), self._total_coverage))
         return rss
 
     def write_sample(self, buf, prefix='crash-'):
@@ -189,9 +178,9 @@ class Fuzzer(object):
             crash_path = dir_path + "/" + prefix + m.hexdigest()
         with open(crash_path, 'wb') as f:
             f.write(buf)
-        logging.info('sample was written to {}'.format(crash_path))
-        if len(buf) < 200:
-            logging.info('sample = {}'.format(buf.hex()))
+#logging.info('sample was written to {}'.format(crash_path))
+#        if len(buf) < 200:
+#            logging.info('sample = {}'.format(buf.hex()))
 
     def exit_protocol(self, exit_code):
         self._p.join()
@@ -206,7 +195,6 @@ class Fuzzer(object):
         while True:
             buf = self._corpus.generate_input()
             idx = self._corpus._seed_idx
-#            score = self.calculate_score(buf)
             if not self._corpus._seed_run_finished:
                 self.fuzz_loop(buf, parent_conn)
                 if idx + 1 >= len(self._corpus._inputs) : 
@@ -235,15 +223,6 @@ class Fuzzer(object):
     
         start_time = time.time()
         parent_conn.send_bytes(buf)
-        if not parent_conn.poll(self._timeout):
-            logging.info("=================================================================")
-            logging.info("timeout reached. testcase took: {}".format(self._timeout))
-            self.write_sample(buf, prefix='timeout-')
-            if self._inf_run:
-                self._hangs += 1
-            else:
-                self._p.kill()
-                self.exit_protocol(exit_code)
 
         self._run_coverage = parent_conn.recv()
         end_time = time.time()

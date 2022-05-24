@@ -2,8 +2,7 @@ import collections
 import hashlib
 import os
 from random import random
-import numpy as np
-from traceback import print_tb
+import statistics
 
 from . import mutate
 
