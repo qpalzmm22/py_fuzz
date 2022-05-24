@@ -149,28 +149,18 @@ class Fuzzer(object):
         self._last_sample_time = time.time()
         self._executions_in_sample = 0
         self._total_coverage = len(self._corpus._total_path)
-
+ #       print("DEBUG Tlen: ", self._total_coverage)
+ #       print("DEBUG Branch len", self._corpus._total_branch)
 
         n = self._n_time
         self._avg_time = n / (n + 1) * self._avg_time + execs_per_second / (n+1)
         self._n_time = n + 1
         
-        logging.info('#{} {}     bcov: {} bhcov: {} corp: {} exec/s: {} rss: {} MB Unique Crash: {} total avg exec/s: {}'.format(
-            self._total_executions, log_type, len(self._corpus._favored), self._total_coverage, self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
-        '''
-        print("idx : %d" % (self._corpus._seed_idx))
-        print("favored : %d" %  len(self._corpus._favored))
-        print("run path : %d" % len(self._run_coverage))
-        print("total path : %d" % len(self._corpus._total_path))
-        print("time : %d " % len(self._corpus._time))
-        print("num(mutated) : %d" % len(self._corpus._mutated))
-        print("num(inputs) : %d" % len(self._corpus._inputs))
-        for i, inp in enumerate(self._corpus._inputs):
-            print("inputs: ", inp, "hex: ", inp.hex() , " refcount", self._corpus._refcount[i])
-        print("---")
-        '''
+        logging.info('#{} {}     cov: {}, {} corp: {} exec/s: {} rss: {} MB Unique Crash: {} total avg exec/s: {}'.format(
+            self._total_executions, log_type, self._total_coverage, len(self._corpus._favored) ,self._corpus.length, execs_per_second, rss, self._crashes, self._avg_time))
+
         with open("log.csv", "a") as log_file:
-            log_file.write("%d, %d, %d\n" %(self._total_executions, len(self._corpus._favored), self._total_coverage ))
+            log_file.write("%d, %d, %d\n" %(self._total_executions, len(self._corpus._favored), self._total_coverage))
         return rss
 
     def write_sample(self, buf, prefix='crash-'):
@@ -257,11 +247,11 @@ class Fuzzer(object):
         
         if self._corpus._seed_run_finished :
             if self._corpus.is_interesting(self._run_coverage):
-                self._corpus._energy[idx] *= 1.8 if (len(self._corpus._total_path) - prev_coverage) <= 3 else math.log2((len(self._corpus._total_path) - prev_coverage))
                 idx = self._corpus.put(buf, self._corpus._depth[idx])
                 self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
                 #print("idx : %d, mutation : %d" %(buf_idx, m))
                 rss = self.log_stats("NEW")
+                self._corpus._energy[idx] *= 1.8 if (len(self._corpus._total_path) - prev_coverage) <= 3 else math.log2((len(self._corpus._total_path) - prev_coverage))
             else:
                 self._corpus._energy[idx] *= 0.9991
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:

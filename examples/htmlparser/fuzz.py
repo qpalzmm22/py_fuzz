@@ -7,8 +7,6 @@ from pythonfuzz.main import PythonFuzz
 @PythonFuzz
 def fuzz(buf):
     try:
-        #HTMLParser= importlib.reload(htmlparser).HTMLParser
-        #HTMLParser = htmlparser.HTMLParser
         string = buf.decode("ascii")
         parser = HTMLParser()
         parser.feed(string)

@@ -9,6 +9,8 @@ def fuzz(buf):
         f = io.BytesIO(buf)
         a = aifc.open(f)
         a.readframes(1)
+        a.readframes(2)
+        a.close()
     except (EOFError, aifc.Error):
         pass
 

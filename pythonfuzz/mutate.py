@@ -1,12 +1,8 @@
 import random
 import copy
-from re import S
-import re
 import struct
-from pathlib import Path
-#from zipfile import ZIP_BZIP2
 
-#from numpy import TooHardError
+from pathlib import Path
 
 from . import dictionnary, corpus
 
@@ -20,7 +16,6 @@ INTERESTING8 = [-128, -1, 0, 1, 16, 32, 64, 100, 127]
 INTERESTING16 = [0, 128, 255, 256, 512, 1000, 1024, 4096, 32767, 65535]
 INTERESTING32 = [0, 1, 32768, 65535, 65536, 100663045, 2147483647, 4294967295]
 
-#Deterministic = 11
 Deterministic = 12
 Havoc = 14
 
@@ -75,7 +70,7 @@ class Mutator:
             res = res[:self._max_input_size]
         fuzz_loop(res, self._parent_conn)
 
-    # diff = old ^ new
+
     def could_be_bitflip(self, diff):
         if diff == 0 :
             return False
@@ -91,6 +86,7 @@ class Mutator:
             return True
 
         return False
+
     # helper function to pack as little and big endian and assign
     def assign(self, res, buf, pos, endian, n_bytes):
         for i in range(n_bytes):
