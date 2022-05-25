@@ -262,7 +262,7 @@ class Mutator:
                     dict_word = self._dict.get_word()
                     if dict_word is None:
                         continue
-                    pos = idx
+                    pos = index
                     n = len(dict_word)
                     for k in range(n):
                         res.append(0)
@@ -274,10 +274,10 @@ class Mutator:
                     # Replace with Dictionary word
                     dict_word = self._dict.get_word()
                     
-                    if(dict_word == None or len(res) < len(dict_word) or idx > len(res) - len(dict_word)):
+                    if(dict_word == None or len(res) < len(dict_word) or index > len(res) - len(dict_word)):
                         continue
                     
-                    pos = idx
+                    pos = index
                     self.copy(dict_word, res, 0, pos)
                     self.cut_and_run(res, fuzz_loop)
     

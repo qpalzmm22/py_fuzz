@@ -1,6 +1,6 @@
 import os
 from random import random, uniform
-from re import S
+from re import I, S
 import sys
 import time
 import math
@@ -79,6 +79,7 @@ def worker(self, child_conn):
                 _log_hangs(self, buf)
                 sys.settrace(None)
                 child_conn.send(None)
+                continue
         except Exception as e:
             if not self._inf_run:
                 logging.exception(e)
@@ -134,10 +135,10 @@ class Fuzzer(object):
         self._sched = self._parse_sched(sched)
     
     def _parse_sched(self, sched) :
-
         if sched == "afl":
             return 1
         elif sched == "perf":
+            print("DEBUG pref sched")
             return 2
         return 0 # default
 
@@ -192,26 +193,37 @@ class Fuzzer(object):
         child_conn = self._child_conn
         self._p.start()
 
-        while True:
-            buf = self._corpus.generate_input()
-            idx = self._corpus._seed_idx
-            if not self._corpus._seed_run_finished:
-                self.fuzz_loop(buf, parent_conn)
-                if idx + 1 >= len(self._corpus._inputs) : 
-                    self._corpus._seed_run_finished = True
-            else :
-#                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
-                if self._corpus._passed_det[idx] is False:
-                    self._mutation.mutate_det(buf, self.fuzz_loop)
-                    self._corpus._passed_det[idx] = True
+        try:
+            while True:
+                buf = self._corpus.generate_input()
+                idx = self._corpus._seed_idx
+                if self._corpus._refcount[idx] > 0:
+                    print("[Favored]")
                 else:
-                    if self._sched > 0: # AFL
-                        score = self._corpus.calculate_score(idx, self._sched)
+                    print("[Interesting]")
+
+                if not self._corpus._seed_run_finished:
+                    self.fuzz_loop(buf, parent_conn)
+                    if idx + 1 >= len(self._corpus._inputs) : 
+                        self._corpus._seed_run_finished = True
+                else :
+    #                print("Depth, idx: ", self._corpus._select_count[self._corpus._seed_idx], self._corpus._seed_idx)
+                    if self._corpus._passed_det[idx] is False:
+                        self._mutation.mutate_det(buf, self.fuzz_loop)
+                        self._corpus._passed_det[idx] = True
                     else:
-                        score = 1000
-                    for i in range(int(score)):
-                        havoc_buf = self._mutation.mutate_havoc(buf, self._corpus)
-                        self.fuzz_loop(havoc_buf, parent_conn)
+                        if self._sched > 0: # AFL
+                            score = self._corpus.calculate_score(idx, self._sched)
+                        else:
+                            score = 512
+                        for i in range(int(score)):
+                            havoc_buf = self._mutation.mutate_havoc(buf, self._corpus)
+                            self.fuzz_loop(havoc_buf, parent_conn)
+        except KeyboardInterrupt:
+            print("========Inputs========")
+            for i, input in enumerate(self._corpus._inputs):
+                print("[input]" ,self._corpus._select_count[i])
+            sys.exit(0)
 
     def fuzz_loop(self, buf, parent_conn):
 
@@ -240,6 +252,7 @@ class Fuzzer(object):
         idx = self._corpus._seed_idx
         self._corpus._run_time[idx] = end_time - start_time
         prev_coverage = self._total_coverage
+        prev_branch = len(self._corpus._favored)
 
         if self._corpus._input_path[idx] is None:
             self._corpus._input_path[idx] = self._run_coverage
@@ -251,9 +264,13 @@ class Fuzzer(object):
                 self._corpus.update_favored(buf, idx, end_time - start_time, self._run_coverage)
                 #print("idx : %d, mutation : %d" %(buf_idx, m))
                 rss = self.log_stats("NEW")
-                self._corpus._energy[idx] *= 1.8 if (len(self._corpus._total_path) - prev_coverage) <= 3 else math.log2((len(self._corpus._total_path) - prev_coverage))
+                if len(self._corpus._favored) > prev_branch:
+                    self._corpus._energy[idx] *= 10
+                else:
+                    self._corpus._energy[idx] *= 2 if (len(self._corpus._total_path) - prev_coverage) <= 3 else math.log2((len(self._corpus._total_path) - prev_coverage))
+
             else:
-                self._corpus._energy[idx] *= 0.9991
+                self._corpus._energy[idx] *= 0.99991
                 if (time.time() - self._last_sample_time) > SAMPLING_WINDOW:
                     rss = self.log_stats('PULSE')
         else:

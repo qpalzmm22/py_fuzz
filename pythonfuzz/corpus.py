@@ -1,8 +1,10 @@
 import collections
+from ctypes.wintypes import HACCEL
 import hashlib
 import os
 from random import random
 import statistics
+import numpy as np
 
 from . import mutate
 
@@ -62,7 +64,7 @@ class Corpus(object):
         self._depth.append(0)
         self._passed_det.append(False)
         self._input_path.append(None)
-        self._energy.append(20)
+        self._energy.append(10)
         return idx
 
     def _add_file(self, path):
@@ -154,7 +156,7 @@ class Corpus(object):
     
     def calculate_score(self, idx, sched):
         if sched == 1 : # AFL
-            HVCOV_CYCLE = 256
+            HAVOC_CYCLE = 256
             perf_score = 100
             t = np.array(self._run_time)
             avg_exec_time = t[np.nonzero(t)].mean()
@@ -216,17 +218,18 @@ class Corpus(object):
             if perf_score > 6400:
                 perf_score = 6400
 
-            perf_score = HVCOV_CYCLE * perf_score / 100 / 1 # TODO havoc div
+            perf_score = HAVOC_CYCLE * perf_score / 100 / 1 # TODO havoc div
             return perf_score
 
         elif sched == 2 : # perf_fuzz
-            iter = 100 * self._energy[idx]
+            HAVOC_CYCLE = 256
+            iter = HAVOC_CYCLE * self._energy[idx]
             if iter < 12:
                 iter = 12
-            elif iter > 32000:
-                iter = 32000
+            elif iter > 16000:
+                iter = 16000
 
-            print("Iter, Energy: ", iter, " ", self._energy[idx])
+           # print("Iter, Energy: ", iter, " ", self._energy[idx])
             return iter
         else: # default score
-            return 1000 
+            return 512

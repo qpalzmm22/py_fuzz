@@ -58,17 +58,17 @@ def get_coverage():
     for edge in edges:
         if(edges[edge] <= 1):
             coverage[edge] = 0
-        elif(edges[edge] <= 2):
+        elif(edges[edge] <= 8):   # 4
             coverage[edge] = 1
-        elif(edges[edge] <= 3):
+        elif(edges[edge] <= 32):    # 16
             coverage[edge] = 2
-        elif(edges[edge] <= 16):
+        elif(edges[edge] <= 64):    # 32
             coverage[edge] = 3
-        elif(edges[edge] <= 32):
-            coverage[edge] = 4
-        elif(edges[edge] <= 64):
-            coverage[edge] = 5
         elif(edges[edge] <= 128):
+            coverage[edge] = 4
+        elif(edges[edge] <= 256):
+            coverage[edge] = 5
+        elif(edges[edge] <= 512):
             coverage[edge] = 6
         else:
             coverage[edge] = 7  
