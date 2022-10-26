@@ -19,6 +19,7 @@ class Corpus(object):
 
         self._input_path = []
         self._refcount = [] # favored or not
+        self._branch_count = []
         self._run_time = [] # running time of inputs
         self._mutated = [] # Mutated or not
         self._select_count = []
@@ -222,7 +223,7 @@ class Corpus(object):
             return perf_score
 
         elif sched == 2 : # perf_fuzz
-            HAVOC_CYCLE = 256
+            HAVOC_CYCLE = 200
             iter = HAVOC_CYCLE * self._energy[idx]
             if iter < 12:
                 iter = 12
